@@ -10,7 +10,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '15 * * * *'
 
 jobs:
   main:
@@ -31,7 +31,7 @@ jobs:
           path: work
           ref: "releases/${{ steps.ac-version-for-fenix-beta.outputs.major-ac-version }}.0"
       - name: "Sync Strings"
-        uses: mozilla-mobile/sync-strings-action@1.0.0
+        uses: gabrielluong/sync-strings-action@bug-1789931
         with:
           src: main
           dst: work
