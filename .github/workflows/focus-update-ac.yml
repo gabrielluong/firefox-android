@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: "Update Android-Components"
         uses: mozilla-mobile/relbot@1.0.0
-        if: github.repository == 'mozilla-mobile/focus-android'
+        if: github.repository == 'mozilla-mobile/firefox-android'
         with:
           project: focus-android
           command: update-android-components
