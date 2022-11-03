@@ -15,7 +15,9 @@ jobs:
     steps:
       - name: "Discover Focus Beta Version"
         id: focus-android-beta-version
-        uses: mozilla-mobile/fenix-beta-version@4.1.0
+        uses: gabrielluong/fenix-beta-version@bug-1797245
+        with:
+          project: focus-android
       - name: "Skip non-beta versions"
         uses: andymckay/cancel-action@0.2
         if: ${{ steps.focus-android-beta-version.outputs.beta_version == '' }}
@@ -23,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: main
-          ref: main
+          ref: bug-1797245-test
       - name: "Checkout Beta Branch"
         uses: actions/checkout@v2
         with:
