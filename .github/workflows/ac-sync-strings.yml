@@ -21,7 +21,7 @@ jobs:
         id: ac-version-for-fenix-beta
         uses: gabrielluong/fenix-beta-version@bug-1797245
         with:
-          project: focus-android
+          project: android-components
       - name: "Checkout Main Branch"
         uses: actions/checkout@v2
         with:
