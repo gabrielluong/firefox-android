@@ -6,7 +6,7 @@ name: "Focus - Sync Strings"
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '*/15 * * * *'
 
 jobs:
   main:
@@ -30,8 +30,9 @@ jobs:
           path: beta
           ref: "releases_v${{ steps.focus-android-beta-version.outputs.beta_version }}.0"
       - name: "Sync Strings"
-        uses: mozilla-mobile/sync-strings-action@1.0.1
+        uses: gabrielluong/sync-strings-action@bug-1797245
         with:
+          project: focus-android
           src: main
           dst: beta
       - name: Create Pull Request
