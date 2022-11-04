@@ -16,8 +16,8 @@ buildscript {
     }
 
     dependencies {
-        classpath Dependencies.android_gradle_plugin
-        classpath Dependencies.kotlin_gradle_plugin
+        classpath FocusDependencies.android_gradle_plugin
+        classpath FocusDependencies.kotlin_gradle_plugin
         classpath "org.mozilla.components:tooling-glean-gradle:${AndroidComponents.VERSION}"
         classpath "org.mozilla.components:tooling-nimbus-gradle:${AndroidComponents.VERSION}"
 
@@ -28,6 +28,7 @@ buildscript {
 
 plugins {
     id "io.gitlab.arturbosch.detekt" version "1.18.0" // Variables in plugins {} aren't supported
+    id 'mozac.DependenciesPlugin'
 }
 
 detekt {
@@ -57,6 +58,25 @@ allprojects {
     }
 }
 
+subprojects {
+    // Define a reusable task for updating the version in manifest.json for modules that package
+    // a web extension. We automate this to make sure we never forget to update the version, either
+    // in local development or for releases. In both cases, we want to make sure the latest version
+    // of all extensions (including their latest changes) are installed on first start-up.
+    ext.updateExtensionVersion = { task, extDir ->
+        configure(task) {
+            from extDir
+            include 'manifest.template.json'
+            rename { 'manifest.json' }
+            into extDir
+
+            def values = ['version': rootProject.ext.config.componentsVersion + "." + new Date().format('MMddHHmmss')]
+            inputs.properties(values)
+            expand(values)
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -67,7 +87,7 @@ configurations {
 }
 
 dependencies {
-    ktlint("com.pinterest:ktlint:${Versions.ktlint_version}") {
+    ktlint("com.pinterest:ktlint:${FocusVersions.ktlint_version}") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
         }

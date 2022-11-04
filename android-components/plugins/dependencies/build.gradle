@@ -17,3 +17,10 @@ repositories {
         mavenCentral()
     }
 }
+
+gradlePlugin {
+    plugins.register("mozac.DependenciesPlugin") {
+        id = "mozac.DependenciesPlugin"
+        implementationClass = "DependenciesPlugin"
+    }
+}
