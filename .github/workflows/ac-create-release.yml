@@ -31,8 +31,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Create Release"
-        uses: mozilla-mobile/relbot@2.2.0
-        if: github.repository == 'mozilla-mobile/firefox-android'
+        uses: gabrielluong/relbot@bug-1800542-test
+        if: github.repository == 'gabrielluong/firefox-android'
         with:
           project: android-components
           command: create-releases
