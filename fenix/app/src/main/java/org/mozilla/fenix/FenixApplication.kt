@@ -5,7 +5,6 @@
 package org.mozilla.fenix
 
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.StrictMode
@@ -19,11 +18,14 @@ import androidx.core.content.getSystemService
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.work.Configuration.Builder
 import androidx.work.Configuration.Provider
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import mozilla.appservices.Megazord
 import mozilla.components.browser.state.action.SystemAction
@@ -36,15 +38,13 @@ import mozilla.components.concept.base.crash.Breadcrumb
 import mozilla.components.concept.engine.webextension.WebExtension
 import mozilla.components.concept.engine.webextension.isUnsupported
 import mozilla.components.concept.push.PushProcessor
-import mozilla.components.concept.storage.FrecencyThresholdOption
 import mozilla.components.feature.addons.migration.DefaultSupportedAddonsChecker
 import mozilla.components.feature.addons.update.GlobalAddonDependencyProvider
 import mozilla.components.feature.autofill.AutofillUseCases
 import mozilla.components.feature.search.ext.buildSearchUrl
 import mozilla.components.feature.search.ext.waitForSelectedOrDefaultSearchEngine
-import mozilla.components.feature.top.sites.TopSitesFrecencyConfig
-import mozilla.components.feature.top.sites.TopSitesProviderConfig
 import mozilla.components.lib.crash.CrashReporter
+import mozilla.components.lib.state.ext.flowScoped
 import mozilla.components.service.fxa.manager.SyncEnginesStorage
 import mozilla.components.service.glean.Glean
 import mozilla.components.service.glean.config.Configuration
@@ -54,6 +54,7 @@ import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.android.content.isMainProcess
 import mozilla.components.support.ktx.android.content.runOnlyInMainProcess
+import mozilla.components.support.ktx.kotlinx.coroutines.flow.ifChanged
 import mozilla.components.support.locale.LocaleAwareApplication
 import mozilla.components.support.rusterrors.initializeRustErrors
 import mozilla.components.support.rusthttp.RustHttpConfig
@@ -70,6 +71,7 @@ import org.mozilla.fenix.GleanMetrics.PerfStartup
 import org.mozilla.fenix.GleanMetrics.Preferences
 import org.mozilla.fenix.GleanMetrics.SearchDefaultEngine
 import org.mozilla.fenix.GleanMetrics.TopSites
+import org.mozilla.fenix.components.AppStore
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.Core
 import org.mozilla.fenix.components.appstate.AppAction
@@ -78,14 +80,16 @@ import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.experiments.maybeFetchExperiments
 import org.mozilla.fenix.ext.areNotificationsEnabledSafe
-import org.mozilla.fenix.ext.containsQueryParameters
+import org.mozilla.fenix.ext.asRecentTabs
 import org.mozilla.fenix.ext.getCustomGleanServerUrlIfAvailable
 import org.mozilla.fenix.ext.isCustomEngine
 import org.mozilla.fenix.ext.isKnownSearchDomain
 import org.mozilla.fenix.ext.isNotificationChannelEnabled
 import org.mozilla.fenix.ext.setCustomEndpointIfAvailable
 import org.mozilla.fenix.ext.settings
+import org.mozilla.fenix.ext.sort
 import org.mozilla.fenix.nimbus.FxNimbus
+import org.mozilla.fenix.nimbus.MessageSurfaceId
 import org.mozilla.fenix.onboarding.MARKETING_CHANNEL_ID
 import org.mozilla.fenix.perf.MarkersActivityLifecycleCallbacks
 import org.mozilla.fenix.perf.ProfilerMarkerFactProcessor
@@ -100,7 +104,6 @@ import org.mozilla.fenix.settings.CustomizationFragment
 import org.mozilla.fenix.telemetry.TelemetryLifecycleObserver
 import org.mozilla.fenix.utils.BrowsersCache
 import org.mozilla.fenix.utils.Settings
-import org.mozilla.fenix.utils.Settings.Companion.TOP_SITES_PROVIDER_MAX_THRESHOLD
 import org.mozilla.fenix.wallpapers.Wallpaper
 import java.util.UUID
 import java.util.concurrent.TimeUnit
@@ -261,6 +264,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
 
         components.analytics.metricsStorage.tryRegisterAsUsageRecorder(this)
 
+        preloadAppStore()
         downloadWallpapers()
     }
 
@@ -269,6 +273,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         val store = components.core.store
         val sessionStorage = components.core.sessionStorage
 
+        logger.info("GLGL: Calling restoreBrowserState...")
         components.useCases.tabsUseCases.restore(sessionStorage, settings().getTabTimeout())
 
         // Now that we have restored our previous state (if there's one) let's setup auto saving the state while
@@ -300,25 +305,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                         components.core.bookmarksStorage.warmUp()
                         components.core.passwordsStorage.warmUp()
                         components.core.autofillStorage.warmUp()
-
-                        // Populate the top site cache to improve initial load experience
-                        // of the home fragment when the app is launched to a tab. The actual
-                        // database call is not expensive. However, the additional context
-                        // switches delay rendering top sites when the cache is empty, which
-                        // we can prevent with this.
-                        components.core.topSitesStorage.getTopSites(
-                            totalSites = components.settings.topSitesMaxLimit,
-                            frecencyConfig = TopSitesFrecencyConfig(
-                                FrecencyThresholdOption.SKIP_ONE_TIME_PAGES,
-                            ) {
-                                !Uri.parse(it.url)
-                                    .containsQueryParameters(components.settings.frecencyFilterQuery)
-                            },
-                            providerConfig = TopSitesProviderConfig(
-                                showProviderTopSites = components.settings.showContileFeature,
-                                maxThreshold = TOP_SITES_PROVIDER_MAX_THRESHOLD,
-                            ),
-                        )
 
                         // This service uses `historyStorage`, and so we can only touch it when we know
                         // it's safe to touch `historyStorage. By 'safe', we mainly mean that underlying
@@ -927,5 +913,74 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         GlobalScope.launch {
             components.useCases.wallpaperUseCases.initialize()
         }
+    }
+
+    /**
+     * Preloads the [AppStore] data.
+     */
+    @OptIn(DelicateCoroutinesApi::class)
+    private fun preloadAppStore() {
+        GlobalScope.launch(Dispatchers.IO) {
+            // Limit the amount of data sources that are preloaded to only those that will appear
+            // above the fold on the home screen. This is the visible area when the home screen is
+            // loaded. We currently assume that [MAX_PRELOADED_SOURCES] preloaded data sources
+            // will be sufficient.
+//            var preloadedSources = 0
+
+            val appStore = components.appStore
+            val store = components.core.store
+            val settings = settings()
+
+            if (settings.isExperimentationEnabled) {
+                appStore.dispatch(AppAction.MessagingAction.Evaluate(MessageSurfaceId.HOMESCREEN))
+//                preloadedSources++
+            }
+
+            if (settings.showTopSitesFeature) {
+                val (totalSites, frecencyConfig, providerConfig) = components.core.getTopSitesConfig()
+                val topSites = components.core.topSitesStorage.getTopSites(
+                    totalSites = totalSites,
+                    frecencyConfig = frecencyConfig,
+                    providerConfig = providerConfig,
+                )
+                components.appStore.dispatch(
+                    AppAction.TopSitesChange(
+                        if (settings().showContileFeature) {
+                            topSites.sort()
+                        } else {
+                            topSites
+                        },
+                    ),
+                )
+
+//                preloadedSources++
+            }
+
+            if (settings.showRecentTabsFeature) {
+                var scope: CoroutineScope? = null
+                scope = store.flowScoped { flow ->
+                    flow
+                        .map { state -> state.restoreComplete }
+                        .ifChanged { restored ->
+                            if (restored) {
+                                appStore.dispatch(AppAction.RecentTabsChange(store.state.asRecentTabs()))
+                                scope?.cancel()
+                            }
+                        }
+                }
+
+//                preloadedSources++
+            }
+
+            if (settings.showRecentBookmarksFeature) {
+                val bookmarks = components.useCases.bookmarksUseCases.retrieveRecentBookmarks()
+                appStore.dispatch(AppAction.RecentBookmarksChange(bookmarks))
+            }
+        }
+    }
+
+    companion object {
+        // The maximum number of preloaded sources when populating the [AppStore] on cold start.
+//        private const val MAX_PRELOADED_SOURCES = 4
     }
 }

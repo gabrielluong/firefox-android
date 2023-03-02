@@ -6,8 +6,10 @@ package org.mozilla.fenix.components
 
 import android.content.Context
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Build
 import android.os.StrictMode
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
@@ -24,6 +26,7 @@ import mozilla.components.browser.state.engine.middleware.SessionPrioritizationM
 import mozilla.components.browser.state.search.SearchEngine
 import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.browser.state.state.SearchState
+import mozilla.components.browser.state.state.selectedOrDefaultSearchEngine
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.browser.storage.sync.PlacesBookmarksStorage
 import mozilla.components.browser.storage.sync.PlacesHistoryStorage
@@ -35,6 +38,7 @@ import mozilla.components.concept.engine.DefaultSettings
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.mediaquery.PreferredColorScheme
 import mozilla.components.concept.fetch.Client
+import mozilla.components.concept.storage.FrecencyThresholdOption
 import mozilla.components.feature.awesomebar.provider.SessionAutocompleteProvider
 import mozilla.components.feature.customtabs.store.CustomTabsServiceStore
 import mozilla.components.feature.downloads.DownloadMiddleware
@@ -60,6 +64,9 @@ import mozilla.components.feature.session.middleware.undo.UndoMiddleware
 import mozilla.components.feature.sitepermissions.OnDiskSitePermissionsStorage
 import mozilla.components.feature.top.sites.DefaultTopSitesStorage
 import mozilla.components.feature.top.sites.PinnedSiteStorage
+import mozilla.components.feature.top.sites.TopSitesConfig
+import mozilla.components.feature.top.sites.TopSitesFrecencyConfig
+import mozilla.components.feature.top.sites.TopSitesProviderConfig
 import mozilla.components.feature.webcompat.WebCompatFeature
 import mozilla.components.feature.webcompat.reporter.WebCompatReporterFeature
 import mozilla.components.feature.webnotifications.WebNotificationFeature
@@ -87,11 +94,13 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.components.search.SearchMigration
 import org.mozilla.fenix.downloads.DownloadService
 import org.mozilla.fenix.ext.components
+import org.mozilla.fenix.ext.containsQueryParameters
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.gecko.GeckoProvider
 import org.mozilla.fenix.historymetadata.DefaultHistoryMetadataService
 import org.mozilla.fenix.historymetadata.HistoryMetadataMiddleware
 import org.mozilla.fenix.historymetadata.HistoryMetadataService
+import org.mozilla.fenix.home.HomeFragment
 import org.mozilla.fenix.media.MediaSessionService
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
@@ -99,6 +108,7 @@ import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.advanced.getSelectedLocale
 import org.mozilla.fenix.share.SaveToPDFMiddleware
 import org.mozilla.fenix.telemetry.TelemetryMiddleware
+import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.utils.getUndoDelay
 import org.mozilla.geckoview.GeckoRuntime
 import java.util.UUID
@@ -519,6 +529,31 @@ class Core(
         )
     }
 
+    /**
+     * Returns a [TopSitesConfig] which specifies how many top sites to display and whether or
+     * not frequently visited sites should be displayed.
+     */
+    fun getTopSitesConfig(): TopSitesConfig {
+        val settings = context.settings()
+        return TopSitesConfig(
+            totalSites = settings.topSitesMaxLimit,
+            frecencyConfig = TopSitesFrecencyConfig(
+                FrecencyThresholdOption.SKIP_ONE_TIME_PAGES,
+            ) { !Uri.parse(it.url).containsQueryParameters(settings.frecencyFilterQuery) },
+            providerConfig = TopSitesProviderConfig(
+                showProviderTopSites = settings.showContileFeature,
+                maxThreshold = Settings.TOP_SITES_PROVIDER_MAX_THRESHOLD,
+                providerFilter = { topSite ->
+                    when (store.state.search.selectedOrDefaultSearchEngine?.name) {
+                        AMAZON_SEARCH_ENGINE_NAME -> topSite.title != AMAZON_SPONSORED_TITLE
+                        EBAY_SPONSORED_TITLE -> topSite.title != EBAY_SPONSORED_TITLE
+                        else -> true
+                    }
+                },
+            ),
+        )
+    }
+
     val permissionStorage by lazyMonitored { PermissionStorage(context) }
 
     val webAppManifestStorage by lazyMonitored { ManifestStorage(context) }
@@ -572,5 +607,10 @@ class Core(
 
         // Maximum number of suggestions returned from shortcut search engine.
         const val METADATA_SHORTCUT_SUGGESTION_LIMIT = 20
+
+        // Sponsored top sites titles and search engine names used for filtering
+        const val AMAZON_SPONSORED_TITLE = "Amazon"
+        const val AMAZON_SEARCH_ENGINE_NAME = "Amazon.com"
+        const val EBAY_SPONSORED_TITLE = "eBay"
     }
 }

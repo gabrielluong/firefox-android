@@ -9,7 +9,6 @@ import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.Gravity
@@ -62,19 +61,16 @@ import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.concept.menu.Orientation
 import mozilla.components.concept.menu.candidate.DrawableMenuIcon
 import mozilla.components.concept.menu.candidate.TextMenuCandidate
-import mozilla.components.concept.storage.FrecencyThresholdOption
 import mozilla.components.concept.sync.AccountObserver
 import mozilla.components.concept.sync.AuthType
 import mozilla.components.concept.sync.OAuthAccount
 import mozilla.components.feature.tab.collections.TabCollection
-import mozilla.components.feature.top.sites.TopSitesConfig
 import mozilla.components.feature.top.sites.TopSitesFeature
-import mozilla.components.feature.top.sites.TopSitesFrecencyConfig
-import mozilla.components.feature.top.sites.TopSitesProviderConfig
 import mozilla.components.lib.state.ext.consumeFlow
 import mozilla.components.lib.state.ext.consumeFrom
 import mozilla.components.service.glean.private.NoExtras
 import mozilla.components.support.base.feature.ViewBoundFeatureWrapper
+import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.android.content.res.resolveAttribute
 import mozilla.components.support.ktx.kotlinx.coroutines.flow.ifChanged
 import org.mozilla.fenix.Config
@@ -86,6 +82,9 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.addons.showSnackBar
 import org.mozilla.fenix.browser.BrowserAnimator.Companion.getToolbarNavOptions
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
+import org.mozilla.fenix.components.Core.Companion.AMAZON_SEARCH_ENGINE_NAME
+import org.mozilla.fenix.components.Core.Companion.AMAZON_SPONSORED_TITLE
+import org.mozilla.fenix.components.Core.Companion.EBAY_SPONSORED_TITLE
 import org.mozilla.fenix.components.FenixSnackbar
 import org.mozilla.fenix.components.PrivateShortcutCreateManager
 import org.mozilla.fenix.components.TabCollectionStorage
@@ -93,7 +92,6 @@ import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.databinding.FragmentHomeBinding
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.ext.containsQueryParameters
 import org.mozilla.fenix.ext.hideToolbar
 import org.mozilla.fenix.ext.increaseTapArea
 import org.mozilla.fenix.ext.nav
@@ -126,7 +124,6 @@ import org.mozilla.fenix.perf.MarkersFragmentLifecycleCallbacks
 import org.mozilla.fenix.perf.runBlockingIncrement
 import org.mozilla.fenix.search.toolbar.SearchSelectorMenu
 import org.mozilla.fenix.tabstray.TabsTrayAccessPoint
-import org.mozilla.fenix.utils.Settings.Companion.TOP_SITES_PROVIDER_MAX_THRESHOLD
 import org.mozilla.fenix.utils.ToolbarPopupWindow
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.wallpapers.Wallpaper
@@ -287,7 +284,7 @@ class HomeFragment : Fragment() {
                         settings = components.settings,
                     ),
                     storage = components.core.topSitesStorage,
-                    config = ::getTopSitesConfig,
+                    config = { components.core.getTopSitesConfig() },
                 ),
                 owner = viewLifecycleOwner,
                 view = binding.root,
@@ -455,32 +452,6 @@ class HomeFragment : Fragment() {
 
         val currentWallpaperName = requireContext().settings().currentWallpaperName
         applyWallpaper(wallpaperName = currentWallpaperName, orientationChange = true)
-    }
-
-    /**
-     * Returns a [TopSitesConfig] which specifies how many top sites to display and whether or
-     * not frequently visited sites should be displayed.
-     */
-    @VisibleForTesting
-    internal fun getTopSitesConfig(): TopSitesConfig {
-        val settings = requireContext().settings()
-        return TopSitesConfig(
-            totalSites = settings.topSitesMaxLimit,
-            frecencyConfig = TopSitesFrecencyConfig(
-                FrecencyThresholdOption.SKIP_ONE_TIME_PAGES,
-            ) { !Uri.parse(it.url).containsQueryParameters(settings.frecencyFilterQuery) },
-            providerConfig = TopSitesProviderConfig(
-                showProviderTopSites = settings.showContileFeature,
-                maxThreshold = TOP_SITES_PROVIDER_MAX_THRESHOLD,
-                providerFilter = { topSite ->
-                    when (store.state.search.selectedOrDefaultSearchEngine?.name) {
-                        AMAZON_SEARCH_ENGINE_NAME -> topSite.title != AMAZON_SPONSORED_TITLE
-                        EBAY_SPONSORED_TITLE -> topSite.title != EBAY_SPONSORED_TITLE
-                        else -> true
-                    }
-                },
-            ),
-        )
     }
 
     /**
@@ -1088,11 +1059,6 @@ class HomeFragment : Fragment() {
         private const val CFR_Y_OFFSET = -20
 
         private const val CFR_TAP_INCREASE_DPS = 6
-
-        // Sponsored top sites titles and search engine names used for filtering
-        const val AMAZON_SPONSORED_TITLE = "Amazon"
-        const val AMAZON_SEARCH_ENGINE_NAME = "Amazon.com"
-        const val EBAY_SPONSORED_TITLE = "eBay"
 
         // Elevation for undo toasts
         internal const val TOAST_ELEVATION = 80f
