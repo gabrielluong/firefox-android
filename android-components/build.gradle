@@ -82,6 +82,7 @@ subprojects {
     }
 
     project.configurations.all {
+        throw new AssertionError("GLGL - THROW")
         // Dependencies can't depend on a different major version of Glean than A-C itself.
         resolutionStrategy.eachDependency { details ->
             if (details.requested.group == 'org.mozilla.telemetry'
@@ -107,7 +108,14 @@ subprojects {
         }
 
         resolutionStrategy.capabilitiesResolution.withCapability("org.mozilla.telemetry:glean-native") {
-            def toBeSelected = candidates.find { it.id instanceof ModuleComponentIdentifier && it.id.module.contains('geckoview') }
+            println("GLGL capabilitiesResolution")
+            def toBeSelected = candidates.find { candidates ->
+                println(candidates.id)
+                println(candidates.id.module)
+                def result = candidates.id instanceof ModuleComponentIdentifier && candidates.id.module.contains('geckoview')
+                println("Result ${result}")
+                return result
+            }
             if (toBeSelected != null) {
                 select(toBeSelected)
             }
