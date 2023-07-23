@@ -86,7 +86,7 @@ open class DefaultToolbarMenu(
             store = store,
             style = WebExtensionBrowserMenuBuilder.Style(
                 webExtIconTintColorResource = primaryTextColor(),
-                addonsManagerMenuItemDrawableRes = R.drawable.ic_addons_extensions,
+                addonsManagerMenuItemDrawableRes = R.drawable.mozac_ic_extension_24,
             ),
             onAddonsManagerTapped = {
                 onItemTapped.invoke(ToolbarMenu.Item.AddonsManager)
