@@ -103,7 +103,7 @@ class ProtectionsView(
                         CookieBannerItem(
                             label = label,
                             cookieBannerUIMode = cookieBannerMode,
-                            endIconPainter = painterResource(R.drawable.ic_arrowhead_right),
+                            endIconPainter = painterResource(R.drawable.mozac_ic_chevron_right_24),
                             onClick = { interactor.onCookieBannerHandlingDetailsClicked() },
                         )
                     }
@@ -189,7 +189,7 @@ private fun CookieBannerItemPreview() {
             CookieBannerItem(
                 label = "Cookie Banner Reduction",
                 cookieBannerUIMode = CookieBannerUIMode.ENABLE,
-                endIconPainter = painterResource(R.drawable.ic_arrowhead_right),
+                endIconPainter = painterResource(R.drawable.mozac_ic_chevron_right_24),
                 onClick = { println("list item click") },
             )
         }
