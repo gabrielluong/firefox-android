@@ -85,7 +85,7 @@ private fun FloatingActionButtonPreview() {
         Box(Modifier.wrapContentSize()) {
             FloatingActionButton(
                 label = label,
-                icon = painterResource(R.drawable.ic_new),
+                icon = painterResource(R.drawable.mozac_ic_plus_24),
                 onClick = {
                     label = if (label == null) "LABEL" else null
                 },
