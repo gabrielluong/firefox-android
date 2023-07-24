@@ -136,7 +136,7 @@ class HomeMenu(
 
         val downloadsItem = BrowserMenuImageText(
             context.getString(R.string.library_downloads),
-            R.drawable.ic_download,
+            R.drawable.mozac_ic_download_24,
             primaryTextColor,
         ) {
             onItemTapped.invoke(Item.Downloads)

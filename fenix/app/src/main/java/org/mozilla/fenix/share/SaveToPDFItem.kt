@@ -42,7 +42,7 @@ fun SaveToPDFItem(
         Spacer(Modifier.width(16.dp))
 
         Icon(
-            painter = painterResource(R.drawable.ic_download),
+            painter = painterResource(R.drawable.mozac_ic_download_24),
             contentDescription = stringResource(
                 R.string.content_description_close_button,
             ),
