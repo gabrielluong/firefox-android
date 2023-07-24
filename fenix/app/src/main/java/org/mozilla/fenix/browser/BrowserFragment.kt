@@ -113,7 +113,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
             BrowserToolbar.ToggleButton(
                 image = AppCompatResources.getDrawable(
                     context,
-                    R.drawable.ic_readermode,
+                    R.drawable.mozac_ic_reader_view_24,
                 )!!,
                 imageSelected =
                 AppCompatResources.getDrawable(
