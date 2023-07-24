@@ -133,7 +133,7 @@ private fun HeaderWithClickableIconPreview() {
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.ic_delete),
+                        painter = painterResource(R.drawable.mozac_ic_delete_24),
                         contentDescription = "click me",
                         modifier = Modifier.size(20.dp),
                         tint = FirefoxTheme.colors.iconPrimary,
@@ -159,7 +159,7 @@ private fun CollapsibleHeaderWithClickableIconPreview() {
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.ic_delete),
+                        painter = painterResource(R.drawable.mozac_ic_delete_24),
                         contentDescription = "click me",
                         modifier = Modifier.size(20.dp),
                         tint = FirefoxTheme.colors.iconPrimary,

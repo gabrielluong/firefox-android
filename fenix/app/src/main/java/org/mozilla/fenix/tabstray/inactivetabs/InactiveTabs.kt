@@ -153,7 +153,7 @@ private fun InactiveTabsHeader(
             modifier = Modifier.padding(horizontal = 4.dp),
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_delete),
+                painter = painterResource(R.drawable.mozac_ic_delete_24),
                 contentDescription = stringResource(R.string.inactive_tabs_delete_all),
                 tint = FirefoxTheme.colors.iconPrimary,
             )

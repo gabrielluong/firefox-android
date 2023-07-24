@@ -54,7 +54,7 @@ class DownloadsListItemViewHolder(
 
         librarySiteItemBinding.favicon.setImageResource(item.getIcon())
 
-        librarySiteItemBinding.overflowMenu.setImageResource(R.drawable.ic_delete)
+        librarySiteItemBinding.overflowMenu.setImageResource(R.drawable.mozac_ic_delete_24)
 
         librarySiteItemBinding.overflowMenu.showAndEnable()
 

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/delete_address_button"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/mozac_ic_delete_24"
         android:title="@string/address_menu_delete_address"
         android:visible="false"
         app:iconTint="?attr/textPrimary"

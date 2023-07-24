@@ -52,7 +52,7 @@ fun DismissedTabBackground(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_delete),
+                painter = painterResource(R.drawable.mozac_ic_delete_24),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(horizontal = 32.dp)
@@ -64,7 +64,7 @@ fun DismissedTabBackground(
             )
 
             Icon(
-                painter = painterResource(R.drawable.ic_delete),
+                painter = painterResource(R.drawable.mozac_ic_delete_24),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(horizontal = 32.dp)
