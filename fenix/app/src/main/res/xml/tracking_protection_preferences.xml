@@ -79,7 +79,7 @@
         android:title="@string/etp_redirect_trackers_title" />
     <Preference android:layout="@layout/preference_divider" />
     <Preference
-        android:icon="@drawable/ic_internet"
+        android:icon="@drawable/mozac_ic_globe_24"
         android:key="@string/pref_key_tracking_protection_exceptions"
         android:layout="@layout/preference_no_widget"
         android:title="@string/preferences_tracking_protection_exceptions" />
