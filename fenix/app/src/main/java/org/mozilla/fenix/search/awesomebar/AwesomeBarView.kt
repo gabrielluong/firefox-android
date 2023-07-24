@@ -138,7 +138,7 @@ class AwesomeBarView(
                 suggestionsHeader = activity.getString(R.string.firefox_suggest_header),
             )
 
-        val searchBitmap = getDrawable(activity, R.drawable.ic_search)!!.apply {
+        val searchBitmap = getDrawable(activity, R.drawable.mozac_ic_search_24)!!.apply {
             colorFilter = createBlendModeColorFilterCompat(primaryTextColor, SRC_IN)
         }.toBitmap()
 
@@ -408,7 +408,7 @@ class AwesomeBarView(
             val components = activity.components
             val primaryTextColor = activity.getColorFromAttr(R.attr.textPrimary)
 
-            val searchBitmap = getDrawable(activity, R.drawable.ic_search)!!.apply {
+            val searchBitmap = getDrawable(activity, R.drawable.mozac_ic_search_24)!!.apply {
                 colorFilter = createBlendModeColorFilterCompat(primaryTextColor, SRC_IN)
             }.toBitmap()
 

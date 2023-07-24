@@ -67,7 +67,7 @@ class ToolbarViewTest {
         searchEngineSource = SearchEngineSource.Default(
             mockk {
                 every { name } returns "Search Engine"
-                every { icon } returns testContext.getDrawable(R.drawable.ic_search)!!.toBitmap()
+                every { icon } returns testContext.getDrawable(R.drawable.mozac_ic_search_24)!!.toBitmap()
                 every { type } returns SearchEngine.Type.BUNDLED
                 every { isGeneral } returns true
             },
@@ -807,7 +807,7 @@ class ToolbarViewTest {
     ) = SearchEngine(
         id = id,
         name = UUID.randomUUID().toString(),
-        icon = testContext.getDrawable(R.drawable.ic_search)!!.toBitmap(),
+        icon = testContext.getDrawable(R.drawable.mozac_ic_search_24)!!.toBitmap(),
         type = type,
         isGeneral = isGeneral,
     )

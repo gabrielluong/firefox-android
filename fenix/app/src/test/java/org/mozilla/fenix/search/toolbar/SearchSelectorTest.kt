@@ -29,7 +29,7 @@ class SearchSelectorTest {
 
     @Test
     fun `WHEN set icon is called THEN an icon and its content description are set`() {
-        val icon = AppCompatResources.getDrawable(testContext, R.drawable.ic_search)!!
+        val icon = AppCompatResources.getDrawable(testContext, R.drawable.mozac_ic_search_24)!!
         val contentDescription = "contentDescription"
 
         searchSelector.setIcon(icon, contentDescription)
