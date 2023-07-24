@@ -282,8 +282,8 @@ open class DefaultToolbarMenu(
     private val addRemoveTopSitesItem = TwoStateBrowserMenuImageText(
         primaryLabel = context.getString(R.string.browser_menu_add_to_shortcuts),
         secondaryLabel = context.getString(R.string.browser_menu_remove_from_shortcuts),
-        primaryStateIconResource = R.drawable.ic_top_sites,
-        secondaryStateIconResource = R.drawable.ic_top_sites,
+        primaryStateIconResource = R.drawable.mozac_ic_pin_24,
+        secondaryStateIconResource = R.drawable.mozac_ic_pin_24,
         iconTintColorResource = primaryTextColor(),
         isInPrimaryState = { !isCurrentUrlPinned },
         isInSecondaryState = { isCurrentUrlPinned },
