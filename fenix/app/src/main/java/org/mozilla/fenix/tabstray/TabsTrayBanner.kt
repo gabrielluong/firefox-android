@@ -503,7 +503,7 @@ private fun MultiSelectBanner(
     ) {
         IconButton(onClick = onExitSelectModeClick) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_close),
+                painter = painterResource(id = R.drawable.mozac_ic_cross_24),
                 contentDescription = stringResource(id = R.string.tab_tray_close_multiselect_content_description),
                 tint = FirefoxTheme.colors.iconOnColor,
             )

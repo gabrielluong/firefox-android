@@ -37,7 +37,7 @@ class HistoryListItemViewHolder(
         }
 
         binding.historyLayout.overflowView.apply {
-            setImageResource(R.drawable.ic_close)
+            setImageResource(R.drawable.mozac_ic_cross_24)
             contentDescription = view.context.getString(R.string.history_delete_item)
             setOnClickListener {
                 val item = item ?: return@setOnClickListener

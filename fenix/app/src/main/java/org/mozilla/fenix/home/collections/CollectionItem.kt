@@ -106,7 +106,7 @@ fun CollectionItem(
                 description = tab.url.toShortUrl(),
                 onClick = onClick,
                 url = tab.url,
-                iconPainter = painterResource(drawable.ic_close),
+                iconPainter = painterResource(drawable.mozac_ic_cross_24),
                 iconDescription = stringResource(string.remove_tab_from_collection),
                 onIconClick = { onRemove(false) },
             )
