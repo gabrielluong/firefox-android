@@ -289,7 +289,7 @@ private fun SingleSelectBanner(
                     onDismissRequest = { showMenu = false },
                 )
                 Icon(
-                    painter = painterResource(R.drawable.ic_menu),
+                    painter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
                     contentDescription = stringResource(id = R.string.open_tabs_menu),
                     tint = FirefoxTheme.colors.iconPrimary,
                 )
@@ -543,7 +543,7 @@ private fun MultiSelectBanner(
 
         IconButton(onClick = { showMenu = true }) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_menu),
+                painter = painterResource(id = R.drawable.mozac_ic_ellipsis_vertical_24),
                 contentDescription = stringResource(id = R.string.tab_tray_multiselect_menu_content_description),
                 tint = FirefoxTheme.colors.iconOnColor,
             )

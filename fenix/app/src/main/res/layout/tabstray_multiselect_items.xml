@@ -45,6 +45,6 @@
         app:layout_constraintBottom_toBottomOf="@id/topBar"
         app:layout_constraintEnd_toEndOf="@id/topBar"
         app:layout_constraintTop_toTopOf="@id/topBar"
-        app:srcCompat="@drawable/ic_menu"
+        app:srcCompat="@drawable/mozac_ic_ellipsis_vertical_24"
         app:tint="@color/fx_mobile_icon_color_oncolor" />
 </merge>

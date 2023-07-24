@@ -43,7 +43,7 @@
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_menu"
+            app:srcCompat="@drawable/mozac_ic_ellipsis_vertical_24"
             app:tint="?attr/textPrimary" />
     </LinearLayout>
 </merge>

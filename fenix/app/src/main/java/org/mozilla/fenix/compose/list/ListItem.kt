@@ -289,7 +289,7 @@ private fun TextListItemWithIconPreview() {
         Box(Modifier.background(FirefoxTheme.colors.layer1)) {
             TextListItem(
                 label = "Label + right icon",
-                iconPainter = painterResource(R.drawable.ic_menu),
+                iconPainter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
                 iconDescription = "click me",
                 onIconClick = { println("icon click") },
             )
@@ -323,7 +323,7 @@ private fun IconListItemWithRightIconPreview() {
                 label = "Left icon list item + right icon",
                 beforeIconPainter = painterResource(R.drawable.ic_folder_icon),
                 beforeIconDescription = null,
-                afterIconPainter = painterResource(R.drawable.ic_menu),
+                afterIconPainter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
                 afterIconDescription = "click me",
                 onAfterIconClick = { println("icon click") },
             )
@@ -344,7 +344,7 @@ private fun FaviconListItemPreview() {
                 description = "Description text",
                 onClick = { println("list item click") },
                 url = "",
-                iconPainter = painterResource(R.drawable.ic_menu),
+                iconPainter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
                 onIconClick = { println("icon click") },
             )
 
