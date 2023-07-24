@@ -533,7 +533,7 @@ private fun MultiSelectBanner(
 
         IconButton(onClick = onShareSelectedTabs) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_share),
+                painter = painterResource(id = R.drawable.mozac_ic_share_android_24),
                 contentDescription = stringResource(
                     id = R.string.tab_tray_multiselect_share_content_description,
                 ),

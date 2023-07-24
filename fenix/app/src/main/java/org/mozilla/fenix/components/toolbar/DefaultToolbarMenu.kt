@@ -145,7 +145,7 @@ open class DefaultToolbarMenu(
         }
 
         val share = BrowserMenuItemToolbar.Button(
-            imageResource = R.drawable.ic_share,
+            imageResource = R.drawable.mozac_ic_share_android_24,
             contentDescription = context.getString(R.string.browser_menu_share),
             iconTintColorResource = primaryTextColor(),
             listener = {

@@ -122,7 +122,7 @@ fun Collection(
                             onClick = { onCollectionShareTabsClicked(collection) },
                         ) {
                             Icon(
-                                painter = painterResource(drawable.ic_share),
+                                painter = painterResource(drawable.mozac_ic_share_android_24),
                                 contentDescription = stringResource(string.share_button_content_description),
                                 tint = FirefoxTheme.colors.iconPrimary,
                             )
