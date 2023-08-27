@@ -1012,6 +1012,8 @@ open class DummyEngineSession : EngineSession() {
         onException: (Throwable) -> Unit,
     ) {}
 
+    override fun translatePage(fromLanguage: String, toLanguage: String) {}
+
     override fun findAll(text: String) {}
 
     override fun findNext(forward: Boolean) {}

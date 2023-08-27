@@ -28,7 +28,7 @@ import java.util.UUID
  * @property contextId the session context ID of this tab.
  * @property lastAccess The last time this tab was selected (requires LastAccessMiddleware).
  * @property createdAt Timestamp of this tab's creation.
- * @property lastMediaAccessState - [LastMediaAccessState] detailing the tab state when media started playing.
+ * @property lastMediaAccessState [LastMediaAccessState] detailing the tab state when media started playing.
  * Requires [LastMediaAccessMiddleware] to update the value when playback starts.
  * @property restored Indicates if this page was restored from a persisted state.
  * @property isProductUrl has the product URL status of this tab.
@@ -37,6 +37,7 @@ data class TabSessionState(
     override val id: String = UUID.randomUUID().toString(),
     override val content: ContentState,
     override val trackingProtection: TrackingProtectionState = TrackingProtectionState(),
+    override val translationsState: TranslationsState = TranslationsState(),
     override val cookieBanner: CookieBannerHandlingStatus = CookieBannerHandlingStatus.NO_DETECTED,
     override val engineState: EngineState = EngineState(),
     override val extensionState: Map<String, WebExtensionState> = emptyMap(),
@@ -57,6 +58,7 @@ data class TabSessionState(
         id: String,
         content: ContentState,
         trackingProtection: TrackingProtectionState,
+        translationsState: TranslationsState,
         engineState: EngineState,
         extensionState: Map<String, WebExtensionState>,
         mediaSessionState: MediaSessionState?,
@@ -67,6 +69,7 @@ data class TabSessionState(
         id = id,
         content = content,
         trackingProtection = trackingProtection,
+        translationsState =  translationsState,
         engineState = engineState,
         extensionState = extensionState,
         mediaSessionState = mediaSessionState,

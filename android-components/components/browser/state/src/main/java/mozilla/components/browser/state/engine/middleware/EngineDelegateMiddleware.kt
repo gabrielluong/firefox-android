@@ -45,6 +45,7 @@ internal class EngineDelegateMiddleware(
             is EngineAction.PrintContentAction -> printContent(context.store, action)
             is EngineAction.ClearDataAction -> clearData(context.store, action)
             is EngineAction.PurgeHistoryAction -> purgeHistory(context.state)
+            is EngineAction.TranslatePageAction -> translatePage(context.store, action)
             else -> next(action)
         }
     }
@@ -165,6 +166,14 @@ internal class EngineDelegateMiddleware(
         state.allTabs
             .mapNotNull { tab -> tab.engineState.engineSession }
             .forEach { engineSession -> engineSession.purgeHistory() }
+    }
+
+    private fun translatePage(
+        store: Store<BrowserState, BrowserAction>,
+        action: EngineAction.TranslatePageAction,
+    ) = scope.launch {
+        getEngineSessionOrDispatch(store, action)
+            ?.translatePage(action.fromLanguage, action.toLanguage)
     }
 }
 

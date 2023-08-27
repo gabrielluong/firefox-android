@@ -233,6 +233,14 @@ open class DefaultToolbarMenu(
         onItemTapped.invoke(ToolbarMenu.Item.FindInPage)
     }
 
+    private val translatePageItem = BrowserMenuImageText(
+        label = "Translate page",
+        imageResource = R.drawable.mozac_ic_search_24,
+        iconTintColorResource = primaryTextColor(),
+    ) {
+        onItemTapped.invoke(ToolbarMenu.Item.TranslatePage)
+    }
+
     private val desktopSiteItem = BrowserMenuImageSwitch(
         imageResource = R.drawable.ic_desktop,
         label = context.getString(R.string.browser_menu_desktop_site),
@@ -383,6 +391,7 @@ open class DefaultToolbarMenu(
                 syncMenuItem(),
                 BrowserMenuDivider(),
                 findInPageItem,
+                translatePageItem,
                 desktopSiteItem,
                 customizeReaderView.apply { visible = ::shouldShowReaderViewCustomization },
                 openInApp.apply { visible = ::shouldShowOpenInApp },

@@ -41,6 +41,8 @@ import mozilla.components.concept.engine.request.RequestInterceptor
 import mozilla.components.concept.engine.request.RequestInterceptor.InterceptionResponse
 import mozilla.components.concept.engine.shopping.ProductAnalysis
 import mozilla.components.concept.engine.shopping.ProductRecommendation
+import mozilla.components.concept.engine.translations.LangTags
+import mozilla.components.concept.engine.translations.TranslationPair
 import mozilla.components.concept.engine.window.WindowRequest
 import mozilla.components.concept.fetch.Headers.Names.CONTENT_DISPOSITION
 import mozilla.components.concept.fetch.Headers.Names.CONTENT_LENGTH
@@ -55,6 +57,7 @@ import mozilla.components.support.base.facts.Action
 import mozilla.components.support.base.facts.Fact
 import mozilla.components.support.base.facts.collect
 import mozilla.components.support.base.log.logger.Logger
+import mozilla.components.support.ktx.android.org.json.tryGetString
 import mozilla.components.support.ktx.kotlin.isEmail
 import mozilla.components.support.ktx.kotlin.isExtensionUrl
 import mozilla.components.support.ktx.kotlin.isGeoLocation
@@ -64,6 +67,7 @@ import mozilla.components.support.ktx.kotlin.tryGetHostFromUrl
 import mozilla.components.support.utils.DownloadUtils
 import mozilla.components.support.utils.DownloadUtils.RESPONSE_CODE_SUCCESS
 import mozilla.components.support.utils.DownloadUtils.makePdfContentDisposition
+import org.json.JSONException
 import org.json.JSONObject
 import org.mozilla.geckoview.AllowOrDeny
 import org.mozilla.geckoview.ContentBlocking
@@ -761,6 +765,13 @@ class GeckoEngineSession(
     }
 
     /**
+     * See [EngineSession.translatePage]
+     */
+    override fun translatePage(fromLanguage: String, toLanguage: String) {
+        geckoSession.translatePage(fromLanguage, toLanguage)
+    }
+
+    /**
      * Purges the history for the session (back and forward history).
      */
     override fun purgeHistory() {
@@ -819,6 +830,9 @@ class GeckoEngineSession(
             // Re-set the status of cookie banner handling when the user navigates to another site.
             notifyObservers {
                 onCookieBannerChange(CookieBannerHandlingStatus.NO_DETECTED)
+            }
+            notifyObservers {
+                onOfferTranslationChange(isTranslationsAvailable = false)
             }
             // Reset the status of current page being product or not when user navigates away.
             notifyObservers { onProductUrlChange(false) }
@@ -1146,6 +1160,63 @@ class GeckoEngineSession(
 
         override fun onCookieBannerHandled(session: GeckoSession) {
             notifyObservers { onCookieBannerChange(CookieBannerHandlingStatus.HANDLED) }
+        }
+
+        override fun onOfferTranslation(session: GeckoSession) {
+            notifyObservers { onOfferTranslationChange(isTranslationsAvailable = true) }
+        }
+
+        override fun onTranslationsLanguageState(session: GeckoSession, detail: JSONObject) {
+            try {
+                val error = detail.tryGetString("error")
+                val isEngineReady = detail.getBoolean("isEngineReady")
+                val detectedLanguages = if (detail.isNull("detectedLanguages")) {
+                    null
+                } else {
+                    detail.getJSONObject("detectedLanguages").toLangTags()
+                }
+                val requestedTranslationPair = if (detail.isNull("requestedTranslationPair")) {
+                    null
+                } else {
+                    detail.getJSONObject("requestedTranslationPair").toTranslationPair()
+                }
+
+                notifyObservers {
+                    onTranslationsLanguageState(
+                        requestedTranslationPair = requestedTranslationPair,
+                        detectedLanguages = detectedLanguages,
+                        error = error,
+                        isEngineReady = isEngineReady,
+                    )
+                }
+            } catch (e: JSONException) {
+              // no-op.
+            }
+        }
+
+        private fun JSONObject.toTranslationPair(): TranslationPair? {
+            return try {
+                TranslationPair(
+                    fromLanguage = getString("fromLanguage"),
+                    toLanguage = getString("toLanguage"),
+                    fromDisplayLanguage = tryGetString("fromDisplayLanguage"),
+                    toDisplayLanguage = tryGetString("toDisplayLanguage"),
+                )
+            } catch (e: JSONException) {
+                null
+            }
+        }
+
+        private fun JSONObject.toLangTags(): LangTags? {
+            return try {
+                LangTags(
+                    isDocLangTagSupported = getBoolean("isDocLangTagSupported"),
+                    docLangTag = tryGetString("docLangTag"),
+                    userLangTag = tryGetString("userLangTag"),
+                )
+            } catch (e: JSONException) {
+                null
+            }
         }
 
         override fun onProductUrl(session: GeckoSession) {

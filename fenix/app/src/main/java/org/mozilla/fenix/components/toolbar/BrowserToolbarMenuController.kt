@@ -307,6 +307,11 @@ class DefaultBrowserToolbarMenuController(
             is ToolbarMenu.Item.FindInPage -> {
                 findInPageLauncher()
             }
+            is ToolbarMenu.Item.TranslatePage -> {
+                currentSession?.let {
+                    sessionUseCases.translatePage(it.id, "pt", "en")
+                }
+            }
             is ToolbarMenu.Item.AddonsManager -> browserAnimator.captureEngineViewAndDrawStatically {
                 navController.nav(
                     R.id.browserFragment,
@@ -473,6 +478,7 @@ class DefaultBrowserToolbarMenuController(
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("set_default_browser"))
             is ToolbarMenu.Item.RemoveFromTopSites ->
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("remove_from_top_sites"))
+            is ToolbarMenu.Item.TranslatePage -> {}
         }
     }
 

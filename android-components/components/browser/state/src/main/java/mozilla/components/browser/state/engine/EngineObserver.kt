@@ -15,6 +15,7 @@ import mozilla.components.browser.state.action.MediaSessionAction
 import mozilla.components.browser.state.action.ReaderAction
 import mozilla.components.browser.state.action.ShoppingProductAction
 import mozilla.components.browser.state.action.TrackingProtectionAction
+import mozilla.components.browser.state.action.TranslationsAction
 import mozilla.components.browser.state.selector.findTabOrCustomTab
 import mozilla.components.browser.state.state.AppIntentState
 import mozilla.components.browser.state.state.BrowserState
@@ -33,6 +34,8 @@ import mozilla.components.concept.engine.media.RecordingDevice
 import mozilla.components.concept.engine.mediasession.MediaSession
 import mozilla.components.concept.engine.permission.PermissionRequest
 import mozilla.components.concept.engine.prompt.PromptRequest
+import mozilla.components.concept.engine.translations.LangTags
+import mozilla.components.concept.engine.translations.TranslationPair
 import mozilla.components.concept.engine.window.WindowRequest
 import mozilla.components.concept.fetch.Response
 import mozilla.components.lib.state.Store
@@ -163,6 +166,27 @@ internal class EngineObserver(
 
     override fun onCookieBannerChange(status: EngineSession.CookieBannerHandlingStatus) {
         store.dispatch(CookieBannerAction.UpdateStatusAction(tabId, status))
+    }
+
+    override fun onOfferTranslationChange(isTranslationsAvailable: Boolean) {
+        store.dispatch(TranslationsAction.UpdateTranslationsAvailable(tabId, isTranslationsAvailable))
+    }
+
+    override fun onTranslationsLanguageState(
+        requestedTranslationPair: TranslationPair?,
+        detectedLanguages: LangTags?,
+        error: String?,
+        isEngineReady: Boolean,
+    ) {
+        store.dispatch(
+            TranslationsAction.UpdateLanguageState(
+                tabId = tabId,
+                requestedTranslationPair = requestedTranslationPair,
+                detectedLanguages = detectedLanguages,
+                error = error,
+                isEngineReady = isEngineReady,
+            )
+        )
     }
 
     override fun onProductUrlChange(isProductUrl: Boolean) {

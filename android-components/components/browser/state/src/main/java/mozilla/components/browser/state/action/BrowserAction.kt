@@ -45,6 +45,8 @@ import mozilla.components.concept.engine.mediasession.MediaSession
 import mozilla.components.concept.engine.permission.PermissionRequest
 import mozilla.components.concept.engine.prompt.PromptRequest
 import mozilla.components.concept.engine.search.SearchRequest
+import mozilla.components.concept.engine.translations.LangTags
+import mozilla.components.concept.engine.translations.TranslationPair
 import mozilla.components.concept.engine.webextension.WebExtensionBrowserAction
 import mozilla.components.concept.engine.webextension.WebExtensionPageAction
 import mozilla.components.concept.engine.window.WindowRequest
@@ -849,6 +851,29 @@ sealed class TrackingProtectionAction : BrowserAction() {
 }
 
 /**
+ * TODO
+ */
+sealed class TranslationsAction : BrowserAction() {
+
+    /**
+     * TODO
+     */
+    data class UpdateTranslationsAvailable(val tabId: String, val isTranslationsAvailable: Boolean) :
+        TranslationsAction()
+
+    /**
+     * TODO
+     */
+    data class UpdateLanguageState(
+        val tabId: String,
+        val requestedTranslationPair: TranslationPair?,
+        val detectedLanguages: LangTags?,
+        val error: String?,
+        val isEngineReady: Boolean,
+    ) : TranslationsAction()
+}
+
+/**
  * [BrowserAction] implementations related to updating the [SessionState.cookieBanner] of a single [SessionState] inside
  * [BrowserState].
  */
@@ -1191,6 +1216,12 @@ sealed class EngineAction : BrowserAction() {
      * Purges the back/forward history of all tabs and custom tabs.
      */
     object PurgeHistoryAction : EngineAction()
+
+    data class TranslatePageAction(
+        override val tabId: String,
+        val fromLanguage: String,
+        val toLanguage: String,
+    ) : EngineAction(), ActionWithTab
 }
 
 /**

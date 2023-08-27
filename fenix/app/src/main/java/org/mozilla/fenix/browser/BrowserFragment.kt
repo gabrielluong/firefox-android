@@ -54,6 +54,7 @@ import org.mozilla.fenix.shopping.DefaultShoppingExperienceFeature
 import org.mozilla.fenix.shopping.ReviewQualityCheckFeature
 import org.mozilla.fenix.shortcut.PwaOnboardingObserver
 import org.mozilla.fenix.theme.ThemeManager
+import org.mozilla.fenix.translations.TranslationsFeature
 
 /**
  * Fragment used for browsing the web within the main app.
@@ -66,9 +67,12 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
     private val standardSnackbarErrorBinding =
         ViewBoundFeatureWrapper<StandardSnackbarErrorBinding>()
     private val reviewQualityCheckFeature = ViewBoundFeatureWrapper<ReviewQualityCheckFeature>()
+    private val translationsFeature = ViewBoundFeatureWrapper<TranslationsFeature>()
 
     private var readerModeAvailable = false
     private var reviewQualityCheckAvailable = false
+    private var translationsAvailable = false
+
     private var pwaOnboardingObserver: PwaOnboardingObserver? = null
 
     private var forwardAction: BrowserToolbar.TwoStateButton? = null
@@ -134,6 +138,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
 
         browserToolbarView.view.addPageAction(readerModeAction)
 
+        initTranslationsAction(context, view)
         initReviewQualityCheck(context, view)
 
         thumbnailsFeature.set(
@@ -198,6 +203,38 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
             ),
             owner = viewLifecycleOwner,
             view = binding.root,
+        )
+    }
+
+    private fun initTranslationsAction(context: Context, view: View) {
+        val translationsAction =
+            BrowserToolbar.ToggleButton(
+                image = AppCompatResources.getDrawable(
+                    context,
+                    R.drawable.mozac_ic_translate_24,
+                )!!,
+                imageSelected =
+                AppCompatResources.getDrawable(
+                    context,
+                    R.drawable.mozac_ic_translate_24,
+                )!!,
+                contentDescription = "",
+                contentDescriptionSelected = "",
+                visible = {
+                    translationsAvailable
+                },
+                listener = { browserToolbarInteractor.onTranslationsButtonClicked() },
+            )
+
+        browserToolbarView.view.addPageAction(translationsAction)
+
+        translationsFeature.set(
+            feature = TranslationsFeature(
+                store = context.components.core.store,
+                onAvailabilityChange = { translationsAvailable = it },
+            ),
+            owner = this,
+            view = view,
         )
     }
 

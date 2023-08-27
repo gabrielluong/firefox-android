@@ -47,6 +47,11 @@ interface BrowserToolbarController {
      * @see [BrowserToolbarInteractor.onHomeButtonClicked]
      */
     fun handleHomeButtonClick()
+
+    /**
+     * @see [BrowserToolbarInteractor.onTranslationsButtonClicked]
+     */
+    fun handleTranslationsButtonClick()
 }
 
 @Suppress("LongParameterList")
@@ -178,6 +183,12 @@ class DefaultBrowserToolbarController(
                 BrowserFragmentDirections.actionGlobalHome(),
             )
         }
+    }
+
+    override fun handleTranslationsButtonClick() {
+        navController.navigate(
+            BrowserFragmentDirections.actionBrowserFragmentToTranslationsDialogFragment(),
+        )
     }
 
     companion object {

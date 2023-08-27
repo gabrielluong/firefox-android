@@ -17,6 +17,8 @@ import mozilla.components.concept.engine.permission.PermissionRequest
 import mozilla.components.concept.engine.prompt.PromptRequest
 import mozilla.components.concept.engine.shopping.ProductAnalysis
 import mozilla.components.concept.engine.shopping.ProductRecommendation
+import mozilla.components.concept.engine.translations.LangTags
+import mozilla.components.concept.engine.translations.TranslationPair
 import mozilla.components.concept.engine.window.WindowRequest
 import mozilla.components.concept.fetch.Response
 import mozilla.components.support.base.observer.Observable
@@ -63,6 +65,16 @@ abstract class EngineSession(
          * Event to indicate a new [CookieBannerHandlingStatus] is available.
          */
         fun onCookieBannerChange(status: CookieBannerHandlingStatus) = Unit
+
+        fun onOfferTranslationChange(isTranslationsAvailable: Boolean) = Unit
+
+        fun onTranslationsLanguageState(
+            requestedTranslationPair: TranslationPair?,
+            detectedLanguages: LangTags?,
+            error: String?,
+            isEngineReady: Boolean,
+        ) = Unit
+
         fun onTrackerBlocked(tracker: Tracker) = Unit
         fun onTrackerLoaded(tracker: Tracker) = Unit
         fun onNavigateBack() = Unit
@@ -870,6 +882,11 @@ abstract class EngineSession(
         onResult: (ProductAnalysis) -> Unit,
         onException: (Throwable) -> Unit,
     )
+
+    /**
+     * TODO
+     */
+    abstract fun translatePage(fromLanguage: String, toLanguage: String)
 
     /**
      * Finds and highlights all occurrences of the provided String and highlights them asynchronously.

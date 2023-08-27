@@ -432,6 +432,22 @@ class SessionUseCases(
         }
     }
 
+    class TranslatePageUseCase internal constructor(
+        private val store: BrowserStore,
+    ) {
+        operator fun invoke(
+            tabId: String? = store.state.selectedTabId,
+            fromLanguage: String,
+            toLanguage: String,
+        ) {
+            if (tabId == null) {
+                return
+            }
+
+            store.dispatch(EngineAction.TranslatePageAction(tabId, fromLanguage, toLanguage))
+        }
+    }
+
     /**
      * A use case for requesting a given tab to print it's content.
      */
@@ -475,4 +491,5 @@ class SessionUseCases(
     val crashRecovery: CrashRecoveryUseCase by lazy { CrashRecoveryUseCase(store) }
     val purgeHistory: PurgeHistoryUseCase by lazy { PurgeHistoryUseCase(store) }
     val updateLastAccess: UpdateLastAccessUseCase by lazy { UpdateLastAccessUseCase(store) }
+    val translatePage: TranslatePageUseCase by lazy { TranslatePageUseCase(store) }
 }

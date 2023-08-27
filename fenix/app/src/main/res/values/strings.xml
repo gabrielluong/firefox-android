@@ -1824,6 +1824,13 @@
     <!-- The text for the "Delete address" menu item for deleting an address -->
     <string name="address_menu_delete_address">Delete address</string>
 
+    <!-- The title text for the translations dialog. -->
+    <string name="translations_translate_this_page_title">Translate this page</string>
+    <string name="translations_translate_this_page_translate_from">Translate from:</string>
+    <string name="translations_translate_this_page_translate_to">Translate to:</string>
+    <string name="translations_translate_this_page_negative_button">Not now</string>
+    <string name="translations_translate_this_page_positive_button">Translate</string>
+
     <!-- Title of the Add search engine screen -->
     <string name="search_engine_add_custom_search_engine_title">Add search engine</string>
     <!-- Content description (not visible, for screen readers etc.): Title for the button that navigates to add new engine screen -->

@@ -35,6 +35,7 @@ const val DEFAULT_MAX_LINES = 2
  * @param text The button text to be displayed.
  * @param textColor [Color] to apply to the button text.
  * @param backgroundColor The background [Color] of the button.
+ * @param modifier [Modifier] to be applied to the layout.
  * @param icon Optional [Painter] used to display a [Icon] before the button text.
  * @param tint Tint [Color] to be applied to the icon.
  * @param onClick Invoked when the user clicks on the button.
@@ -44,6 +45,7 @@ private fun Button(
     text: String,
     textColor: Color,
     backgroundColor: Color,
+    modifier: Modifier = Modifier,
     icon: Painter? = null,
     tint: Color,
     onClick: () -> Unit,
@@ -53,7 +55,7 @@ private fun Button(
 
     androidx.compose.material.Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp),
         colors = ButtonDefaults.outlinedButtonColors(
@@ -92,6 +94,7 @@ private fun Button(
 @Composable
 fun PrimaryButton(
     text: String,
+    modifier: Modifier = Modifier.fillMaxWidth(),
     textColor: Color = FirefoxTheme.colors.textActionPrimary,
     backgroundColor: Color = FirefoxTheme.colors.actionPrimary,
     icon: Painter? = null,
@@ -101,6 +104,7 @@ fun PrimaryButton(
         text = text,
         textColor = textColor,
         backgroundColor = backgroundColor,
+        modifier = modifier,
         icon = icon,
         tint = FirefoxTheme.colors.iconActionPrimary,
         onClick = onClick,
@@ -119,6 +123,7 @@ fun PrimaryButton(
 @Composable
 fun SecondaryButton(
     text: String,
+    modifier: Modifier = Modifier.fillMaxWidth(),
     textColor: Color = FirefoxTheme.colors.textActionSecondary,
     backgroundColor: Color = FirefoxTheme.colors.actionSecondary,
     icon: Painter? = null,
@@ -128,6 +133,7 @@ fun SecondaryButton(
         text = text,
         textColor = textColor,
         backgroundColor = backgroundColor,
+        modifier = modifier,
         icon = icon,
         tint = FirefoxTheme.colors.iconActionSecondary,
         onClick = onClick,
@@ -146,6 +152,7 @@ fun SecondaryButton(
 @Composable
 fun TertiaryButton(
     text: String,
+    modifier: Modifier = Modifier.fillMaxWidth(),
     textColor: Color = FirefoxTheme.colors.textActionTertiary,
     backgroundColor: Color = FirefoxTheme.colors.actionTertiary,
     icon: Painter? = null,
@@ -155,6 +162,7 @@ fun TertiaryButton(
         text = text,
         textColor = textColor,
         backgroundColor = backgroundColor,
+        modifier = modifier,
         icon = icon,
         tint = FirefoxTheme.colors.iconActionTertiary,
         onClick = onClick,
@@ -173,6 +181,7 @@ fun TertiaryButton(
 @Composable
 fun DestructiveButton(
     text: String,
+    modifier: Modifier = Modifier.fillMaxWidth(),
     textColor: Color = FirefoxTheme.colors.textWarningButton,
     backgroundColor: Color = FirefoxTheme.colors.actionSecondary,
     icon: Painter? = null,
@@ -182,6 +191,7 @@ fun DestructiveButton(
         text = text,
         textColor = textColor,
         backgroundColor = backgroundColor,
+        modifier = modifier,
         icon = icon,
         tint = FirefoxTheme.colors.iconWarningButton,
         onClick = onClick,

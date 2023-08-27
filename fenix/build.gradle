@@ -4,6 +4,7 @@ buildscript {
     // This logic is duplicated in the allprojects block: I don't know how to fix that.
     repositories {
         maven {
+            mavenLocal()
             name "Mozilla Nightly"
             url "https://nightly.maven.mozilla.org/maven2"
             content {
@@ -96,6 +97,7 @@ plugins {
 allprojects {
     // This logic is duplicated in the buildscript block: I don't know how to fix that.
     repositories {
+        mavenLocal()
         maven {
             name "Mozilla Nightly"
             url "https://nightly.maven.mozilla.org/maven2"

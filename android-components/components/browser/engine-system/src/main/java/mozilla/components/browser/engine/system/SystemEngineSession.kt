@@ -446,6 +446,10 @@ class SystemEngineSession(
         throw UnsupportedOperationException("Analysis of product reviews for shopping is not available in this engine")
     }
 
+    override fun translatePage(fromLanguage: String, toLanguage: String) {
+        throw UnsupportedOperationException("Page translation is not available in this engine")
+    }
+
     override fun hasCookieBannerRuleForSession(
         onResult: (Boolean) -> Unit,
         onException: (Throwable) -> Unit,

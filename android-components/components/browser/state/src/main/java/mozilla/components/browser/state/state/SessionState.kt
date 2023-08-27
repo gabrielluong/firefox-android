@@ -30,6 +30,7 @@ interface SessionState {
     val id: String
     val content: ContentState
     val trackingProtection: TrackingProtectionState
+    val translationsState: TranslationsState
     val cookieBanner: CookieBannerHandlingStatus
     val engineState: EngineState
     val extensionState: Map<String, WebExtensionState>
@@ -47,6 +48,7 @@ interface SessionState {
         id: String = this.id,
         content: ContentState = this.content,
         trackingProtection: TrackingProtectionState = this.trackingProtection,
+        translationsState: TranslationsState = this.translationsState,
         engineState: EngineState = this.engineState,
         extensionState: Map<String, WebExtensionState> = this.extensionState,
         mediaSessionState: MediaSessionState? = this.mediaSessionState,
