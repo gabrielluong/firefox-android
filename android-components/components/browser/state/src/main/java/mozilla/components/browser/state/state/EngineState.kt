@@ -13,6 +13,7 @@ import mozilla.components.concept.engine.EngineSessionState
  * @property engineSession the engine's representation of this session.
  * @property engineSessionState serializable and restorable state of an engine session, see
  * [EngineSession.saveState] and [EngineSession.restoreState].
+ * @property initializing whether or not the [EngineSession] is currently being initialized.
  * @property engineObserver the [EngineSession.Observer] linked to [engineSession]. It is
  * used to observe engine events and update the store. It should become obsolete, once the
  * migration to browser state is complete, as the engine will then have direct access to
@@ -24,7 +25,6 @@ import mozilla.components.concept.engine.EngineSessionState
  * before the session has crashed (if desired).
  * @property timestamp Timestamp of when the [EngineSession] was linked.
  * @property initialLoadFlags [EngineSession.LoadUrlFlags] to use for the first load of this session.
- * @property initializing whether or not the [EngineSession] is currently being initialized.
  * @property initialAdditionalHeaders The extra headers to use for the first load of this session.
  */
 data class EngineState(

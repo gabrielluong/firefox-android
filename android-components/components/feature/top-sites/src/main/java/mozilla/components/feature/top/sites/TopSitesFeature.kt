@@ -12,10 +12,11 @@ import mozilla.components.support.base.feature.LifecycleAwareFeature
 /**
  * View-bound feature that updates the UI when the [TopSitesStorage] is updated.
  *
- * @param view An implementor of [TopSitesView] that will be notified of changes to the storage.
- * @param storage The top sites storage that stores pinned and frecent sites.
- * @param config Lambda expression that returns [TopSitesConfig] which species the number of top
+ * @property view An implementor of [TopSitesView] that will be notified of changes to the storage.
+ * @property storage The top sites storage that stores pinned and frecent sites.
+ * @property config Lambda expression that returns [TopSitesConfig] which species the number of top
  * sites to return and whether or not to include frequently visited sites.
+ * @property presenter A presenter that connects the [TopSitesView] with the [TopSitesStorage].
  */
 class TopSitesFeature(
     private val view: TopSitesView,

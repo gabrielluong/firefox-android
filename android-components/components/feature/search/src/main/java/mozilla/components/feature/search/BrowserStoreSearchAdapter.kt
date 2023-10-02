@@ -21,8 +21,8 @@ import mozilla.components.concept.engine.search.SearchRequest
  * NOTE: client code is responsible for sending [ContentAction.ConsumeSearchRequestAction]s
  * after consuming events. See [SearchFeature] for a component that will handle this for you.
  *
- * @param browserStore The application's [BrowserStore].
- * @param tabId ID of the tab that requests the search, or null to use the selected tab.
+ * @property browserStore The application's [BrowserStore].
+ * @property tabId ID of the tab that requests the search, or null to use the selected tab.
  */
 class BrowserStoreSearchAdapter(
     private val browserStore: BrowserStore,

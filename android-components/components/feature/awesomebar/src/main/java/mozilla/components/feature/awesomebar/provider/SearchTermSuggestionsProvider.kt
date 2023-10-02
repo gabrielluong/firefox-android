@@ -38,18 +38,18 @@ private const val MAXIMUM_ALLOWED_SUGGESTIONS_LIMIT_REACHED =
  * A [AwesomeBar.SuggestionProvider] implementation that will show past searches done with the
  * specified [searchEngine] allowing to easily redo a search or continue with a lightly modified search.
  *
- * @param historyStorage an instance of the [PlacesHistoryStorage] used
+ * @property historyStorage an instance of the [PlacesHistoryStorage] used
  * to query matching metadata records.
- * @param searchUseCase the use case invoked to do a new search with the suggested search term.
- * @param searchEngine the current search engine used for speculative connects with the first result.
- * @param maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions.
+ * @property searchUseCase the use case invoked to do a new search with the suggested search term.
+ * @property searchEngine the current search engine used for speculative connects with the first result.
+ * @property maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions.
  * Defaults to `2`.
- * @param icon optional [Bitmap] to he shown as the suggestions header.
+ * @property icon optional [Bitmap] to he shown as the suggestions header.
  * Defaults to `null` in which case the [searchEngine]'s icon will be used.
- * @param engine optional [Engine] instance to call [Engine.speculativeConnect] for the
+ * @property engine optional [Engine] instance to call [Engine.speculativeConnect] for the
  * highest scored suggestion URL.
- * @param showEditSuggestion optional parameter to specify if the suggestion should show the edit button.
- * @param suggestionsHeader optional parameter to specify if the suggestion should have a header
+ * @property showEditSuggestion optional parameter to specify if the suggestion should show the edit button.
+ * @property suggestionsHeader optional parameter to specify if the suggestion should have a header.
  */
 @Suppress("LongParameterList")
 class SearchTermSuggestionsProvider(

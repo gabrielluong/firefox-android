@@ -25,6 +25,7 @@ import mozilla.components.browser.icons.IconRequest
  * @param size The preferred size of the icon that should be loaded.
  * @param isPrivate Whether or not a private request (like in private browsing) should be used to
  * download the icon (if needed).
+ * @param content The Composable content block to render the icon.
  */
 @Composable
 fun BrowserIcons.Loader(

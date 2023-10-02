@@ -118,7 +118,7 @@ fun BrowserScreen(navController: NavController) {
 }
 
 /**
- * Shows the lit of tabs.
+ * Shows the list of tabs.
  */
 @Composable
 fun TabsTray(

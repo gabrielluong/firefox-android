@@ -12,10 +12,10 @@ import mozilla.components.browser.state.state.recover.RecoverableTab
  * Currently the undo history only saves the tabs from the last remove operation. This is so far
  * "good enough" since we also only show one undo snackbar for the last operation in the UI.
  *
- * @param tag A tag (usually a UUID) identifying this specific undo state. This tag can be used to
+ * @property tag A tag (usually a UUID) identifying this specific undo state. This tag can be used to
  * avoid removing/restoring the wrong state in a multi-threaded environment.
- * @param tabs List of previously removed tabs.
- * @param selectedTabId Id of the tab in [tabs] that was selected and should get reselected on restore.
+ * @property tabs List of previously removed tabs.
+ * @property selectedTabId Id of the tab in [tabs] that was selected and should get reselected on restore.
  */
 data class UndoHistoryState(
     val tag: String = "",

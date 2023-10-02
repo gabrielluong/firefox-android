@@ -51,6 +51,7 @@ data class DecorativeTextMenuCandidate(
  * Menu option that shows a switch or checkbox.
  *
  * @property text Text to display.
+ * @property isChecked Whether or not the menu option is checked.
  * @property start Icon to display before the text.
  * @property end Compound button to display after the text.
  * @property textStyle Styling to apply to the text.

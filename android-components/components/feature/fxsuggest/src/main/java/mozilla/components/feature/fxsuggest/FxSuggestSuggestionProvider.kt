@@ -15,11 +15,11 @@ import java.util.UUID
 /**
  * An [AwesomeBar.SuggestionProvider] that returns Firefox Suggest search suggestions.
  *
- * @param resources Your application's [Resources] instance.
- * @param loadUrlUseCase A use case that loads a suggestion's URL when clicked.
- * @param includeSponsoredSuggestions Whether to return suggestions for sponsored content.
- * @param includeNonSponsoredSuggestions Whether to return suggestions for web content.
- * @param suggestionsHeader An optional header title for grouping the returned suggestions.
+ * @property resources Your application's [Resources] instance.
+ * @property loadUrlUseCase A use case that loads a suggestion's URL when clicked.
+ * @property includeSponsoredSuggestions Whether to return suggestions for sponsored content.
+ * @property includeNonSponsoredSuggestions Whether to return suggestions for web content.
+ * @property suggestionsHeader An optional header title for grouping the returned suggestions.
  */
 class FxSuggestSuggestionProvider(
     private val resources: Resources,

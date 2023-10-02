@@ -20,9 +20,9 @@ import java.util.UUID
 /**
  * Value type that represents a request for showing a native dialog for prompt web content.
  *
- * @param shouldDismissOnLoad Whether or not the dialog should automatically be dismissed when a new page is loaded.
+ * @property shouldDismissOnLoad Whether or not the dialog should automatically be dismissed when a new page is loaded.
  * Defaults to `true`.
- * @param uid [PromptRequest] unique identifier. Defaults to a random UUID.
+ * @property uid [PromptRequest] unique identifier. Defaults to a random UUID.
  * (This two parameters, though present in all subclasses are not evaluated in subclasses equals() calls)
  */
 sealed class PromptRequest(
@@ -31,6 +31,7 @@ sealed class PromptRequest(
 ) {
     /**
      * Value type that represents a request for a single choice prompt.
+     *
      * @property choices All the possible options.
      * @property onConfirm A callback indicating which option was selected.
      * @property onDismiss A callback executed when dismissed.
@@ -43,6 +44,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a multiple choice prompt.
+     *
      * @property choices All the possible options.
      * @property onConfirm A callback indicating witch options has been selected.
      * @property onDismiss A callback executed when dismissed.
@@ -55,6 +57,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a menu choice prompt.
+     *
      * @property choices All the possible options.
      * @property onConfirm A callback indicating which option was selected.
      * @property onDismiss A callback executed when dismissed.
@@ -67,6 +70,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for an alert prompt.
+     *
      * @property title of the dialog.
      * @property message the body of the dialog.
      * @property hasShownManyDialogs tells if this page has shown multiple prompts within a short period of time.
@@ -85,6 +89,7 @@ sealed class PromptRequest(
      * BeforeUnloadPrompt represents the onbeforeunload prompt.
      * This prompt is shown when a user is leaving a website and there is formation pending to be saved.
      * For more information see https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload.
+     *
      * @property title of the dialog.
      * @property onLeave callback to notify that the user wants leave the site.
      * @property onStay callback to notify that the user wants stay in the site.
@@ -97,6 +102,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a save credit card prompt.
+     *
      * @property creditCard the [CreditCardEntry] to save or update.
      * @property onConfirm callback that is called when the user confirms the save credit card request.
      * @property onDismiss callback to let the page know the user dismissed the dialog.
@@ -109,6 +115,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents Identity Credential request prompts.
+     *
      * @property onDismiss callback to let the page know the user dismissed the dialog.
      */
     sealed class IdentityCredential(
@@ -116,6 +123,7 @@ sealed class PromptRequest(
     ) : PromptRequest(shouldDismissOnLoad = false), Dismissible {
         /**
          * Value type that represents Identity Credential request for selecting a [Provider] prompt.
+         *
          * @property providers A list of providers which the user could select from.
          * @property onConfirm callback to let the page know the user selected a provider.
          * @property onDismiss callback to let the page know the user dismissed the dialog.
@@ -128,8 +136,9 @@ sealed class PromptRequest(
 
         /**
          * Value type that represents Identity Credential request for selecting an [Account] prompt.
+         *
          * @property accounts A list of accounts which the user could select from.
-         * @property providerName The name of the provider that will be used for the login
+         * @property provider The name of the provider that will be used for the login
          * @property onConfirm callback to let the page know the user selected an account.
          * @property onDismiss callback to let the page know the user dismissed the dialog.
          */
@@ -142,6 +151,7 @@ sealed class PromptRequest(
 
         /**
          * Value type that represents Identity Credential request for a privacy policy prompt.
+         *
          * @property privacyPolicyUrl A The URL where the policy for using this provider is hosted.
          * @property termsOfServiceUrl The URL where the terms of service for using this provider are.
          * @property providerDomain The domain of the provider.
@@ -163,6 +173,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a select credit card prompt.
+     *
      * @property creditCards a list of [CreditCardEntry]s to select from.
      * @property onConfirm callback that is called when the user confirms the credit card selection.
      * @property onDismiss callback to let the page know the user dismissed the dialog.
@@ -175,6 +186,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a save login prompt.
+     *
      * @property hint a value that helps to determine the appropriate prompting behavior.
      * @property logins a list of logins that are associated with the current domain.
      * @property onConfirm callback that is called when the user wants to save the login.
@@ -189,6 +201,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a select login prompt.
+     *
      * @property logins a list of logins that are associated with the current domain.
      * @property onConfirm callback that is called when the user wants to save the login.
      * @property onDismiss callback to let the page know the user dismissed the dialog.
@@ -216,6 +229,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for an alert prompt to enter a message.
+     *
      * @property title title of the dialog.
      * @property inputLabel the label of the field the user should fill.
      * @property inputValue the default value of the field.
@@ -234,10 +248,12 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a date prompt for picking a year, month, and day.
+     *
      * @property title of the dialog.
      * @property initialDate date that dialog should be set by default.
      * @property minimumDate date allow to be selected.
      * @property maximumDate date allow to be selected.
+     * @property stepValue value of the step attribute.
      * @property type indicate which [Type] of selection de user wants.
      * @property onConfirm callback that is called when the date is selected.
      * @property onClear callback that is called when the user requests the picker to be clear up.
@@ -262,6 +278,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a selecting one or multiple files.
+     *
      * @property mimeTypes a set of allowed mime types. Only these file types can be selected.
      * @property isMultipleFilesSelection true if the user can select more that one file false otherwise.
      * @property captureMode indicates if the local media capturing capabilities should be used,
@@ -306,12 +323,13 @@ sealed class PromptRequest(
      * Value type that represents a request for an authentication prompt.
      * For more related info take a look at
      * <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication>MDN docs</a>
+     *
      * @property uri The URI for the auth request or null if unknown.
      * @property title of the dialog.
      * @property message the body of the dialog.
      * @property userName default value provide for this session.
      * @property password default value provide for this session.
-     * @property method type of authentication,  valid values [Method.HOST] and [Method.PROXY].
+     * @property method type of authentication, valid values [Method.HOST] and [Method.PROXY].
      * @property level indicates the level of security of the authentication like [Level.NONE],
      * [Level.SECURED] and [Level.PASSWORD_ENCRYPTED].
      * @property onlyShowPassword indicates if the dialog should only include a password field.
@@ -346,6 +364,7 @@ sealed class PromptRequest(
 
     /**
      * Value type that represents a request for a selecting one or multiple files.
+     *
      * @property defaultColor true if the user can select more that one file false otherwise.
      * @property onConfirm callback to notify that the user has selected a color.
      * @property onDismiss callback to notify that the user has canceled the dialog.
@@ -405,6 +424,7 @@ sealed class PromptRequest(
     /**
      * Value type that represents a request to share data.
      * https://w3c.github.io/web-share/
+     *
      * @property data Share data containing title, text, and url of the request.
      * @property onSuccess Callback to notify that the user hared with another app successfully.
      * @property onFailure Callback to notify that the user attempted to share with another app, but it failed.

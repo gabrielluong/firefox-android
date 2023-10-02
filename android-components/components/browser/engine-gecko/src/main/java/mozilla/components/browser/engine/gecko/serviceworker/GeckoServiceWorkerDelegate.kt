@@ -15,9 +15,9 @@ import org.mozilla.geckoview.GeckoSession
 /**
  * Default implementation for supporting Gecko service workers.
  *
- * @param delegate [ServiceWorkerDelegate] handling service workers requests.
- * @param runtime [GeckoRuntime] current engine's runtime.
- * @param engineSettings [Settings] default settings used when new [EngineSession]s are to be created.
+ * @property delegate [ServiceWorkerDelegate] handling service workers requests.
+ * @property runtime [GeckoRuntime] current engine's runtime.
+ * @property engineSettings [Settings] default settings used when new [EngineSession]s are to be created.
  */
 class GeckoServiceWorkerDelegate(
     internal val delegate: ServiceWorkerDelegate,

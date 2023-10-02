@@ -52,6 +52,7 @@ enum class FxaCapability {
  * @property runtime the [WebExtensionRuntime] (e.g the browser engine) to use.
  * @property store a reference to the application's [BrowserStore].
  * @property accountManager a reference to application's [FxaAccountManager].
+ * @property serverConfig server endpoint configurations needed for the authentication flow.
  * @property fxaCapabilities a set of [FxaCapability] that client supports.
  */
 class FxaWebChannelFeature(

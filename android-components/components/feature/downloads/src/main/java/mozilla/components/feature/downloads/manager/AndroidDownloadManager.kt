@@ -40,7 +40,9 @@ typealias SystemRequest = android.app.DownloadManager.Request
 /**
  * Handles the interactions with the [AndroidDownloadManager].
  *
- * @property applicationContext a reference to [Context] applicationContext.
+ * @property applicationContext A reference to application [Context].
+ * @property store The application's [BrowserStore].
+ * @property onDownloadStopped Invoked when the download is complete.
  */
 class AndroidDownloadManager(
     private val applicationContext: Context,

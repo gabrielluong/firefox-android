@@ -29,10 +29,10 @@ import mozilla.components.service.fxa.sync.SyncReason
  * A storage that listens to the [BrowserStore] changes to synchronize the local tabs state
  * with [RemoteTabsStorage] and then synchronize with [accountManager].
  *
- * @param accountManager Account manager used to retrieve synced tabs.
- * @param store Browser store to observe for state changes.
- * @param tabsStorage Storage layer for tabs to sync.
- * @param debounceMillis Length to debounce rapid changes for storing and syncing.
+ * @property accountManager Account manager used to retrieve synced tabs.
+ * @property store Browser store to observe for state changes.
+ * @property tabsStorage Storage layer for tabs to sync.
+ * @property debounceMillis Length to debounce rapid changes for storing and syncing.
  */
 class SyncedTabsStorage(
     private val accountManager: FxaAccountManager,

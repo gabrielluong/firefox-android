@@ -25,7 +25,7 @@ import kotlin.math.roundToInt
  * @param attrs XML set attributes configuring this
  * @param engineViewParent [NestedScrollingChild] parent of the [EngineView]
  * @param toolbarHeight size of [BrowserToolbar] when it is placed above the [EngineView]
- * @param whether the [BrowserToolbar] is placed above or below the [EngineView]
+ * @param toolbarPosition whether the [BrowserToolbar] is placed above or below the [EngineView]
  */
 class EngineViewBrowserToolbarBehavior(
     context: Context?,

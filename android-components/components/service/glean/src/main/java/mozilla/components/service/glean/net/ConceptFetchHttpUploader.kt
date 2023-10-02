@@ -26,7 +26,8 @@ typealias PingUploader = CorePingUploader
  * storing or attempting to send the ping again. This uses Android Component's
  * `concept-fetch`.
  *
- * @param usePrivateRequest Sets the [Request.private] flag in all requests using this uploader.
+ * @property client HTTP client to use for network requests.
+ * @property usePrivateRequest Sets the [Request.private] flag in all requests using this uploader.
  */
 class ConceptFetchHttpUploader(
     internal val client: Lazy<Client>,

@@ -74,6 +74,11 @@ sealed class BrowserMenuHighlight {
      * This class only exists so that [mozilla.components.browser.menu.item.BrowserMenuHighlightableItem.Highlight]
      * can subclass it.
      *
+     * @property startImageResource Icon to display at the start of the menu item when highlighted.
+     * @property endImageResource Icon to display at the end of the menu item when highlighted.
+     * @property backgroundResource The background resource to display in the the menu item
+     * background.
+     * @property colorResource Background tint color to display for the menu item.
      * @property canPropagate Indicate whether other components should consider this highlight when
      * displaying their own highlight.
      */

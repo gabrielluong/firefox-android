@@ -193,7 +193,7 @@ interface LoginsStorage : AutoCloseable {
      * origin, or doesn't have exactly one of formSubmitURL and httpRealm).
      *
      * @param guid Unique identifier for the record
-     * @param login [LoginEntry] to add.
+     * @param entry [LoginEntry] to add.
      * @return [EncryptedLogin] that was added
      */
     suspend fun update(guid: String, entry: LoginEntry): EncryptedLogin
@@ -204,7 +204,7 @@ interface LoginsStorage : AutoCloseable {
      * This will throw if the provided record is invalid (missing password,
      * origin, or doesn't have exactly one of formSubmitURL and httpRealm).
      *
-     * @param login [LoginEntry] to add or update.
+     * @param entry [LoginEntry] to add or update.
      * @return [EncryptedLogin] that was added
      */
     suspend fun addOrUpdate(entry: LoginEntry): EncryptedLogin

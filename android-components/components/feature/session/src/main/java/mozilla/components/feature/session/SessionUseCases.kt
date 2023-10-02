@@ -200,6 +200,7 @@ class SessionUseCases(
         /**
          * Navigates back in the history of the currently selected tab
          *
+         * @param tabId the ID of the tab to navigate back in the history.
          * @param userInteraction informs the engine whether the action was user invoked.
          */
         operator fun invoke(
@@ -225,6 +226,7 @@ class SessionUseCases(
         /**
          * Navigates forward in the history of the currently selected session
          *
+         * @param tabId the ID of the tab to navigate forward in the history.
          * @param userInteraction informs the engine whether the action was user invoked.
          */
         operator fun invoke(
@@ -255,7 +257,7 @@ class SessionUseCases(
          * Invalid index values will be ignored.
          *
          * @param index the index in the session's [HistoryState] to navigate to.
-         * @param session the session whose [HistoryState] is being accessed, defaulting
+         * @param tabId the ID of the tab whose [HistoryState] is being accessed, defaulting
          * to the selected session.
          */
         operator fun invoke(

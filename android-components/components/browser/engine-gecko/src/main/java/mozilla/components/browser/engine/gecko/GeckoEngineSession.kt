@@ -152,11 +152,11 @@ class GeckoEngineSession(
     /**
      * Represents a request to load a [url].
      *
-     * @param url the url to load.
-     * @param parent the parent (referring) [EngineSession] i.e. the session that
+     * @property url the url to load.
+     * @property parent the parent (referring) [EngineSession] i.e. the session that
      * triggered creating this one.
-     * @param flags the [LoadUrlFlags] to use when loading the provided url.
-     * @param additionalHeaders the extra headers to use when loading the provided url.
+     * @property flags the [LoadUrlFlags] to use when loading the provided url.
+     * @property additionalHeaders the extra headers to use when loading the provided url.
      **/
     data class LoadRequest(
         val url: String,

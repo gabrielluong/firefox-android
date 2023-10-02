@@ -24,8 +24,9 @@ import mozilla.components.support.base.log.logger.Logger
  * This class manages creation and storage of the encryption key.
  * It also keeps track of abnormal events, such as managed key going missing or getting corrupted.
  *
- * @param context [Context] used for obtaining [SharedPreferences] for managing internal prefs.
- * @param securePrefs A [SecureAbove22Preferences] instance used for storing the managed key.
+ * @property context [Context] used for obtaining [SharedPreferences] for managing internal prefs.
+ * @property securePrefs A [SecureAbove22Preferences] instance used for storing the managed key.
+ * @property storage The [AutofillCreditCardsAddressesStorage] storage used to scrub encrypted data.
  */
 class AutofillCrypto(
     private val context: Context,

@@ -16,9 +16,10 @@ import mozilla.telemetry.glean.config.Configuration as GleanCoreConfiguration
  *                      `ConceptFetchHttpUploader(lazy { HttpURLConnectionClient() as Client })`
  * @property serverEndpoint (optional) the server pings are sent to. Please note that this is
  *           is only meant to be changed for tests.
- * @property channel (optional )the release channel the application is on, if known. This will be
+ * @property channel (optional) the release channel the application is on, if known. This will be
  *           sent along with all the pings, in the `client_info` section.
- * @property maxEvents (optional) the number of events to store before the events ping is sent
+ * @property maxEvents (optional) the number of events to store before the events ping is sent.
+ * @property enableEventTimestamps (Experimental) Whether to add a wallclock timestamp to all events.
  */
 data class Configuration @JvmOverloads constructor(
     val httpClient: PingUploader,

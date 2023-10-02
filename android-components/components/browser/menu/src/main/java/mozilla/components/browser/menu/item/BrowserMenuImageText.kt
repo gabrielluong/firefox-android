@@ -39,14 +39,14 @@ internal fun TextView.setColorResource(@ColorRes textColorResource: Int) {
 /**
  * A menu item for displaying text with an image icon.
  *
- * @param label The visible label of this menu item.
- * @param imageResource ID of a drawable resource to be shown as icon.
- * @param iconTintColorResource Optional ID of color resource to tint the icon.
- * @param textColorResource Optional ID of color resource to tint the text.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property label The visible label of this menu item.
+ * @property imageResource ID of a drawable resource to be shown as icon.
+ * @property iconTintColorResource Optional ID of color resource to tint the icon.
+ * @property textColorResource Optional ID of color resource to tint the text.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
- * @param listener Callback to be invoked when this menu item is clicked.
+ * @property listener Callback to be invoked when this menu item is clicked.
  */
 @Suppress("LongParameterList")
 open class BrowserMenuImageText(

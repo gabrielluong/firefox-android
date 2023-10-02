@@ -30,6 +30,8 @@ interface Tab {
     /**
      * Restores a single tab from this collection and returns a matching [RecoverableTab].
      *
+     * @param filesDir The [File] to read the recoverable state from.
+     * @param engine The [Engine] implementation for restoring the engine state.
      * @param restoreSessionId If true the original tab ID will be restored. Otherwise a new ID
      * will be generated. An app may prefer to use a new ID if it expects sessions to get restored
      * multiple times - otherwise breaking the promise of a unique ID per tab.

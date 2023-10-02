@@ -10,7 +10,7 @@ import mozilla.components.support.base.log.Log
 /**
  * A wrapper for the <code>Log</code> object providing a more convenient API for logging.
  *
- * @param tag The tag to be used for log messages send via this logger.
+ * @property tag The tag to be used for log messages send via this logger.
  */
 class Logger(
     private val tag: String? = null,

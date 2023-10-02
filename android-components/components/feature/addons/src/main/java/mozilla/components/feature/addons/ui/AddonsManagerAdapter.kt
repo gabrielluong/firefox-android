@@ -514,7 +514,8 @@ class AddonsManagerAdapter(
 
     /**
      * Update the portion of the list that contains the provided [addon].
-     * @property addon The add-on to be updated.
+     *
+     * @param addon The [Addon] to be updated.
      */
     fun updateAddon(addon: Addon) {
         addonsMap[addon.id] = addon
@@ -526,7 +527,8 @@ class AddonsManagerAdapter(
      * Be aware that updating a subset of the visible list is not supported, [addons] will replace
      * the current list, but only the add-ons that have been changed will be updated in the UI.
      * If you provide a subset it will replace the current list.
-     * @property addons A list of add-on to replace the actual list.
+     *
+     * @param addons A list of [Addon] to replace the actual list.
      */
     fun updateAddons(addons: List<Addon>) {
         addonsMap = addons.associateBy({ it.id }, { it }).toMutableMap()

@@ -27,9 +27,9 @@ import mozilla.components.support.ktx.android.content.res.resolveAttribute
 /**
  * A toolbar of buttons to show inside the browser menu.
  *
- * @param items buttons that will be shown in a horizontal layout
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property items buttons that will be shown in a horizontal layout
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
  */
 class BrowserMenuItemToolbar(
@@ -86,12 +86,12 @@ class BrowserMenuItemToolbar(
     /**
      * A button to be shown in a toolbar inside the browser menu.
      *
-     * @param imageResource ID of a drawable resource to be shown as icon.
-     * @param contentDescription The button's content description, used for accessibility support.
-     * @param iconTintColorResource Optional ID of color resource to tint the icon.
-     * @param isEnabled Lambda to return true/false to indicate if this button should be enabled or disabled.
-     * @param longClickListener Callback to be invoked when the button is long clicked.
-     * @param listener Callback to be invoked when the button is pressed.
+     * @property imageResource ID of a drawable resource to be shown as icon.
+     * @property contentDescription The button's content description, used for accessibility support.
+     * @property iconTintColorResource Optional ID of color resource to tint the icon.
+     * @property isEnabled Lambda to return true/false to indicate if this button should be enabled or disabled.
+     * @property longClickListener Callback to be invoked when the button is long clicked.
+     * @property listener Callback to be invoked when the button is pressed.
      */
     @Suppress("LongParameterList")
     open class Button(
@@ -139,14 +139,15 @@ class BrowserMenuItemToolbar(
      * A button that either shows an primary state or an secondary state based on the provided
      * <code>isInPrimaryState</code> lambda.
      *
-     * @param primaryImageResource ID of a drawable resource to be shown as primary icon.
-     * @param primaryContentDescription The button's primary content description, used for accessibility support.
-     * @param primaryImageTintResource Optional ID of color resource to tint the primary icon.
-     * @param secondaryImageResource Optional ID of a different drawable resource to be shown as secondary icon.
-     * @param secondaryContentDescription Optional secondary content description for button, for accessibility support.
-     * @param secondaryImageTintResource Optional ID of secondary color resource to tint the icon.
-     * @param isInPrimaryState Lambda to return true/false to indicate if this button should be primary or secondary.
-     * @param disableInSecondaryState Optional boolean to disable the button when in secondary state.
+     * @property primaryImageResource ID of a drawable resource to be shown as primary icon.
+     * @property primaryContentDescription The button's primary content description, used for accessibility support.
+     * @property primaryImageTintResource Optional ID of color resource to tint the primary icon.
+     * @property secondaryImageResource Optional ID of a different drawable resource to be shown as secondary icon.
+     * @property secondaryContentDescription Optional secondary content description for button,
+     * for accessibility support.
+     * @property secondaryImageTintResource Optional ID of secondary color resource to tint the icon.
+     * @property isInPrimaryState Lambda to return true/false to indicate if this button should be primary or secondary.
+     * @property disableInSecondaryState Optional boolean to disable the button when in secondary state.
      * @param longClickListener Callback to be invoked when the button is long clicked.
      * @param listener Callback to be invoked when the button is pressed.
      */

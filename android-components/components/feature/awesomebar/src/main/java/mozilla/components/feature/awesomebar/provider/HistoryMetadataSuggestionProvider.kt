@@ -33,19 +33,19 @@ internal const val HISTORY_METADATA_RESULTS_TO_FILTER_SCALE_FACTOR = 10
 /**
  * A [AwesomeBar.SuggestionProvider] implementation that provides suggestions based on [HistoryMetadata].
  *
- * @param historyStorage an instance of the [HistoryStorage] used
+ * @property historyStorage An instance of the [HistoryStorage] used
  * to query matching metadata records.
- * @param loadUrlUseCase the use case invoked to load the url when the
+ * @property loadUrlUseCase The use case invoked to load the url when the
  * user clicks on the suggestion.
- * @param icons optional instance of [BrowserIcons] to load fav icons
+ * @property icons Optional instance of [BrowserIcons] to load fav icons
  * for [HistoryMetadata] URLs.
- * @param engine optional [Engine] instance to call [Engine.speculativeConnect] for the
+ * @property engine Optional [Engine] instance to call [Engine.speculativeConnect] for the
  * highest scored suggestion URL.
- * @param maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions,
+ * @property maxNumberOfSuggestions Optional parameter to specify the maximum number of returned suggestions,
  * defaults to [DEFAULT_METADATA_SUGGESTION_LIMIT].
- * @param showEditSuggestion optional parameter to specify if the suggestion should show the edit button
- * @param suggestionsHeader optional parameter to specify if the suggestion should have a header
- * @param resultsUriFilter Optional filter for the url of the suggestions to show.
+ * @property showEditSuggestion Optional parameter to specify if the suggestion should show the edit button.
+ * @property suggestionsHeader Optional parameter to specify if the suggestion should have a header.
+ * @property resultsUriFilter Optional filter for the url of the suggestions to show.
  */
 class HistoryMetadataSuggestionProvider(
     @get:VisibleForTesting internal val historyStorage: HistoryMetadataStorage,

@@ -47,11 +47,11 @@ private const val ANDROID_RESOLVER_PACKAGE_NAME = "android"
  * Since browsers are able to open HTTPS pages, existing browser apps are excluded from the list of
  * apps that trigger a redirect to an external app.
  *
- * @param context Context the feature is associated with.
- * @param launchInApp If {true} then launch app links in third party app(s). Default to false because
+ * @property context Context the feature is associated with.
+ * @property launchInApp If {true} then launch app links in third party app(s). Default to false because
  * of security concerns.
- * @param alwaysDeniedSchemes List of schemes that will never be opened in a third-party app.
- * @param installedBrowsers List of all installed browsers on the device.
+ * @property alwaysDeniedSchemes List of schemes that will never be opened in a third-party app.
+ * @property installedBrowsers List of all installed browsers on the device.
  */
 class AppLinksUseCases(
     private val context: Context,
@@ -92,8 +92,8 @@ class AppLinksUseCases(
      *
      * It will also provide a fallback.
      *
-     * @param includeHttpAppLinks If {true} then test URLs that start with {http} and {https}.
-     * @param includeInstallAppFallback If {true} then offer an app-link to the installed market app
+     * @property includeHttpAppLinks If {true} then test URLs that start with {http} and {https}.
+     * @property includeInstallAppFallback If {true} then offer an app-link to the installed market app
      * if no web fallback is available.
      */
     @Suppress("ComplexMethod")

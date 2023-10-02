@@ -158,6 +158,7 @@ class DownloadCancelDialogFragment : AppCompatDialogFragment() {
 
         /**
          * Returns a new instance of [DownloadCancelDialogFragment].
+         *
          * @param downloadCount The number of currently active downloads.
          * @param promptStyling Styling properties for the dialog.
          * @param onPositiveButtonClicked A lambda called when the allow button is clicked.

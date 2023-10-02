@@ -251,8 +251,10 @@ data class Addon(
 
         /**
          * Takes a list of [permissions] and returns a list of id resources per each item.
+         *
          * @param permissions The list of permissions to be localized. Valid permissions can be found in
          * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
+         * @param context An Android [Context].
          */
         fun localizePermissions(permissions: List<String>, context: Context): List<String> {
             var localizedUrlAccessPermissions = emptyList<String>()

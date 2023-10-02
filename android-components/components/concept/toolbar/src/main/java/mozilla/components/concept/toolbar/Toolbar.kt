@@ -267,14 +267,14 @@ interface Toolbar {
     /**
      * An action button to be added to the toolbar.
      *
-     * @param imageDrawable The drawable to be shown.
-     * @param contentDescription The content description to use.
-     * @param visible Lambda that returns true or false to indicate whether this button should be shown.
-     * @param autoHide Lambda that returns true or false to indicate whether this button should auto hide.
-     * @param padding A optional custom padding.
-     * @param iconTintColorResource Optional ID of color resource to tint the icon.
-     * @param longClickListener Callback that will be invoked whenever the button is long-pressed.
-     * @param listener Callback that will be invoked whenever the button is pressed
+     * @property imageDrawable The drawable to be shown.
+     * @property contentDescription The content description to use.
+     * @property visible Lambda that returns true or false to indicate whether this button should be shown.
+     * @property autoHide Lambda that returns true or false to indicate whether this button should auto hide.
+     * @property padding A optional custom padding.
+     * @property iconTintColorResource Optional ID of color resource to tint the icon.
+     * @property longClickListener Callback that will be invoked whenever the button is long-pressed.
+     * @property listener Callback that will be invoked whenever the button is pressed
      */
     @Suppress("LongParameterList")
     open class ActionButton(
@@ -317,14 +317,14 @@ interface Toolbar {
      * An action button with two states, selected and unselected. When the button is pressed, the
      * state changes automatically.
      *
-     * @param imageDrawable The drawable to be shown if the button is in unselected state.
-     * @param imageSelectedDrawable The  drawable to be shown if the button is in selected state.
-     * @param contentDescription The content description to use if the button is in unselected state.
-     * @param contentDescriptionSelected The content description to use if the button is in selected state.
-     * @param visible Lambda that returns true or false to indicate whether this button should be shown.
-     * @param selected Sets whether this button should be selected initially.
-     * @param padding A optional custom padding.
-     * @param listener Callback that will be invoked whenever the checked state changes.
+     * @property imageDrawable The drawable to be shown if the button is in unselected state.
+     * @property imageSelectedDrawable The  drawable to be shown if the button is in selected state.
+     * @property contentDescription The content description to use if the button is in unselected state.
+     * @property contentDescriptionSelected The content description to use if the button is in selected state.
+     * @property visible Lambda that returns true or false to indicate whether this button should be shown.
+     * @property selected Sets whether this button should be selected initially.
+     * @property padding A optional custom padding.
+     * @property listener Callback that will be invoked whenever the checked state changes.
      */
     open class ActionToggleButton(
         internal val imageDrawable: Drawable,
@@ -412,8 +412,8 @@ interface Toolbar {
     /**
      * An "empty" action with a desired width to be used as "placeholder".
      *
-     * @param desiredWidth The desired width in density independent pixels for this action.
-     * @param padding A optional custom padding.
+     * @property desiredWidth The desired width in density independent pixels for this action.
+     * @property padding A optional custom padding.
      */
     open class ActionSpace(
         @Dimension(unit = DP) private val desiredWidth: Int,
@@ -430,11 +430,10 @@ interface Toolbar {
     /**
      * An action that just shows a static, non-clickable image.
      *
-     * @param imageDrawable The drawable to be shown.
-     * @param contentDescription Optional content description to be used. If no content description
-     *                           is provided then this view will be treated as not important for
-     *                           accessibility.
-     * @param padding A optional custom padding.
+     * @property imageDrawable The drawable to be shown.
+     * @property contentDescription Optional content description to be used. If no content description
+     * is provided then this view will be treated as not important for accessibility.
+     * @property padding A optional custom padding.
      */
     open class ActionImage(
         private val imageDrawable: Drawable,

@@ -11,9 +11,9 @@ import mozilla.components.support.base.log.Log
 private const val MAX_TAG_LENGTH = 23
 
 /**
- * <code>LogSink</code> implementation that writes to Android's log.
+ * [LogSink] implementation that writes to Android's log.
  *
- * @param defaultTag A default tag that should be used for all logging calls without tag.
+ * @property defaultTag A default tag that should be used for all logging calls without tag.
  */
 class AndroidLogSink(
     private val defaultTag: String = "App",

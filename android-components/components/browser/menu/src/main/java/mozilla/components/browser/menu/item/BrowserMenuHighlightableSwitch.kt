@@ -24,9 +24,14 @@ import mozilla.components.concept.menu.candidate.LowPriorityHighlightEffect
  * A browser menu switch that can show a highlighted icon.
  *
  * @param label The visible label of this menu item.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property startImageResource ID of a drawable resource to be shown as icon.
+ * @property iconTintColorResource Optional ID of color resource to tint the icon.
+ * @property textColorResource Optional ID of color resource to tint the text.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
+ * @property highlight Highlight object representing how the menu item will be displayed when highlighted.
+ * @property isHighlighted Whether or not to display the highlight.
  * @param initialState The initial value the checkbox should have.
  * @param listener Callback to be invoked when this menu item is checked.
  */

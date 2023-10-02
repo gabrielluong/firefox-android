@@ -75,7 +75,7 @@ sealed class Target {
     /**
      * Targets a specific tab by its [tabId].
      *
-     * @param tabId The ID of the tab to be targeted.
+     * @property tabId The ID of the tab to be targeted.
      */
     class Tab(val tabId: String) : Target() {
         override fun lookupIn(state: BrowserState): SessionState? {
@@ -86,7 +86,7 @@ sealed class Target {
     /**
      * Targets a specific custom tab by its [customTabId].
      *
-     * @param customTabId The ID of the custom tab to be targeted.
+     * @property customTabId The ID of the custom tab to be targeted.
      */
     class CustomTab(val customTabId: String) : Target() {
         override fun lookupIn(state: BrowserState): SessionState? {

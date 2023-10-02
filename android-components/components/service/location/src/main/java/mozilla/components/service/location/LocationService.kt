@@ -25,8 +25,8 @@ interface LocationService {
      * compatible with the ISO 3166 standard. While the API endpoint and [Region] class refers to
      * country, no claim about the political status of any region is made by this service.
      *
-     * @param countryCode Country code; ISO 3166.
-     * @param countryName Name of the country (English); ISO 3166.
+     * @property countryCode Country code; ISO 3166.
+     * @property countryName Name of the country (English); ISO 3166.
      */
     data class Region(
         val countryCode: String,

@@ -22,12 +22,13 @@ internal val DEFAULT_SPONSORED_STORIES_REFRESH_TIMEUNIT = TimeUnit.HOURS
 /**
  * Indicating all details for how the pocket stories should be refreshed.
  *
- * @param client [Client] implementation used for downloading the Pocket stories.
- * @param frequency Optional - The interval at which to try and refresh items. Defaults to 4 hours.
- * @param profile Optional - The profile used for downloading sponsored Pocket stories.
- * @param sponsoredStoriesRefreshFrequency Optional - The interval at which to try and refresh sponsored stories.
- * Defaults to 4 hours.
- * @param sponsoredStoriesParams Optional - Configuration containing parameters used to get the spoc content.
+ * @property client [Client] implementation used for downloading the Pocket stories.
+ * @property frequency Optional - The interval at which to try and refresh items. Defaults to 4 hours.
+ * @property profile Optional - The profile used for downloading sponsored Pocket stories.
+ * @property sponsoredStoriesRefreshFrequency Optional - The interval at which to try and refresh
+ * sponsored stories. Defaults to 4 hours.
+ * @property sponsoredStoriesParams Optional - Configuration containing parameters used to get the
+ * spoc content.
  */
 class PocketStoriesConfig(
     val client: Client,
@@ -62,7 +63,7 @@ class PocketStoriesRequestConfig(
 /**
  * Sponsored stories configuration data.
  *
- * @param profileId Unique profile identifier which will be presented with sponsored stories.
- * @param appId Unique identifier of the application using this feature.
+ * @property profileId Unique profile identifier which will be presented with sponsored stories.
+ * @property appId Unique identifier of the application using this feature.
  */
 class Profile(val profileId: UUID, val appId: String)

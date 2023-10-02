@@ -27,9 +27,9 @@ import mozilla.components.lib.state.ext.flowScoped
  * Feature implementation that handles MediaSession state changes and controls showing a notification
  * reflecting the media states.
  *
- * @param applicationContext the application's [Context].
- * @param mediaServiceClass the media service class will handle the media playback state
- * @param store Reference to the browser store where tab state is located.
+ * @property applicationContext the application's [Context].
+ * @property mediaServiceClass the media service class will handle the media playback state
+ * @property store Reference to the browser store where tab state is located.
  */
 class MediaSessionFeature(
     val applicationContext: Context,

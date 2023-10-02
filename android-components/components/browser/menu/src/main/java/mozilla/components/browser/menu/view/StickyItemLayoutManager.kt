@@ -73,7 +73,7 @@ enum class StickyItemPlacement {
  * Vertical LinearLayoutManager that will prevent certain items from being scrolled off-screen.
  *
  * @param context [Context] needed for various Android interactions.
- * @param stickyItemPlacement whether the sticky item should be blocked from being scrolled off
+ * @property stickyItemPlacement whether the sticky item should be blocked from being scrolled off
  * to the top of the screen or off to the bottom of the screen.
  * @param reverseLayout When set to true, layouts from end to start.
  */
@@ -447,6 +447,7 @@ abstract class StickyItemsLinearLayoutManager<T> constructor(
          * Get a new instance of a vertical [LinearLayoutManager] that can show one specific item
          * as a fixed header / footer in the list, be that reversed or not.
          *
+         * @param context [Context] needed for various Android interactions.
          * @param stickyItemPlacement whether the sticky item should be anchored to the top or bottom of the list
          * @param reverseLayout when set to true, layouts from end to start.
          */

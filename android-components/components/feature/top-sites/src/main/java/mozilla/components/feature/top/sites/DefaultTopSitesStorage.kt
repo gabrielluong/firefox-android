@@ -20,13 +20,14 @@ import kotlin.coroutines.CoroutineContext
 /**
  * Default implementation of [TopSitesStorage].
  *
- * @param pinnedSitesStorage An instance of [PinnedSiteStorage], used for storing pinned sites.
- * @param historyStorage An instance of [PlacesHistoryStorage], used for retrieving top frecent
+ * @property pinnedSitesStorage An instance of [PinnedSiteStorage], used for storing pinned sites.
+ * @property historyStorage An instance of [PlacesHistoryStorage], used for retrieving top frecent
  * sites from history.
- * @param topSitesProvider An optional instance of [TopSitesProvider], used for retrieving
+ * @property topSitesProvider An optional instance of [TopSitesProvider], used for retrieving
  * additional top sites from a provider. The returned top sites are added before pinned sites.
- * @param defaultTopSites A list containing a title to url pair of default top sites to be added
+ * @property defaultTopSites A list containing a title to url pair of default top sites to be added
  * to the [PinnedSiteStorage].
+ * @param coroutineContext A coroutine context that can be used to perform work off the main thread.
  */
 class DefaultTopSitesStorage(
     private val pinnedSitesStorage: PinnedSiteStorage,

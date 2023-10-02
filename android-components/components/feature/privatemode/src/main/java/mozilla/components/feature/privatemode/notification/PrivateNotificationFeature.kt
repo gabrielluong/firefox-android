@@ -19,8 +19,9 @@ import kotlin.reflect.KClass
 /**
  * Starts up a [AbstractPrivateNotificationService] once a private tab is opened.
  *
- * @param store Browser store reference used to observe the number of private tabs.
- * @param notificationServiceClass The service sub-class that should be started by this feature.
+ * @param context An Android [Context].
+ * @property store Browser store reference used to observe the number of private tabs.
+ * @property notificationServiceClass The service sub-class that should be started by this feature.
  */
 class PrivateNotificationFeature<T : AbstractPrivateNotificationService>(
     context: Context,

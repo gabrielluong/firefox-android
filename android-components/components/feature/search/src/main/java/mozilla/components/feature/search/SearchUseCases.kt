@@ -145,8 +145,8 @@ class SearchUseCases(
          * Triggers a search on a new session, using the default search engine for the provided search terms.
          *
          * @param searchTerms the search terms.
-         * @param selected whether or not the new session should be selected, defaults to true.
          * @param source the source of the new session.
+         * @param selected whether or not the new session should be selected, defaults to true.
          * @param searchEngine Search Engine to use, or the default search engine if none is provided
          * @param parentSessionId optional parent session to attach this new search session to
          * @param flags Flags that will be used when loading the URL.

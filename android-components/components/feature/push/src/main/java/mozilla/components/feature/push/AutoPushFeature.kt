@@ -68,13 +68,12 @@ typealias AppServerKey = String
  * })
  * ```
  *
- * @param context the application [Context].
- * @param service A [PushService] bridge that receives the encrypted push messages - eg, Firebase.
- * @param config An instance of [PushConfig] to configure the feature.
+ * @property context the application [Context].
+ * @property service A [PushService] bridge that receives the encrypted push messages - eg, Firebase.
+ * @property config An instance of [PushConfig] to configure the feature.
  * @param coroutineContext An instance of [CoroutineContext] used for executing async push tasks.
- * @param crashReporter An optional instance of a [CrashReporting].
+ * @property crashReporter An optional instance of a [CrashReporting].
  */
-
 @Suppress("LargeClass", "LongParameterList")
 class AutoPushFeature(
     private val context: Context,

@@ -32,12 +32,12 @@ interface WebPushHandler {
  *
  * [0]: https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription
  *
- * @param scope The subscription identifier which usually represents the website's URI.
- * @param endpoint The Web Push endpoint for this subscription.
+ * @property scope The subscription identifier which usually represents the website's URI.
+ * @property endpoint The Web Push endpoint for this subscription.
  * This is the URL of a web service which implements the Web Push protocol.
- * @param appServerKey A public key a server will use to send messages to client apps via a push server.
- * @param publicKey The public key generated, to be provided to the app server for message encryption.
- * @param authSecret A secret key generated, to be provided to the app server for use in encrypting
+ * @property appServerKey A public key a server will use to send messages to client apps via a push server.
+ * @property publicKey The public key generated, to be provided to the app server for message encryption.
+ * @property authSecret A secret key generated, to be provided to the app server for use in encrypting
  * and authenticating messages sent to the endpoint.
  */
 data class WebPushSubscription(

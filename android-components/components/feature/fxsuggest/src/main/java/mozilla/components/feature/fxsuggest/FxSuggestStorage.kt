@@ -17,7 +17,7 @@ import mozilla.appservices.suggest.SuggestionQuery
 /**
  * A coroutine-aware wrapper around the synchronous [SuggestStore] interface.
  *
- * @property context The Android application context.
+ * @param context The Android application context.
  */
 class FxSuggestStorage(
     context: Context,

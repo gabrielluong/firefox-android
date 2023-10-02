@@ -33,7 +33,7 @@ class BrowserStateReader {
      * Reads a serialized [RecoverableBrowserState] from the given [AtomicFile].
      *
      * @param engine The [Engine] implementation for restoring the engine state.
-     * @param file The [AtomicFile] to read the the recoverable state from.
+     * @param file The [AtomicFile] to read the recoverable state from.
      * @param predicate an optional predicate applied to each tab to determine if it should be restored.
      */
     fun read(
@@ -55,6 +55,7 @@ class BrowserStateReader {
      * Reads a single [RecoverableTab] from the given [file].
      *
      * @param engine The [Engine] implementation for restoring the engine state.
+     * @param file The [AtomicFile] to read the recoverable state from.
      * @param restoreSessionId Whether the original tab ID should be restored or whether a new ID
      * should be generated for the tab.
      * @param restoreParentId Whether the original parent tab ID should be restored or whether it

@@ -33,9 +33,10 @@ import mozilla.components.support.ktx.kotlin.base64ToBitmap
 
 /**
  * A Federated Credential Management dialog for selecting a provider.
+ *
  * @param providers The list of available providers.
- * @param colors The colors of the dialog.
  * @param modifier [Modifier] to be applied to the layout.
+ * @param colors The colors of the dialog.
  * @param onProviderClick Called when the user clicks on an item.
  */
 @Composable

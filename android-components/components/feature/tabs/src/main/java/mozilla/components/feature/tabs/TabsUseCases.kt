@@ -122,6 +122,7 @@ class TabsUseCases(
          *
          * @param url The URL to be loaded in the new tab.
          * @param flags the [LoadUrlFlags] to use when loading the provided URL.
+         * @param additionalHeaders The extra headers to use when loading the provided URL.
          */
         override fun invoke(
             url: String,
@@ -477,9 +478,9 @@ class TabsUseCases(
         /**
          * Moves the tabs of [tabIds] next to [targetTabId], before/after based on [placeAfter]
          *
-         * @property tabIds The IDs of the tabs to move.
-         * @property targetTabId A tab that the moved tabs will be moved next to
-         * @property placeAfter True if the moved tabs should be placed after the target,
+         * @param tabIds The IDs of the tabs to move.
+         * @param targetTabId A tab that the moved tabs will be moved next to
+         * @param placeAfter True if the moved tabs should be placed after the target,
          * False for placing before the target. Irrelevant if the target is one of the tabs being moved,
          * since then the whole list is moved to where the target was. Ordering of the moved tabs
          * relative to each other is preserved.

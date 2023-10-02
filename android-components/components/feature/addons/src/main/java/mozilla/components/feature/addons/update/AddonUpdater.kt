@@ -145,9 +145,12 @@ interface AddonUpdater {
 
 /**
  * An implementation of [AddonUpdater] that uses the work manager api for scheduling new updates.
- * @property applicationContext The application context.
- * @param frequency (Optional) indicates how often updates should be performed, defaults
+ *
+ * @property applicationContext The application [Context].
+ * @property frequency (Optional) indicates how often updates should be performed, defaults
  * to one day.
+ * @property notificationsDelegate The [NotificationsDelegate] for showing notifications and
+ * asking permission.
  */
 @Suppress("LargeClass")
 class DefaultAddonUpdater(

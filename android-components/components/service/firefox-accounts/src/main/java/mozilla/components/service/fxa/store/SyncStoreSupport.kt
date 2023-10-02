@@ -23,12 +23,12 @@ import java.lang.Exception
  * Connections an [FxaAccountManager] with a [SyncStore], so that updates to Sync
  * state can be observed.
  *
- * @param store The [SyncStore] to publish state updates based on [fxaAccountManager] observations.
- * @param fxaAccountManager Account manager that is used to interact with Sync backends.
- * @param lifecycleOwner The lifecycle owner that will tie to the when account manager observations.
+ * @property store The [SyncStore] to publish state updates based on [fxaAccountManager] observations.
+ * @property fxaAccountManager Account manager that is used to interact with Sync backends.
+ * @property lifecycleOwner The lifecycle owner that will tie to the when account manager observations.
  * Recommended that this be an Application or at minimum a persistent Activity.
- * @param autoPause Whether the account manager observations will stop between onPause and onResume.
- * @param coroutineScope Scope used to launch various suspending operations.
+ * @property autoPause Whether the account manager observations will stop between onPause and onResume.
+ * @property coroutineScope Scope used to launch various suspending operations.
  */
 class SyncStoreSupport(
     private val store: SyncStore,
@@ -63,7 +63,7 @@ class SyncStoreSupport(
 /**
  * Maps various [SyncStatusObserver] callbacks to [SyncAction] dispatches.
  *
- * @param store The [SyncStore] that updates will be dispatched to.
+ * @property store The [SyncStore] that updates will be dispatched to.
  */
 internal class AccountSyncObserver(private val store: SyncStore) : SyncStatusObserver {
     override fun onStarted() {
@@ -82,11 +82,13 @@ internal class AccountSyncObserver(private val store: SyncStore) : SyncStatusObs
 /**
  * Maps various [AccountObserver] callbacks to [SyncAction] dispatches.
  *
- * @param store The [SyncStore] that updates will be dispatched to.
- * @param deviceConstellationObserver Will be registered as an observer to any constellations
+ * @property store The [SyncStore] that updates will be dispatched to.
+ * @property deviceConstellationObserver Will be registered as an observer to any constellations
  * received in [AccountObserver.onAuthenticated].
- *
- * See [SyncStoreSupport] for the rest of the param definitions.
+ * @property lifecycleOwner The lifecycle owner that will tie to the when account manager observations.
+ * Recommended that this be an Application or at minimum a persistent Activity.
+ * @property autoPause Whether the account manager observations will stop between onPause and onResume.
+ * @property coroutineScope Scope used to launch various suspending operations.
  */
 internal class FxaAccountObserver(
     private val store: SyncStore,
@@ -118,7 +120,7 @@ internal class FxaAccountObserver(
 /**
  * Maps various [DeviceConstellationObserver] callbacks to [SyncAction] dispatches.
  *
- * @param store The [SyncStore] that updates will be dispatched to.
+ * @property store The [SyncStore] that updates will be dispatched to.
  */
 internal class ConstellationObserver(private val store: SyncStore) : DeviceConstellationObserver {
     override fun onDevicesUpdate(constellation: ConstellationState) {

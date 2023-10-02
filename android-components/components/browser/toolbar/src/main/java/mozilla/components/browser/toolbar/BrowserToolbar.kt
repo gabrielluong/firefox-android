@@ -435,7 +435,7 @@ class BrowserToolbar @JvmOverloads constructor(
      * @param visible Lambda that returns true or false to indicate whether this button should be shown.
      * @param autoHide Lambda that returns true or false to indicate whether this button should auto hide.
      * @param background A custom (stateful) background drawable resource to be used.
-     * @param padding a custom [Padding] for this Button.
+     * @property padding a custom [Padding] for this Button.
      * @param iconTintColorResource Optional ID of color resource to tint the icon.
      * @param longClickListener Callback that will be invoked whenever the button is long-pressed.
      * @param listener Callback that will be invoked whenever the button is pressed
@@ -474,7 +474,7 @@ class BrowserToolbar @JvmOverloads constructor(
      * @param visible Lambda that returns true or false to indicate whether this button should be shown.
      * @param selected Sets whether this button should be selected initially.
      * @param background A custom (stateful) background drawable resource to be used.
-     * @param padding a custom [Padding] for this Button.
+     * @property padding a custom [Padding] for this Button.
      * @param listener Callback that will be invoked whenever the checked state changes.
      */
     open class ToggleButton(
@@ -504,14 +504,14 @@ class BrowserToolbar @JvmOverloads constructor(
      * <code>isInPrimaryState</code> lambda. All secondary characteristics default to their
      * corresponding primary.
      *
-     * @param primaryImage: The drawable to be shown if the button is in the primary/enabled state
-     * @param primaryContentDescription: The content description to use if the button is in the primary state.
-     * @param secondaryImage: The drawable to be shown if the button is in the secondary/disabled state.
-     * @param secondaryContentDescription: The content description to use if the button is in the secondary state.
-     * @param isInPrimaryState: Lambda that returns whether this button should be in the primary or secondary state.
-     * @param primaryImageTintResource: Optional ID of color resource to tint the icon in the primary state.
-     * @param secondaryImageTintResource: ID of color resource to tint the icon in the secondary state.
-     * @param disableInSecondaryState: Disable the button entirely when in the secondary state?
+     * @property primaryImage: The drawable to be shown if the button is in the primary/enabled state
+     * @property primaryContentDescription: The content description to use if the button is in the primary state.
+     * @property secondaryImage: The drawable to be shown if the button is in the secondary/disabled state.
+     * @property secondaryContentDescription: The content description to use if the button is in the secondary state.
+     * @property isInPrimaryState: Lambda that returns whether this button should be in the primary or secondary state.
+     * @property primaryImageTintResource: Optional ID of color resource to tint the icon in the primary state.
+     * @property secondaryImageTintResource: ID of color resource to tint the icon in the secondary state.
+     * @property disableInSecondaryState: Disable the button entirely when in the secondary state?
      * @param background A custom (stateful) background drawable resource to be used.
      * @param longClickListener Callback that will be invoked whenever the button is long-pressed.
      * @param listener Callback that will be invoked whenever the button is pressed.

@@ -38,8 +38,9 @@ interface SupportedAddonsChecker {
 
 /**
  * An implementation of [SupportedAddonsChecker] that uses the work manager api for scheduling checks.
+ *
  * @property applicationContext The application context.
- * @param frequency (Optional) indicates how often checks should be performed, defaults
+ * @property frequency (Optional) indicates how often checks should be performed, defaults
  * to once per day.
  */
 @Suppress("LargeClass")

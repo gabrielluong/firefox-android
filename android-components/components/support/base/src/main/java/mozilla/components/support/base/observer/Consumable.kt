@@ -9,7 +9,7 @@ typealias ConsumableListener = () -> Unit
 /**
  * A generic wrapper for values that can get consumed.
  *
- * @param value The value to be wrapped.
+ * @property value The value to be wrapped.
  * @param onConsume A callback that gets invoked if the wrapped value gets consumed.
  */
 class Consumable<T> private constructor(

@@ -24,15 +24,16 @@ import kotlin.coroutines.CoroutineContext
  * Feature implementation that will keep a [SyncedTabsView] notified with other synced device tabs for
  * the Firefox Sync account.
  *
+ * @param context An Android [Context].
  * @param storage The synced tabs storage that stores the current device's and remote device tabs.
  * @param accountManager Firefox Account Manager that holds a Firefox Sync account.
  * @param view An implementor of [SyncedTabsView] that will be notified of changes.
  * @param lifecycleOwner Android Lifecycle Owner to bind observers onto.
  * @param coroutineContext A coroutine context that can be used to perform work off the main thread.
  * @param onTabClicked Invoked when a tab is selected by the user on the [SyncedTabsView].
- * @param controller See [SyncedTabsController].
- * @param presenter See [SyncedTabsPresenter].
- * @param interactor See [SyncedTabsInteractor].
+ * @property controller See [SyncedTabsController].
+ * @property presenter See [SyncedTabsPresenter].
+ * @property interactor See [SyncedTabsInteractor].
  */
 @Suppress("LongParameterList")
 class SyncedTabsFeature(

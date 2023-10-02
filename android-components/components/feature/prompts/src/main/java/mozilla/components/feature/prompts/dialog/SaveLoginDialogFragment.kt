@@ -390,12 +390,14 @@ internal class SaveLoginDialogFragment : PromptDialogFragment() {
 
         /**
          * A builder method for creating a [SaveLoginDialogFragment]
+         *
          * @param sessionId the id of the session for which this dialog will be created.
          * @param promptRequestUID identifier of the [PromptRequest] for which this dialog is shown.
          * @param shouldDismissOnLoad whether or not the dialog should automatically be dismissed
          * when a new page is loaded.
          * @param hint a value that helps to determine the appropriate prompting behavior.
-         * @param login represents login information on a given domain.
+         * @param entry represents login information on a given domain.
+         * @param icon the icon to display in the dialog.
          * */
         @Suppress("LongParameterList")
         fun newInstance(

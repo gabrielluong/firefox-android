@@ -136,6 +136,7 @@ abstract class WebExtension(
      * Registers a [TabHandler] for the provided [EngineSession]. The handler
      * will be invoked whenever an existing tab should be closed or updated.
      *
+     * @param session the [EngineSession] to register the [TabHandler] for.
      * @param tabHandler the [TabHandler] to be invoked when the web extension
      * wants to update or close an existing tab.
      */

@@ -18,9 +18,9 @@ import mozilla.components.support.base.log.logger.Logger
  * A [LifecycleAwareFeature] for the Android Biometric API to prompt for user authentication.
  * The prompt also requests support for the device PIN as a fallback authentication mechanism.
  *
- * @param context Android context.
- * @param fragment The fragment on which this feature will live.
- * @param authenticationDelegate Callbacks for BiometricPrompt.
+ * @property context Android context.
+ * @property fragment The fragment on which this feature will live.
+ * @property authenticationDelegate Callbacks for [BiometricPrompt].
  */
 class BiometricPromptAuth(
     private val context: Context,

@@ -30,6 +30,8 @@ interface TabCollection {
     /**
      * Restores all tabs in this collection and returns a matching list of [RecoverableTab] objects.
      *
+     * @param context An Android [Context].
+     * @param engine The [Engine] implementation for restoring the engine state.
      * @param restoreSessionId If true the original ID of the tabs will be restored. Otherwise a new ID
      * will be generated. An app may prefer to use a new ID if it expects tab to get restored multiple times -
      * otherwise breaking the promise of a unique ID per tab.
@@ -44,6 +46,9 @@ interface TabCollection {
      * Restores a subset of the tabs in this collection and returns a matching list of
      * [RecoverableTab] objects.
      *
+     * @param context An Android [Context].
+     * @param engine The [Engine] implementation for restoring the engine state.
+     * @param tabs The subset of [Tab]s to restore.
      * @param restoreSessionId If true the original ID of the tabs will be restored. Otherwise a new ID
      * will be generated. An app may prefer to use a new ID if it expects tab to get restored multiple times -
      * otherwise breaking the promise of a unique ID per tab.

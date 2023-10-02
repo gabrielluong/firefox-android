@@ -88,7 +88,9 @@ interface HistoryStorage : Storage {
 
     /**
      * Retrieves suggestions matching the [query].
+     *
      * @param query A query by which to search the underlying store.
+     * @param limit The maximum number of entries to return.
      * @return A List of [SearchResult] matching the query, in no particular order.
      */
     fun getSuggestions(query: String, limit: Int): List<SearchResult>

@@ -162,8 +162,8 @@ abstract class PlacesStorage(
      * [default] value is returned.
      *
      * @param operation the name of the operation to run.
-     * @param block the operation to run.
      * @param default the default value to return in case of errors.
+     * @param block the operation to run.
      */
     inline fun <T> handlePlacesExceptions(
         operation: String,

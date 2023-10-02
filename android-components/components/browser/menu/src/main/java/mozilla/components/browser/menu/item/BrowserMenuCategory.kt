@@ -22,14 +22,14 @@ import mozilla.components.concept.menu.candidate.TypefaceStyle
 /**
  * A browser menu item displaying styleable text, usable for menu categories
  *
- * @param label The visible label of this menu item.
- * @param textSize: The size of the label.
- * @param textColorResource: The color resource to apply to the text.
- * @param backgroundColorResource: The color resource to apply to the item background.
- * @param textStyle: The style to apply to the text.
- * @param textAlignment The alignment of text
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property label The visible label of this menu item.
+ * @property textSize: The size of the label.
+ * @property textColorResource: The color resource to apply to the text.
+ * @property backgroundColorResource: The color resource to apply to the item background.
+ * @property textStyle: The style to apply to the text.
+ * @property textAlignment The alignment of the text.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
  */
 @Suppress("LongParameterList")

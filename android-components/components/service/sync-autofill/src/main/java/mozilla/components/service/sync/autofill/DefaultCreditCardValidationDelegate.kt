@@ -16,7 +16,7 @@ import mozilla.components.concept.storage.CreditCardsAddressesStorage
  * A delegate that will check against the [CreditCardsAddressesStorage] to determine if a given
  * [CreditCard] can be persisted and returns information about why it can or cannot.
  *
- * @param storage An instance of [CreditCardsAddressesStorage].
+ * @property storage An instance of [CreditCardsAddressesStorage].
  */
 class DefaultCreditCardValidationDelegate(
     private val storage: Lazy<CreditCardsAddressesStorage>,

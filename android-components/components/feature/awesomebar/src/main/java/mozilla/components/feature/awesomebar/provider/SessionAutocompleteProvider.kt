@@ -17,13 +17,11 @@ internal const val LOCAL_TABS_AUTOCOMPLETE_SOURCE_NAME = "localTabs"
 /**
  * Provide autocomplete suggestions from the currently opened tabs.
  *
- * @param store [BrowserStore] containing the information about the currently open tabs.
- * @param autocompletePriority Order in which this provider will be queried for autocomplete suggestions
- * in relation ot others.
+ * @property store [BrowserStore] containing the information about the currently open tabs.
+ * @property autocompletePriority Order in which this provider will be queried for autocomplete suggestions
+ * in relation ot others. Defaults to `0`.
  *  - a lower priority means that this provider must be called before others with a higher priority.
  *  - an equal priority offers no ordering guarantees.
- *
- * Defaults to `0`.
  */
 class SessionAutocompleteProvider(
     private val store: BrowserStore,

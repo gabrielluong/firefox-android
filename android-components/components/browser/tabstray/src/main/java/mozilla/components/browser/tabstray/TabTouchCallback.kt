@@ -12,7 +12,7 @@ import mozilla.components.browser.state.state.TabSessionState
 /**
  * An [ItemTouchHelper.Callback] for support gestures on tabs in the tray.
  *
- * @param onRemoveTab A callback invoked when a tab is removed.
+ * @property onRemoveTab A callback invoked when a tab is removed.
  */
 open class TabTouchCallback(
     private val onRemoveTab: (TabSessionState) -> Unit,

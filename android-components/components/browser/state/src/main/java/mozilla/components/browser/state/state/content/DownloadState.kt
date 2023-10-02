@@ -20,12 +20,12 @@ import java.util.UUID
  * @property status The current status of the download.
  * @property userAgent The user agent to be used for the download.
  * @property destinationDirectory The matching destination directory for this type of download.
- * @property filePath The file path the file was saved at.
  * @property referrerUrl The site that linked to this download.
  * @property skipConfirmation Whether or not the confirmation dialog should be shown before the download begins.
  * @property openInApp Whether or not the file associated with this download should be opened in a
  * third party app after downloaded successfully.
  * @property id The unique identifier of this download.
+ * @property sessionId The ID of the session for this download.
  * @property private Indicates if the download was created from a private session.
  * @property createdTime A timestamp when the download was created.
  * @property response A response object associated with this request, when provided can be
@@ -53,6 +53,7 @@ data class DownloadState(
     val response: Response? = null,
     val notificationId: Int? = null,
 ) {
+    // The file path the file was saved at.
     val filePath: String get() =
         Environment.getExternalStoragePublicDirectory(destinationDirectory).path + File.separatorChar + fileName
 

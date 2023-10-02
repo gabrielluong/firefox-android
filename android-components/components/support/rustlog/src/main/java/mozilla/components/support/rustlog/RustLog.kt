@@ -42,14 +42,14 @@ object RustLog {
      * setting the max level here can improve performance a great deal,
      * as it allows the Rust code to skip a great deal of work.
      *
-     * This includes a `includePII` flag, which allows enabling logs at
+     * This includes a [includePII] flag, which allows enabling logs at
      * the trace level. It is ignored if level is not [Log.Priority.DEBUG].
      * These trace level logs* may contain the personal information of users
      * but can be very helpful for tracking down bugs.
      *
-     * @param level The maximum (inclusive) level to include logs at.
-     * @param includePII If `level` is [Log.Priority.DEBUG], allow
-     *     debug logs to contain PII.
+     * @param priority The maximum (inclusive) level to include logs at.
+     * @param includePII If [priority] is [Log.Priority.DEBUG], allow
+     * debug logs to contain PII.
      */
     fun setMaxLevel(priority: Log.Priority, includePII: Boolean = false) {
         setMaxLevel(priority.asLevel(includePII))

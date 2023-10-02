@@ -16,10 +16,10 @@ import java.util.Locale
  * @property tabs the list of open tabs, defaults to an empty list.
  * @property tabPartitions a mapping of IDs to the corresponding [TabPartition]. A partition
  * is used to store tab groups for a specific feature.
+ * @property customTabs the list of custom tabs, defaults to an empty list.
  * @property closedTabs the list of recently closed tabs if a [RecentlyClosedMiddleware] is added,
  * defaults to an empty list.
  * @property selectedTabId the ID of the currently selected (active) tab.
- * @property customTabs the list of custom tabs, defaults to an empty list.
  * @property containers A map of [SessionState.contextId] and their respective container [ContainerState].
  * @property extensions A map of extension IDs and web extensions of all installed web extensions.
  * The extensions here represent the default values for all [BrowserState.extensions] and can
@@ -27,12 +27,14 @@ import java.util.Locale
  * @property webExtensionPromptRequest the actual active web extension prompt request.
  * @property activeWebExtensionTabId the ID of the tab that is marked active for web extensions
  * to support tabs.query({active: true}).
- * @property search the state of search for this browser state.
  * @property downloads Downloads ([DownloadState]s) mapped to their IDs.
+ * @property search the state of search for this browser state.
  * @property undoHistory History of recently closed tabs to support "undo" (Requires UndoMiddleware).
  * @property restoreComplete Whether or not restoring [BrowserState] has completed. This can be used
  * on application startup e.g. as an indicator that tabs have been restored.
  * @property locale The current locale of the app. Will be null when following the system default.
+ * @property showExtensionProcessDisabledPopup Whether or not to show a popup when the extensions
+ * process spawning has been disabled.
  */
 data class BrowserState(
     val tabs: List<TabSessionState> = emptyList(),

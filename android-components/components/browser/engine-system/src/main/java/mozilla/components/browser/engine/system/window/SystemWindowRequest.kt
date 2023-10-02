@@ -14,11 +14,12 @@ import mozilla.components.concept.engine.window.WindowRequest
  * WebView-based implementation of [WindowRequest].
  *
  * @property webView the WebView from which the request originated.
- * @property newWebView the WebView to use for opening a new window, may be null for close requests.
  * @property newEngineSession the new [EngineSession] to handle this request.
+ * @property newWebView the WebView to use for opening a new window, may be null for close requests.
  * @property openAsDialog whether or not the window should be opened as a dialog, defaults to false.
  * @property triggeredByUser whether or not the request was triggered by the user, defaults to false.
  * @property resultMsg the message to send to the new WebView, may be null.
+ * @property type The [WindowRequest.Type] of this [WindowRequest].
  */
 class SystemWindowRequest(
     private val webView: WebView,

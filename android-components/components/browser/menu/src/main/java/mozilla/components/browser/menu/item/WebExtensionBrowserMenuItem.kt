@@ -29,10 +29,11 @@ import mozilla.components.ui.icons.R as iconsR
 /**
  * A browser menu item displaying a web extension action.
  *
- * @param action the [Action] to display.
- * @param listener a callback to be invoked when this menu item is clicked.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property action the [Action] to display.
+ * @property listener a callback to be invoked when this menu item is clicked.
+ * @property id The web extension ID associated with this menu item.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
  */
 class WebExtensionBrowserMenuItem(

@@ -82,7 +82,7 @@ internal const val STORAGE_ACCESS_DOCUMENTATION_URL =
  * suitable [SitePermissionsDialogFragment].
  * Once the dialog is closed the [PermissionRequest] will be consumed.
  *
- * @property context a reference to the context.
+ * @property context a reference to the [Context].
  * @property sessionId optional sessionId to be observed if null the selected session will be observed.
  * @property storage the object in charge of persisting all the [SitePermissions] objects.
  * @property sitePermissionsRules indicates how permissions should behave per permission category.
@@ -93,9 +93,9 @@ internal const val STORAGE_ACCESS_DOCUMENTATION_URL =
  * need to be requested. Once the request is completed, [onPermissionsResult] needs to be invoked.
  * @property onShouldShowRequestPermissionRationale a callback that allows the feature to query
  * the ActivityCompat.shouldShowRequestPermissionRationale or the Fragment.shouldShowRequestPermissionRationale values.
+ * @property store   reference to the application's [BrowserStore].
  * @property shouldShowDoNotAskAgainCheckBox optional Visibility for Do not ask again Checkbox
  **/
-
 @Suppress("TooManyFunctions", "LargeClass", "LongParameterList")
 class SitePermissionsFeature(
     private val context: Context,

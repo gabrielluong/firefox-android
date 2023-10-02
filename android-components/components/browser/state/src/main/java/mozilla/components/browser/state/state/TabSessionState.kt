@@ -28,7 +28,7 @@ import java.util.UUID
  * @property contextId the session context ID of this tab.
  * @property lastAccess The last time this tab was selected (requires LastAccessMiddleware).
  * @property createdAt Timestamp of this tab's creation.
- * @property lastMediaAccessState - [LastMediaAccessState] detailing the tab state when media started playing.
+ * @property lastMediaAccessState [LastMediaAccessState] detailing the tab state when media started playing.
  * Requires [LastMediaAccessMiddleware] to update the value when playback starts.
  * @property restored Indicates if this page was restored from a persisted state.
  * @property isProductUrl has the product URL status of this tab.

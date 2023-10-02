@@ -63,20 +63,20 @@ private const val FILE_REGEX = "([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}
 /**
  * A [CrashReporterService] implementation uploading crash reports to crash-stats.mozilla.com.
  *
- * @param applicationContext The application [Context].
- * @param appName A human-readable app name. This name is used on crash-stats.mozilla.com to filter crashes by app.
- *                The name needs to be safelisted for the server to accept the crash.
- *                [File a bug](https://bugzilla.mozilla.org/enter_bug.cgi?product=Socorro) if you would like to get your
- *                app added to the safelist.
- * @param appId The application ID assigned by Socorro server.
- * @param version The engine version.
- * @param buildId The engine build ID.
- * @param vendor The application vendor name.
- * @param serverUrl The URL of the server.
- * @param versionName The version of the application.
- * @param versionCode The version code of the application.
- * @param releaseChannel The release channel of the application.
- * @param distributionId The distribution id of the application.
+ * @property applicationContext The application [Context].
+ * @property appName A human-readable app name. This name is used on crash-stats.mozilla.com to filter crashes by app.
+ * The name needs to be safelisted for the server to accept the crash.
+ * [File a bug](https://bugzilla.mozilla.org/enter_bug.cgi?product=Socorro) if you would like to get your
+ * app added to the safelist.
+ * @property appId The application ID assigned by Socorro server.
+ * @property version The engine version.
+ * @property buildId The engine build ID.
+ * @property vendor The application vendor name.
+ * @property serverUrl The URL of the server.
+ * @property versionName The version of the application.
+ * @property versionCode The version code of the application.
+ * @property releaseChannel The release channel of the application.
+ * @property distributionId The distribution id of the application.
  */
 @Suppress("LargeClass", "LongParameterList")
 class MozillaSocorroService(

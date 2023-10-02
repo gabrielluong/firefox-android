@@ -34,17 +34,17 @@ import mozilla.components.support.ktx.android.content.appName
  *
  * It requires: a [Context], and a [FragmentManager].
  *
- * @param context Context the feature is associated with.
- * @param store Reference to the application's [BrowserStore].
- * @param sessionId The session ID to observe.
- * @param fragmentManager FragmentManager for interacting with fragments.
- * @param dialog The dialog for redirect.
- * @param launchInApp If {true} then launch app links in third party app(s). Default to false because
+ * @property context Context the feature is associated with.
+ * @property store Reference to the application's [BrowserStore].
+ * @property sessionId The session ID to observe.
+ * @property fragmentManager FragmentManager for interacting with fragments.
+ * @property dialog The dialog for redirect.
+ * @property launchInApp If {true} then launch app links in third party app(s). Default to false because
  * of security concerns.
- * @param useCases These use cases allow for the detection of, and opening of links that other apps
+ * @property useCases These use cases allow for the detection of, and opening of links that other apps
  * have registered to open.
- * @param failedToLaunchAction Action to perform when failing to launch in third party app.
- * @param loadUrlUseCase Used to load URL if user decides not to launch in third party app.
+ * @property failedToLaunchAction Action to perform when failing to launch in third party app.
+ * @property loadUrlUseCase Used to load URL if user decides not to launch in third party app.
  **/
 @Suppress("LongParameterList")
 class AppLinksFeature(

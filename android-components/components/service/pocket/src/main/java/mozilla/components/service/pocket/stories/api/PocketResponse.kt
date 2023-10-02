@@ -12,7 +12,7 @@ internal sealed class PocketResponse<T> {
     /**
      * A successful response from the Pocket API.
      *
-     * @param data The data returned from the Pocket API.
+     * @property data The data returned from the Pocket API.
      */
     data class Success<T> internal constructor(val data: T) : PocketResponse<T>()
 

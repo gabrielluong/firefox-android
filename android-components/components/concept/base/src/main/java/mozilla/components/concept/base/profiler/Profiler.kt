@@ -95,9 +95,9 @@ interface Profiler {
      * No-op if profiler is not active.
      * This is an overload of [Profiler.addMarker] for convenience.
      *
-     * @param aMarkerName Name of the event as a string.
-     * @param aStartTime Start time as Double. It can be null if you want to mark a point of time.
-     * @param aText An optional string field for more information about the marker.
+     * @param markerName Name of the event as a string.
+     * @param startTime Start time as Double. It can be null if you want to mark a point of time.
+     * @param text An optional string field for more information about the marker.
      */
     fun addMarker(markerName: String, startTime: Double?, text: String?)
 
@@ -139,9 +139,9 @@ interface Profiler {
      * to profiling, as an alternative to the traditional way of using a desktop Firefox instance
      * connected via USB + adb.
      *
-     * @param aFilters The list of threads to profile, as an array of string of thread names filters.
+     * @param filters The list of threads to profile, as an array of string of thread names filters.
      *     Each filter is used as a case-insensitive substring match against the actual thread names.
-     * @param aFeaturesArr The list of profiler features to enable for profiling, as a string array.
+     * @param features The list of profiler features to enable for profiling, as a string array.
      */
     fun startProfiler(filters: Array<String>, features: Array<String>)
 

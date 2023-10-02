@@ -22,8 +22,8 @@ import java.io.File
  * This is used by components that need to persist [EngineSessionState] instances separately from
  * [RecoverableBrowserState].
  *
- * @param context A [Context] used for accessing file system.
- * @param engine An [Engine] instance used for rehydrating persisted [EngineSessionState].
+ * @property context A [Context] used for accessing file system.
+ * @property engine An [Engine] instance used for rehydrating persisted [EngineSessionState].
  */
 class FileEngineSessionStateStorage(
     private val context: Context,

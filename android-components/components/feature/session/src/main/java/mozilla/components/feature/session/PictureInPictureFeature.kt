@@ -20,11 +20,11 @@ import mozilla.components.support.base.log.logger.Logger
 /**
  * A simple implementation of Picture-in-picture mode if on a supported platform.
  *
- * @param store Browser Store for observing the selected session's fullscreen mode changes.
- * @param activity the activity with the EngineView for calling PIP mode when required; the AndroidX Fragment
+ * @property store Browser Store for observing the selected session's fullscreen mode changes.
+ * @property activity the activity with the EngineView for calling PIP mode when required; the AndroidX Fragment
  * doesn't support this.
- * @param crashReporting Instance of `CrashReporting` to record unexpected caught exceptions
- * @param tabId ID of tab or custom tab session.
+ * @property crashReporting Instance of `CrashReporting` to record unexpected caught exceptions
+ * @property tabId ID of tab or custom tab session.
  */
 class PictureInPictureFeature(
     private val store: BrowserStore,

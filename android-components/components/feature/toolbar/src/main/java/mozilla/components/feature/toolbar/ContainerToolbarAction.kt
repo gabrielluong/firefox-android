@@ -24,9 +24,9 @@ import mozilla.components.ui.icons.R as iconsR
 /**
  * An action button that represents a container to be added to the toolbar.
  *
- * @param container Associated [ContainerState]'s icon and color to render in the toolbar.
- * @param padding A optional custom padding.
- * @param listener A optional callback that will be invoked whenever the button is pressed.
+ * @property container Associated [ContainerState]'s icon and color to render in the toolbar.
+ * @property padding A optional custom padding.
+ * @property listener A optional callback that will be invoked whenever the button is pressed.
  */
 class ContainerToolbarAction(
     internal val container: ContainerState,

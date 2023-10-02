@@ -50,9 +50,10 @@ const val SHORTCUT_CATEGORY = mozilla.components.feature.customtabs.SHORTCUT_CAT
 /**
  * Helper to manage pinned shortcuts for websites.
  *
+ * @param context The application [Context].
  * @param httpClient Fetch client used to load website icons.
- * @param storage Storage used to save web app manifests to disk.
- * @param supportWebApps If true, Progressive Web Apps will be pinnable.
+ * @property storage Storage used to save web app manifests to disk.
+ * @property supportWebApps If true, Progressive Web Apps will be pinnable.
  * If false, all web sites will be bookmark shortcuts even if they have a manifest.
  */
 class WebAppShortcutManager(

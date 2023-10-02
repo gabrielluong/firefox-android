@@ -10,10 +10,10 @@ import androidx.annotation.Dimension.Companion.PX
 /**
  * A representation of an Android Padding.
  *
- * @param left Padding start in PX.
- * @param top Padding top in PX.
- * @param right Padding end in PX.
- * @param bottom Padding end in PX.
+ * @property left Padding start in PX.
+ * @property top Padding top in PX.
+ * @property right Padding end in PX.
+ * @property bottom Padding end in PX.
  */
 data class Padding(
     @Dimension(unit = PX) val left: Int,

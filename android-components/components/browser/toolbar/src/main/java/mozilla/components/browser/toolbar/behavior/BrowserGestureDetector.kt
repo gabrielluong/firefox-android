@@ -26,8 +26,9 @@ internal class BrowserGestureDetectorException(e: Throwable) : Throwable(e)
  *  - higher sensitivity for multi-finger zoom gestures
  *  - ignoring scrolls if zoom is in progress
  *
- *  @param applicationContext context used for registering internal gesture listeners.
- *  @param listener client interested in zoom / scroll events.
+ * @param applicationContext context used for registering internal gesture listeners.
+ * @param listener client interested in zoom / scroll events.
+ * @property crashReporting Instance of [CrashReporting] to record unexpected caught exceptions.
  */
 internal class BrowserGestureDetector(
     applicationContext: Context,

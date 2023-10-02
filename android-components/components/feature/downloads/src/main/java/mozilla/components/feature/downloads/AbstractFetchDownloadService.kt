@@ -349,7 +349,8 @@ abstract class AbstractFetchDownloadService : Service() {
 
     /**
      * Data class for styling download notifications.
-     * @param notificationAccentColor accent color for all download notifications.
+     *
+     * @property notificationAccentColor accent color for all download notifications.
      */
     data class Style(
         @ColorRes

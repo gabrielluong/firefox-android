@@ -18,7 +18,12 @@ import mozilla.components.concept.menu.candidate.TextMenuCandidate
 /**
  * A back press menu item for a nested sub menu entry.
  *
- * @param backPressListener Callback to be invoked when the back press menu item is clicked.
+ * @property contentDescription The context description of this menu item.
+ * @param label The visible label of this menu item.
+ * @param imageResource ID of a drawable resource to be shown as icon.
+ * @param iconTintColorResource Optional ID of color resource to tint the icon.
+ * @param textColorResource Optional ID of color resource to tint the text.
+ * @property backPressListener Callback to be invoked when the back press menu item is clicked.
  */
 class BackPressMenuItem(
     val contentDescription: String,

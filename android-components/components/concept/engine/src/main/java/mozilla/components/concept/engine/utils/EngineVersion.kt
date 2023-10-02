@@ -17,12 +17,12 @@ enum class EngineReleaseChannel {
 /**
  * Data class for engine versions using semantic versioning (major.minor.patch).
  *
- * @param major Major version number
- * @param minor Minor version number
- * @param patch Patch version number
- * @param metadata Additional and optional metadata appended to the version number, e.g. for a version number of
+ * @property major Major version number
+ * @property minor Minor version number
+ * @property patch Patch version number
+ * @property metadata Additional and optional metadata appended to the version number, e.g. for a version number of
  * "68.0a1" [metadata] will contain "a1".
- * @param releaseChannel Additional property indicating the release channel of this version.
+ * @property releaseChannel Additional property indicating the release channel of this version.
  */
 data class EngineVersion(
     val major: Int,

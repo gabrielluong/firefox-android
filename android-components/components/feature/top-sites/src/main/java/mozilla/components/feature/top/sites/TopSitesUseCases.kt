@@ -13,10 +13,12 @@ class TopSitesUseCases(topSitesStorage: TopSitesStorage) {
      */
     class AddPinnedSiteUseCase internal constructor(private val storage: TopSitesStorage) {
         /**
-         * Adds a new [PinnedSite].
+         * Adds a new [TopSite].
          *
          * @param title The title string.
          * @param url The URL string.
+         * @param isDefault Whether or not the top site added should be a default top site. This
+         * is used to identify top sites that are added by the application.
          */
         operator fun invoke(title: String, url: String, isDefault: Boolean = false) {
             storage.addTopSite(title, url, isDefault)

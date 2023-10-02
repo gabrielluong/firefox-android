@@ -29,7 +29,7 @@ internal class Safelist {
      * Checks if the given resource is safe-listed for the given host.
      *
      * @param host the host URI as string ("foo.com")
-     * @param host the resources URI as string ("bar.com")
+     * @param resource the resources URI as string ("bar.com")
      */
     fun contains(host: String, resource: String): Boolean {
         return contains(Uri.parse(host), Uri.parse(resource))

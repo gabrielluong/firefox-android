@@ -37,21 +37,21 @@ internal const val COMBINED_HISTORY_RESULTS_TO_FILTER_SCALE_FACTOR = 10
  * followed by suggestion from [HistoryStorageSuggestionProvider] up to the provided
  * [maxNumberOfSuggestions].
  *
- * @param historyStorage an instance of the [HistoryStorage] used
+ * @property historyStorage an instance of the [HistoryStorage] used
  * to query matching metadata records.
- * @param historyMetadataStorage an instance of the [HistoryStorage] used
+ * @property historyMetadataStorage an instance of the [HistoryStorage] used
  * to query matching metadata records.
- * @param loadUrlUseCase the use case invoked to load the url when the
+ * @property loadUrlUseCase the use case invoked to load the url when the
  * user clicks on the suggestion.
- * @param icons optional instance of [BrowserIcons] to load fav icons
+ * @property icons optional instance of [BrowserIcons] to load fav icons
  * for [HistoryMetadata] URLs.
- * @param engine optional [Engine] instance to call [Engine.speculativeConnect] for the
+ * @property engine optional [Engine] instance to call [Engine.speculativeConnect] for the
  * highest scored suggestion URL.
- * @param maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions,
+ * @property maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions,
  * defaults to [DEFAULT_COMBINED_SUGGESTION_LIMIT].
- * @param showEditSuggestion optional parameter to specify if the suggestion should show the edit button
- * @param suggestionsHeader optional parameter to specify if the suggestion should have a header
- * @param resultsUriFilter Optional filter for the host url of the suggestions to show.
+ * @property showEditSuggestion optional parameter to specify if the suggestion should show the edit button.
+ * @property suggestionsHeader optional parameter to specify if the suggestion should have a header.
+ * @property resultsUriFilter Optional filter for the host url of the suggestions to show.
  */
 @Suppress("LongParameterList")
 class CombinedHistorySuggestionProvider(
@@ -153,8 +153,8 @@ class CombinedHistorySuggestionProvider(
     /**
      * Get up to [maxNumberOfSuggestions] history metadata suggestions matching [query] from the indicated [url].
      *
-     * @param query String to filter history entry's title or URL by.
      * @param url URL host to filter all history entry's URL host by.
+     * @param query String to filter history entry's title or URL by.
      */
     private suspend fun getMetadataSuggestionsFromHost(url: Uri, query: String) = historyMetadataStorage
         .queryHistoryMetadata(query, maxNumberOfSuggestions * COMBINED_HISTORY_RESULTS_TO_FILTER_SCALE_FACTOR)
@@ -178,8 +178,8 @@ class CombinedHistorySuggestionProvider(
     /**
      * Get up to [maxNumberOfSuggestions] history metadata suggestions matching [query] from the indicated [url].
      *
-     * @param query String to filter history entry's title or URL by.
      * @param url URL host to filter all bookmarks' URL host by.
+     * @param query String to filter history entry's title or URL by.
      */
     private suspend fun getHistorySuggestionsFromHost(url: Uri, query: String) = historyStorage
         .getSuggestions(query, maxNumberOfSuggestions * COMBINED_HISTORY_RESULTS_TO_FILTER_SCALE_FACTOR)

@@ -14,8 +14,8 @@ import mozilla.components.browser.menu.R
  * A browser menu item that is to be used only as a placeholder for inserting web extensions in main menu.
  * The id of the web extension to be inserted has to correspond to the id of the browser menu item.
  *
- * @param id The id of this menu item.
- * @param iconTintColorResource Optional ID of color resource to tint the icon.
+ * @property id The id of this menu item.
+ * @property iconTintColorResource Optional ID of color resource to tint the icon.
  */
 class WebExtensionPlaceholderMenuItem(
     val id: String,

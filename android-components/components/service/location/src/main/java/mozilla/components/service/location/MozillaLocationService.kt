@@ -43,7 +43,8 @@ private const val KEY_COUNTRY_NAME = "country_name"
  * Note: Accessing the Mozilla Location Service requires an API token:
  * https://location.services.mozilla.com/contact
  *
- * @param client The HTTP client that this [MozillaLocationService] should use for requests.
+ * @property context An Android [Context].
+ * @property client The HTTP client that this [MozillaLocationService] should use for requests.
  * @param apiKey The API key that is used to access the Mozilla location service.
  * @param serviceUrl An optional URL override usually only needed for testing.
  */

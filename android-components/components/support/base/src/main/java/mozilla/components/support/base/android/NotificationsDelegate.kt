@@ -27,15 +27,17 @@ class UnboundHandlerException(message: String) : Exception(message)
 /**
  * Handles showing notifications and asking permission, if needed.
  *
- * @param notificationManagerCompat a reference to [NotificationManagerCompat].
- * @property onPermissionGranted optional callback for handling permission acceptance.
- * @property onPermissionRejected optional callback for handling permission refusal.
+ * @property notificationManagerCompat a reference to [NotificationManagerCompat].
  */
 class NotificationsDelegate(
     val notificationManagerCompat: NotificationManagerCompat,
 ) {
+    // Optional callback for handling permission acceptance.
     private var onPermissionGranted: OnPermissionGranted = { }
+
+    // Optional callback for handling permission refusal.
     private var onPermissionRejected: OnPermissionRejected = { }
+
     private val notificationPermissionHandler: MutableMap<AppCompatActivity, ActivityResultLauncher<String>> =
         mutableMapOf()
 

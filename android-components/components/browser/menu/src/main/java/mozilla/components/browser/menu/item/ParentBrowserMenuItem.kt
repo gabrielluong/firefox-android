@@ -23,13 +23,13 @@ import mozilla.components.concept.menu.candidate.TextStyle
  * A parent menu item for displaying text and an image icon with a nested sub menu.
  * It handles back pressing if the sub menu contains a [BackPressMenuItem].
  *
- * @param label The visible label of this menu item.
- * @param imageResource ID of a drawable resource to be shown as icon.
- * @param iconTintColorResource Optional ID of color resource to tint the icon.
- * @param textColorResource Optional ID of color resource to tint the text.
+ * @property label The visible label of this menu item.
+ * @property imageResource ID of a drawable resource to be shown as icon.
+ * @property iconTintColorResource Optional ID of color resource to tint the icon.
+ * @property textColorResource Optional ID of color resource to tint the text.
  * @property subMenu Target sub menu to be shown when this menu item is clicked.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
  * @param endOfMenuAlwaysVisible when is set to true makes sure the bottom of the menu is always visible
  * otherwise, the top of the menu is always visible.

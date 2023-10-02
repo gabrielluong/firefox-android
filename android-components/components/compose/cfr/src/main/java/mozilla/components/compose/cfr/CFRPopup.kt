@@ -26,6 +26,7 @@ import java.lang.ref.WeakReference
  * If more colors are provided they will be used in a gradient.
  * @property popupVerticalOffset Vertical distance between the indicator arrow and the anchor.
  * This only applies if [overlapAnchor] is `false`.
+ * @property showDismissButton Whether or not to show the dismiss button.
  * @property dismissButtonColor The tint color that should be applied to the dismiss button.
  * @property dismissOnBackPress Whether the popup can be dismissed by pressing the back button.
  * If true, pressing the back button will also call onDismiss().
@@ -56,13 +57,13 @@ data class CFRPopupProperties(
 /**
  * CFR - Contextual Feature Recommendation popup.
  *
- * @param anchor [View] that will serve as the anchor of the popup and serve as lifecycle owner
+ * @property anchor [View] that will serve as the anchor of the popup and serve as lifecycle owner
  * for this popup also.
- * @param properties [CFRPopupProperties] allowing to customize the popup appearance and behavior.
- * @param onDismiss Callback for when the popup is dismissed indicating also if the dismissal
+ * @property properties [CFRPopupProperties] allowing to customize the popup appearance and behavior.
+ * @property onDismiss Callback for when the popup is dismissed indicating also if the dismissal
  * was explicit - by tapping the "X" button or not.
- * @param text [Text] already styled and ready to be shown in the popup.
- * @param action Optional other composable to show just below the popup text.
+ * @property text [Text] already styled and ready to be shown in the popup.
+ * @property action Optional other composable to show just below the popup text.
  */
 class CFRPopup(
     @get:VisibleForTesting internal val anchor: View,

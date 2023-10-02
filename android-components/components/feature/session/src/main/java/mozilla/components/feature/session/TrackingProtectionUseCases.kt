@@ -17,8 +17,8 @@ import java.lang.Exception
 /**
  * Contains use cases related to the tracking protection.
  *
- * @param store the application's [BrowserStore].
- * @param engine the application's [Engine].
+ * @property store the application's [BrowserStore].
+ * @property engine the application's [Engine].
  */
 class TrackingProtectionUseCases(
     val store: BrowserStore,

@@ -20,8 +20,11 @@ import mozilla.components.support.base.feature.LifecycleAwareFeature
 /**
  * Prevents screenshots and screen recordings in private tabs.
  *
- * @param isSecure Returns true if the session should have [FLAG_SECURE] set.
- * @param clearFlagOnStop Used to keep [FLAG_SECURE] enabled or not when calling [stop].
+ * @property window Reference to the [Window] to secure.
+ * @property store The [BrowserStore] this feature should subscribe to.
+ * @property customTabId Optional id of a custom tab.
+ * @property isSecure Returns true if the session should have [FLAG_SECURE] set.
+ * @property clearFlagOnStop Used to keep [FLAG_SECURE] enabled or not when calling [stop].
  * Can be overriden to customize when the secure flag is set.
  */
 class SecureWindowFeature(

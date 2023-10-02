@@ -14,7 +14,9 @@ import org.mozilla.geckoview.BasicSelectionActionDelegate
 /**
  * An adapter between the GV [BasicSelectionActionDelegate] and a generic [SelectionActionDelegate].
  *
- * @param customDelegate handles as much of this logic as possible.
+ * @param activity The [Activity] for performing the selection action.
+ * @property customDelegate [SelectionActionDelegate] for handling the context menu that is shown
+ * when text is selected.
  */
 open class GeckoSelectionActionDelegate(
     activity: Activity,

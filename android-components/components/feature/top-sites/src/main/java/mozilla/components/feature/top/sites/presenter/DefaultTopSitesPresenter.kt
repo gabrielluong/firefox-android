@@ -16,10 +16,11 @@ import kotlin.coroutines.CoroutineContext
  * Default implementation of [TopSitesPresenter]. Connects the [TopSitesView] with the
  * [TopSitesStorage] to update the view whenever the storage is updated.
  *
- * @param view An implementor of [TopSitesView] that will be notified of changes to the storage.
- * @param storage The top sites storage that stores pinned and frecent sites.
- * @param config Lambda expression that returns [TopSitesConfig] which species the number of top
+ * @property view An implementor of [TopSitesView] that will be notified of changes to the storage.
+ * @property storage The top sites storage that stores pinned and frecent sites.
+ * @property config Lambda expression that returns [TopSitesConfig] which species the number of top
  * sites to return and whether or not to include frequently visited sites.
+ * @param coroutineContext An instance of [CoroutineContext] used for executing async actions.
  */
 internal class DefaultTopSitesPresenter(
     override val view: TopSitesView,

@@ -85,15 +85,16 @@ value class NegativeActionCallback(val value: () -> Unit)
  * session. The feature will subscribe to the selected session and listen
  * for downloads.
  *
- * @property applicationContext a reference to the application context.
+ * @property applicationContext a reference to the application [Context].
+ * @property store a reference to the application's [BrowserStore].
+ * @property useCases [DownloadsUseCases] instance for consuming processed downloads.
  * @property onNeedToRequestPermissions a callback invoked when permissions
  * need to be requested before a download can be performed. Once the request
  * is completed, [onPermissionsResult] needs to be invoked.
- * @property onDownloadStopped a callback invoked when a download is paused or completed.
+ * @param onDownloadStopped a callback invoked when a download is paused or completed.
  * @property downloadManager a reference to the [DownloadManager] which is
  * responsible for performing the downloads.
- * @property store a reference to the application's [BrowserStore].
- * @property useCases [DownloadsUseCases] instance for consuming processed downloads.
+ * @property tabId the tab ID that requires the download functionality.
  * @property fragmentManager a reference to a [FragmentManager]. If a fragment
  * manager is provided, a dialog will be shown before every download.
  * @property promptsStyling styling properties for the dialog.

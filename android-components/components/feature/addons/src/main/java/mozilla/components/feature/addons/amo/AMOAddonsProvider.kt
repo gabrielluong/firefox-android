@@ -54,6 +54,8 @@ internal const val PAGE_SIZE = 50
  * featured add-ons.
  * @property collectionName The name of the collection to access, defaults to
  * [DEFAULT_COLLECTION_NAME]. This is used to retrieve the featured add-ons.
+ * @property sortOption The [SortOption] for the retrieved featured add-ons from
+ * the add-on collection.
  * @property maxCacheAgeInMinutes maximum time (in minutes) the cached featured add-ons
  * should remain valid before a refresh is attempted. Defaults to -1, meaning no cache
  * is being used by default

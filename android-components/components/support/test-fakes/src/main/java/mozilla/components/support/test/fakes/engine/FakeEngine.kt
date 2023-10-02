@@ -21,7 +21,7 @@ import org.junit.Assert.assertEquals
 /**
  * A fake [Engine] implementation to be used in tests that require an [Engine] instance.
  *
- * @param expectToRestoreRealEngineSessionState Whether this fake engine should expect to restore
+ * @property expectToRestoreRealEngineSessionState Whether this fake engine should expect to restore
  * engine sessions from actual engine session state JSON (e.g. from GeckoView). Otherwise this fake
  * will expect to always deal with [FakeEngineSessionState] instances.
  */

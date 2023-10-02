@@ -15,8 +15,8 @@ import androidx.annotation.VisibleForTesting
  * Since this is using a [DisplayManager] listener it's important to call [start] and [stop]
  * at the appropriate moments to register and unregister said listener.
  *
- * @param context Android context needed to interact with the [DisplayManager]
- * @param onDisplayRotationChanged Listener for when the display rotation changes.
+ * @property context Android context needed to interact with the [DisplayManager]
+ * @property onDisplayRotationChanged Listener for when the display rotation changes.
  * This will be called when the display changes to any of the four main orientations:
  * [PORTRAIT, LANDSCAPE, REVERSE_PORTRAIT, REVERSE_LANDSCAPE].
  * No updates will be triggered if the "Auto-rotate" functionality is disabled for the device.

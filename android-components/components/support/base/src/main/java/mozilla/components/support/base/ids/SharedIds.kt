@@ -14,9 +14,9 @@ private const val KEY_ID_PREFIX = "id."
 /**
  * Internal helper to create unique and stable [Int] ids based on [String] tags.
  *
- * @param fileName The shared preference file that should be used to save id assignments.
- * @param idLifeTime The maximum time an id can be unused until it is cleared
- * @param offset The [Int] offset from which this instance should start providing ids.
+ * @property fileName The shared preference file that should be used to save id assignments.
+ * @property idLifeTime The maximum time an id can be unused until it is cleared
+ * @property offset The [Int] offset from which this instance should start providing ids.
  */
 internal class SharedIds(
     private val fileName: String,

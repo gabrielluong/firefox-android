@@ -35,6 +35,7 @@ import mozilla.components.concept.storage.HistoryMetadataKey
  * @property historyMetadata The last [HistoryMetadataKey] of the tab.
  * @property source The last [Source] of the tab.
  * @property index The index the tab should be restored at.
+ * @property hasFormData Whether or not the tab has filled out form data.
  */
 data class TabState(
     val id: String,

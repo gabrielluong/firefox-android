@@ -9,8 +9,8 @@ import mozilla.components.browser.state.state.recover.RecoverableTab
 /**
  * A restored browser state, read from disk.
  *
- * @param tabs The list of restored tabs.
- * @param selectedTabId The ID of the selected tab in [tabs]. Or `null` if no selection was restored.
+ * @property tabs The list of restored tabs.
+ * @property selectedTabId The ID of the selected tab in [tabs]. Or `null` if no selection was restored.
  */
 data class RecoverableBrowserState(
     val tabs: List<RecoverableTab>,

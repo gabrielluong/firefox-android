@@ -52,7 +52,8 @@ open class BrowserMenu internal constructor(
      * @param orientation the preferred orientation to show the popup window.
      * @param style Custom styling for this menu.
      * @param endOfMenuAlwaysVisible when is set to true makes sure the bottom of the menu is always visible otherwise,
-     *  the top of the menu is always visible.
+     * the top of the menu is always visible.
+     * @param onDismiss Callback invoked when the menu popup is dismissed.
      */
     @Suppress("InflateParams", "ComplexMethod", "LongParameterList")
     open fun show(

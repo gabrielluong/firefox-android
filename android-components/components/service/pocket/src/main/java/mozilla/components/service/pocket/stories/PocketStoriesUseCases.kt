@@ -14,8 +14,9 @@ import mozilla.components.service.pocket.stories.api.PocketResponse
 /**
  * Possible actions regarding the list of recommended stories.
  *
- * @param appContext Android Context. Prefer sending application context to limit the possibility of even small leaks.
- * @param fetchClient the HTTP client to use for network requests.
+ * @property appContext Android Context. Prefer sending application context to limit the
+ * possibility of even small leaks.
+ * @property fetchClient the HTTP client to use for network requests.
  */
 internal class PocketStoriesUseCases(
     private val appContext: Context,
@@ -39,9 +40,9 @@ internal class PocketStoriesUseCases(
     /**
      * Allows for refreshing the list of pocket stories we have cached.
      *
-     * @param appContext Android Context. Prefer sending application context to limit the possibility
+     * @property appContext Android Context. Prefer sending application context to limit the possibility
      * of even small leaks.
-     * @param fetchClient the HTTP client to use for network requests.
+     * @property fetchClient the HTTP client to use for network requests.
      */
     internal inner class RefreshPocketStories(
         @get:VisibleForTesting
@@ -69,7 +70,7 @@ internal class PocketStoriesUseCases(
     /**
      * Allows for querying the list of locally available Pocket recommended stories.
      *
-     * @param context [Context] used for various system interactions and libraries initializations.
+     * @property context [Context] used for various system interactions and libraries initializations.
      */
     internal inner class GetPocketStories(
         @get:VisibleForTesting
@@ -87,7 +88,7 @@ internal class PocketStoriesUseCases(
     /**
      * Allows for atomically updating the [PocketRecommendedStory.timesShown] property of some recommended stories.
      *
-     * @param context [Context] used for various system interactions and libraries initializations.
+     * @property context [Context] used for various system interactions and libraries initializations.
      */
     internal inner class UpdateStoriesTimesShown(
         @get:VisibleForTesting

@@ -16,8 +16,8 @@ import mozilla.components.feature.pwa.db.ManifestEntity
  * Disk storage for [WebAppManifest]. Other components use this class to reload a saved manifest.
  *
  * @param context the application context this storage is associated with
- * @param activeThresholdMs a timeout in milliseconds after which the storage will consider a manifest
- *                      as unused. By default this is [ACTIVE_THRESHOLD_MS].
+ * @property activeThresholdMs a timeout in milliseconds after which the storage will consider a manifest
+ * as unused. By default this is [ACTIVE_THRESHOLD_MS].
  */
 class ManifestStorage(context: Context, private val activeThresholdMs: Long = ACTIVE_THRESHOLD_MS) {
 
@@ -61,8 +61,8 @@ class ManifestStorage(context: Context, private val activeThresholdMs: Long = AC
     /**
      * Counts number of recently used manifests, as configured by [activeThresholdMs].
      *
-     * @param currentTimeMs current time, exposed for testing
      * @param activeThresholdMs a time threshold within which manifests are considered to be recently used.
+     * @param currentTimeMs current time, exposed for testing
      */
     suspend fun recentManifestsCount(
         activeThresholdMs: Long = this.activeThresholdMs,

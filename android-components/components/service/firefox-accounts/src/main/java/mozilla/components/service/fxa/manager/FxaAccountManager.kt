@@ -86,11 +86,12 @@ const val MAX_NETWORK_RETRIES = 3
  *
  * Class is 'open' to facilitate testing.
  *
- * @param context A [Context] instance that's used for internal messaging and interacting with local storage.
- * @param serverConfig A [ServerConfig] used for account initialization.
- * @param deviceConfig A description of the current device (name, type, capabilities).
- * @param syncConfig Optional, initial sync behaviour configuration. Sync will be disabled if this is `null`.
- * @param applicationScopes A set of scopes which will be requested during account authentication.
+ * @property context A [Context] instance that's used for internal messaging and interacting with local storage.
+ * @property serverConfig A [ServerConfig] used for account initialization.
+ * @property deviceConfig A description of the current device (name, type, capabilities).
+ * @property syncConfig Optional, initial sync behaviour configuration. Sync will be disabled if this is `null`.
+ * @property applicationScopes A set of scopes which will be requested during account authentication.
+ * @property crashReporter An optional instance of a [CrashReporting].
  */
 @Suppress("TooManyFunctions", "LargeClass", "LongParameterList")
 open class FxaAccountManager(
@@ -106,7 +107,7 @@ open class FxaAccountManager(
         NamedThreadFactory("FxaAccountManager"),
     ).asCoroutineDispatcher() + SupervisorJob(),
 ) : Closeable, Observable<AccountObserver> by ObserverRegistry() {
-    private val logger = Logger("FirefoxAccountStateMachine")
+    private val logger = Logger("FxaAccountManager")
 
     /**
      * Observer interface which lets its consumers respond to authentication requests.

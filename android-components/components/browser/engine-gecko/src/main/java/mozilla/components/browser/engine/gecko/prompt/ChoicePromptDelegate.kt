@@ -15,9 +15,9 @@ import org.mozilla.geckoview.GeckoSession.PromptDelegate.PromptInstanceDelegate
  * Implementation of [PromptInstanceDelegate] used to update a
  * prompt request when onPromptUpdate is invoked.
  *
- * @param geckoSession [GeckoEngineSession] used to notify the engine observer
+ * @property geckoSession [GeckoEngineSession] used to notify the engine observer
  * with the onPromptUpdate callback.
- * @param previousPrompt [PromptRequest] to be updated.
+ * @property previousPrompt [PromptRequest] to be updated.
  */
 internal class ChoicePromptDelegate(
     private val geckoSession: GeckoEngineSession,

@@ -16,7 +16,7 @@ import org.mozilla.experiments.nimbus.Branch
 /**
  * An adapter for displaying a experimental branch for a Nimbus experiment.
  *
- * @param nimbusBranchesDelegate An instance of [NimbusBranchesAdapterDelegate] that provides
+ * @property nimbusBranchesDelegate An instance of [NimbusBranchesAdapterDelegate] that provides
  * methods for handling the Nimbus branch items.
  */
 class NimbusBranchAdapter(

@@ -24,6 +24,7 @@ import mozilla.components.service.digitalassetlinks.local.StatementRelationCheck
  * @property confirmActivity Activity class that implements [AbstractAutofillConfirmActivity].
  * @property searchActivity Activity class that implements [AbstractAutofillSearchActivity].
  * @property applicationName The name of the application that integrates this feature. Used in UI.
+ * @property httpClient [Client] used for fetching resources via HTTP/s.
  * @property lock Global [AutofillLock] instance used for unlocking the autofill service.
  * @property verifier Helper for verifying the connection between a domain and an application.
  * @property activityRequestCode The request code used for pending intents that launch an activity

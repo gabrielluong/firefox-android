@@ -9,10 +9,12 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 /**
- * Represents an Identity credential provider:
+ * Represents an Identity credential provider.
+ *
  * @property id An identifier for this [Provider].
  * @property icon An icon of the provider, normally the logo of the brand.
  * @property name The name of this [Provider].
+ * @property domain he domain of this [Provider].
  */
 @SuppressLint("ParcelCreator")
 @Parcelize

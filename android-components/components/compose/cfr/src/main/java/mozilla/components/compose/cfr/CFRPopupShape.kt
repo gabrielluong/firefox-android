@@ -38,10 +38,10 @@ private const val INDICATOR_BASE_TO_HEIGHT_RATIO = 2f
 /**
  * A [Shape] describing a popup with an indicator triangle shown above or below the popup.
  *
- * @param indicatorDirection The direction the indicator arrow is pointing to.
- * @param indicatorArrowStartOffset Distance between the popup start and the indicator arrow start
- * @param indicatorArrowHeight Height of the indicator triangle. This influences the base length.
- * @param cornerRadius The radius of the popup's corners.
+ * @property indicatorDirection The direction the indicator arrow is pointing to.
+ * @property indicatorArrowStartOffset Distance between the popup start and the indicator arrow start
+ * @property indicatorArrowHeight Height of the indicator triangle. This influences the base length.
+ * @property cornerRadius The radius of the popup's corners.
  * If [indicatorArrowStartOffset] is `0` then the top-start corner will not be rounded.
  */
 class CFRPopupShape(

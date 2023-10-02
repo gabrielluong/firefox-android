@@ -21,9 +21,9 @@ typealias ViewHolderProvider = (ViewGroup) -> TabViewHolder
  * RecyclerView adapter implementation to display a list of tabs.
  *
  * @param thumbnailLoader an implementation of an [ImageLoader] for loading thumbnail images in the tabs tray.
- * @param viewHolderProvider a function that creates a [TabViewHolder].
- * @param styling the default styling for the [TabsTrayStyling].
- * @param delegate a delegate to handle interactions in the tabs tray.
+ * @property viewHolderProvider a function that creates a [TabViewHolder].
+ * @property styling the default styling for the [TabsTrayStyling].
+ * @property delegate a delegate to handle interactions in the tabs tray.
  */
 open class TabsAdapter(
     thumbnailLoader: ImageLoader? = null,

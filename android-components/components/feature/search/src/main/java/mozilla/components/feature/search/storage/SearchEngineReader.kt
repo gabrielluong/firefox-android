@@ -44,8 +44,8 @@ internal val GENERAL_SEARCH_ENGINE_IDS = setOf(
 /**
  * A simple XML reader for search engine plugins.
  *
- * @param type the [SearchEngine.Type] that the read [SearchEngine]s will get assigned.
- * @param searchExtraParams Optional search extra params.
+ * @property type the [SearchEngine.Type] that the read [SearchEngine]s will get assigned.
+ * @property searchExtraParams Optional search extra params.
  */
 internal class SearchEngineReader(
     private val type: SearchEngine.Type,

@@ -12,8 +12,8 @@ import kotlin.math.log10
 /**
  * Information about a credit card issuing network.
  *
- * @param name The name of the credit card issuer network.
- * @param icon The icon of the credit card issuer network.
+ * @property name The name of the credit card issuer network.
+ * @property icon The icon of the credit card issuer network.
  */
 data class CreditCardIssuerNetwork(
     val name: String,
@@ -23,9 +23,10 @@ data class CreditCardIssuerNetwork(
 /**
  * Information about a credit card issuer identification numbers.
  *
- * @param startRange The start issuer identification number range.
- * @param endRange The end issuer identification number range.
- * @param cardNumberMaxLength A list of the range of maximum card number lengths.
+ * @property creditCardIssuerNetwork The credit card issung network.
+ * @property startRange The start issuer identification number range.
+ * @property endRange The end issuer identification number range.
+ * @property cardNumberMaxLength A list of the range of maximum card number lengths.
  */
 data class CreditCardIIN(
     val creditCardIssuerNetwork: CreditCardIssuerNetwork,

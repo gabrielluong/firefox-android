@@ -90,6 +90,7 @@ private fun createWebExtensionSubMenuItems(
 /**
  * Create a browser menu item for displaying a list of web extensions.
  *
+ * @param context An Android [Context].
  * @param tabId ID of tab used to load tab-specific extension state.
  * @param webExtIconTintColor Optional color used to tint the icons of back and add-ons manager menu items.
  * @param appendExtensionSubMenuAt If web extension sub menu should appear at the top (start) of

@@ -55,7 +55,6 @@ private class BreadcrumbList(val maxBreadCrumbs: Int) {
 }
 
 /**
- *
  * A generic crash reporter that can report crashes to multiple services.
  *
  * In the `onCreate()` method of your Application class create a `CrashReporter` instance and call `install()`:
@@ -71,16 +70,15 @@ private class BreadcrumbList(val maxBreadCrumbs: Int) {
  * With this minimal setup the crash reporting library will capture "uncaught exception" crashes and "native code"
  * crashes and forward them to the configured crash reporting services.
  *
+ * @param context An Android [Context].
+ * @property services List of crash reporting services that should receive crash reports.
+ * @property telemetryServices List of telemetry crash reporting services that should receive crash reports.
+ * @property shouldPrompt Whether or not the user should be prompted to confirm sending crash reports.
  * @property enabled Enable/Disable crash reporting.
- *
- * @param services List of crash reporting services that should receive crash reports.
- * @param telemetryServices List of telemetry crash reporting services that should receive crash reports.
- * @param shouldPrompt Whether or not the user should be prompted to confirm sending crash reports.
- * @param enabled Enable/Disable crash reporting.
- * @param promptConfiguration Configuration for customizing the crash reporter prompt.
- * @param nonFatalCrashIntent A [PendingIntent] that will be launched if a non fatal crash (main process not affected)
- *                            happened. This gives the app the opportunity to show an in-app confirmation UI before
- *                            sending a crash report. See component README for details.
+ * @property promptConfiguration Configuration for customizing the crash reporter prompt.
+ * @property nonFatalCrashIntent A [PendingIntent] that will be launched if a non fatal crash
+ * (main process not affected) happened. This gives the app the opportunity to show an in-app
+ * confirmation UI before sending a crash report. See component README for details.
  */
 @Suppress("LongParameterList")
 class CrashReporter(

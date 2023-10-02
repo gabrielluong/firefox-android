@@ -24,9 +24,10 @@ import mozilla.components.support.base.observer.Observable
 import mozilla.components.support.base.observer.ObserverRegistry
 
 /**
- * Controls a popup menu composed of MenuCandidate objects.
- * @param visibleSide Sets the menu to open with either the start or end visible.
- * @param style Custom styling for this menu controller.
+ * Controls a popup menu composed of [MenuCandidate] objects.
+ *
+ * @property visibleSide Sets the menu to open with either the start or end visible.
+ * @property style Custom styling for this menu controller.
  */
 class BrowserMenuController(
     private val visibleSide: Side = Side.START,

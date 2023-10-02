@@ -19,6 +19,8 @@ object AwesomeBarDefaults {
      * @param background The background of the AwesomeBar.
      * @param title The text color for the title of a suggestion.
      * @param description The text color for the description of a suggestion.
+     * @param autocompleteIcon The color of the autocomplete icon.
+     * @param groupTitle The text color of the group title.
      */
     @Composable
     fun colors(

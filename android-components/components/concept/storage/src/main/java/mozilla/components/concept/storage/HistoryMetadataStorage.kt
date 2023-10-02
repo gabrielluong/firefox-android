@@ -100,8 +100,8 @@ data class HistoryHighlight(
  * For example, (1.0, 1.0) for equal weights. Equal weights represent equal importance of these
  * factors during ranking.
  *
- * @param viewTime A weight specifying importance of cumulative view time of a page.
- * @param frequency A weight specifying importance of frequency of visits to a page.
+ * @property viewTime A weight specifying importance of cumulative view time of a page.
+ * @property frequency A weight specifying importance of frequency of visits to a page.
  */
 data class HistoryHighlightWeights(
     val viewTime: Double,

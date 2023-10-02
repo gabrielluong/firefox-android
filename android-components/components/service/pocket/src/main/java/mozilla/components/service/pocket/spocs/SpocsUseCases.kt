@@ -18,11 +18,12 @@ import java.util.UUID
 /**
  * Possible actions regarding the list of sponsored stories.
  *
- * @param appContext Android Context. Prefer sending application context to limit the possibility of even small leaks.
- * @param fetchClient the HTTP client to use for network requests.
- * @param profileId Unique profile identifier used for downloading sponsored Pocket stories.
- * @param appId Unique app identifier used for downloading sponsored Pocket stories.
- * @param sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
+ * @property appContext Android Context. Prefer sending application context to limit the possibility
+ * of even small leaks.
+ * @property fetchClient the HTTP client to use for network requests.
+ * @property profileId Unique profile identifier used for downloading sponsored Pocket stories.
+ * @property appId Unique app identifier used for downloading sponsored Pocket stories.
+ * @property sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
  */
 internal class SpocsUseCases(
     private val appContext: Context,
@@ -59,12 +60,12 @@ internal class SpocsUseCases(
     /**
      * Allows for refreshing the list of Pocket sponsored stories we have cached.
      *
-     * @param appContext Android Context. Prefer sending application context to limit the possibility
+     * @property appContext Android Context. Prefer sending application context to limit the possibility
      * of even small leaks.
-     * @param fetchClient the HTTP client to use for network requests.
-     * @param profileId Unique profile identifier when using this feature.
-     * @param appId Unique identifier of the application using this feature.
-     * @param sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
+     * @property fetchClient the HTTP client to use for network requests.
+     * @property profileId Unique profile identifier when using this feature.
+     * @property appId Unique identifier of the application using this feature.
+     * @property sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
      */
     internal inner class RefreshSponsoredStories(
         @get:VisibleForTesting
@@ -97,8 +98,7 @@ internal class SpocsUseCases(
     /**
      * Allows for querying the list of available Pocket sponsored stories.
      *
-     * @param context [Context] used for various system interactions and libraries initializations.
-
+     * @property context [Context] used for various system interactions and libraries initializations.
      */
     internal inner class GetSponsoredStories(
         @get:VisibleForTesting
@@ -115,7 +115,7 @@ internal class SpocsUseCases(
     /**
      * Allows for atomically updating the [PocketRecommendedStory.timesShown] property of some recommended stories.
      *
-     * @param context [Context] used for various system interactions and libraries initializations.
+     * @property context [Context] used for various system interactions and libraries initializations.
      */
     internal inner class RecordImpression(
         @get:VisibleForTesting
@@ -134,11 +134,11 @@ internal class SpocsUseCases(
     /**
      * Allows deleting all stored user data used for downloading sponsored stories.
      *
-     * @param context [Context] used for various system interactions and libraries initializations.
-     * @param fetchClient the HTTP client to use for network requests.
-     * @param profileId Unique profile identifier previously used for downloading sponsored Pocket stories.
-     * @param appId Unique app identifier previously used for downloading sponsored Pocket stories.
-     * @param sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
+     * @property context [Context] used for various system interactions and libraries initializations.
+     * @property fetchClient the HTTP client to use for network requests.
+     * @property profileId Unique profile identifier previously used for downloading sponsored Pocket stories.
+     * @property appId Unique app identifier previously used for downloading sponsored Pocket stories.
+     * @property sponsoredStoriesParams Configuration containing parameters used to get the spoc content.
      */
     internal inner class DeleteProfile(
         @get:VisibleForTesting

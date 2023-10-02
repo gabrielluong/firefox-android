@@ -5,7 +5,6 @@
 package mozilla.components.feature.toolbar
 
 import androidx.annotation.VisibleForTesting
-import kotlinx.coroutines.CoroutineScope
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.toolbar.AutocompleteProvider
 import mozilla.components.concept.toolbar.Toolbar
@@ -14,12 +13,11 @@ import java.util.SortedSet
 /**
  * Feature implementation for connecting a toolbar with a list of autocomplete providers.
  *
- * @param toolbar the [Toolbar] to connect to autocomplete providers.
- * @param engine (optional) instance of a browser [Engine] to issue
+ * @property toolbar the [Toolbar] to connect to autocomplete providers.
+ * @property engine (optional) instance of a browser [Engine] to issue
  * [Engine.speculativeConnect] calls on successful URL autocompletion.
- * @param shouldAutocomplete (optional) lambda expression that returns true if
+ * @property shouldAutocomplete (optional) lambda expression that returns true if
  * autocomplete is shown. Otherwise, autocomplete is not shown.
- * @param scope (optional) [CoroutineScope] in which to query autocompletion providers.
  */
 class ToolbarAutocompleteFeature(
     val toolbar: Toolbar,

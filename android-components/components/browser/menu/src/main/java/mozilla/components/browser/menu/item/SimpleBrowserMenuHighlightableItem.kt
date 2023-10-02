@@ -23,15 +23,15 @@ import mozilla.components.concept.menu.candidate.TextStyle
  * A menu item for displaying text with a highlight state which sets the
  * background of the menu item.
  *
- * @param label The default visible label of this menu item.
- * @param textColorResource Optional ID of color resource to tint the text.
- * @param textSize The size of the label.
- * @param backgroundTint Tint for the menu item background color
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property label The default visible label of this menu item.
+ * @property textColorResource Optional ID of color resource to tint the text.
+ * @property textSize The size of the label.
+ * @property backgroundTint Tint for the menu item background color
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
- * @param isHighlighted Whether or not to display the highlight
- * @param listener Callback to be invoked when this menu item is clicked.
+ * @property isHighlighted Whether or not to display the highlight
+ * @property listener Callback to be invoked when this menu item is clicked.
  */
 @Suppress("LongParameterList")
 class SimpleBrowserMenuHighlightableItem(

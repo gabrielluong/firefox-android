@@ -29,6 +29,7 @@ import mozilla.components.concept.base.profiler.Profiler
  * @param onSuggestionClicked Gets invoked whenever the user clicks on a suggestion in the AwesomeBar.
  * @param onAutoComplete Gets invoked when the user clicks on the "autocomplete" icon of a suggestion.
  * @param onScroll Gets invoked at the beginning of the user performing a scroll gesture.
+ * @param profiler [Profiler] used to add profiler markers.
  */
 @Composable
 fun AwesomeBar(
@@ -74,6 +75,7 @@ fun AwesomeBar(
  * @param onSuggestionClicked Gets invoked whenever the user clicks on a suggestion in the AwesomeBar.
  * @param onAutoComplete Gets invoked when the user clicks on the "autocomplete" icon of a suggestion.
  * @param onScroll Gets invoked at the beginning of the user performing a scroll gesture.
+ * @param profiler [Profiler] used to add profiler markers.
  */
 @Composable
 fun AwesomeBar(

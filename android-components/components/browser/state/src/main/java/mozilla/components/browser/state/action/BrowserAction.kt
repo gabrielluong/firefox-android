@@ -100,7 +100,7 @@ sealed class SystemAction : BrowserAction() {
      * Optimizes the [BrowserState] by removing unneeded and optional resources if the system is in
      * a low memory condition.
      *
-     * @param level The context of the trim, giving a hint of the amount of trimming the application
+     * @property level The context of the trim, giving a hint of the amount of trimming the application
      * may like to perform. See constants in [ComponentCallbacks2].
      */
     data class LowMemoryAction(
@@ -221,6 +221,7 @@ sealed class TabListAction : BrowserAction() {
      *
      * @property tabs the [TabSessionState]s to restore.
      * @property selectedTabId the ID of the tab to select.
+     * @property restoreLocation The [RestoreLocation] to restore the tabs at.
      */
     data class RestoreAction(
         val tabs: List<RecoverableTab>,
@@ -230,7 +231,6 @@ sealed class TabListAction : BrowserAction() {
 
         /**
          * Indicates what location the tabs should be restored at
-         *
          */
         enum class RestoreLocation {
             BEGINNING,

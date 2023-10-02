@@ -28,12 +28,12 @@ import mozilla.components.feature.prompts.identitycredential.previews.LightDarkP
 /**
  * List item used to display an IdentityCredential item that supports clicks
  *
- * @param title the Title of the item
- * @param description The Description of the item.
- * @param modifier The modifier to apply to this layout.
+ * @param title The title of the item.
+ * @param description The description of the item.
+ * @param modifier The [Modifier] to apply to this layout.
+ * @param colors The [DialogColors] used by the dialogs.
  * @param onClick Invoked when the item is clicked.
  * @param beforeItemContent An optional layout to display before the item.
- *
  */
 @Composable
 internal fun IdentityCredentialItem(

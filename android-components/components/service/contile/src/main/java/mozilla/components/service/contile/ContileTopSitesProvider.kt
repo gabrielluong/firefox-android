@@ -216,8 +216,8 @@ class ContileTopSitesProvider(
     /**
      * Data stored in the cache file
      *
-     * @param validFor Time in milliseconds describing the click validity for the set of top sites.
-     * @param topSites List of provided top sites.
+     * @property validFor Time in milliseconds describing the click validity for the set of top sites.
+     * @property topSites List of provided top sites.
      */
     internal data class CachedData(
         val validFor: Long,
@@ -227,10 +227,10 @@ class ContileTopSitesProvider(
     /**
      * Current state of the cache.
      *
-     * @param isCacheValid Whether or not the current set of cached top sites is still valid.
-     * @param localCacheMaxAge Maximum unix timestamp until the current set of cached top sites
+     * @property isCacheValid Whether or not the current set of cached top sites is still valid.
+     * @property localCacheMaxAge Maximum unix timestamp until the current set of cached top sites
      * is still valid, specified by the client.
-     * @param serverCacheMaxAge Maximum unix timestamp until the current set of cached top sites
+     * @property serverCacheMaxAge Maximum unix timestamp until the current set of cached top sites
      * is still valid, specified by the server.
      */
     internal data class CacheState(

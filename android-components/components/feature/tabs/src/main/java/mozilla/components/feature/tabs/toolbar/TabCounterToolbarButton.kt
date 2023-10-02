@@ -95,7 +95,7 @@ open class TabCounterToolbarButton(
     /**
      * Update the tab counter button on the toolbar.
      *
-     * @property count the updated tab count
+     * @param count the updated tab count
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun updateCount(count: Int) {
@@ -105,7 +105,7 @@ open class TabCounterToolbarButton(
     /**
      * Check if the selected tab is private.
      *
-     * @property store the [BrowserStore] associated with this instance
+     * @param store the [BrowserStore] associated with this instance
      */
     fun isPrivate(store: BrowserStore): Boolean {
         return store.state.selectedTab?.content?.private ?: false

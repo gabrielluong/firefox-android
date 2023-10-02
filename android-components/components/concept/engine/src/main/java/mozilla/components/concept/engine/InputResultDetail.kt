@@ -102,13 +102,13 @@ internal const val OVERSCROLL_DIRECTIONS_VERTICAL = 1 shl 1
  * - whether the event can scroll the page and in what direction.
  * - whether the event can overscroll the page and in what direction.
  *
- * @param inputResult Indicates who will use the current [MotionEvent].
+ * @property inputResult Indicates who will use the current [MotionEvent].
  * Possible values: [[INPUT_HANDLING_UNKNOWN], [INPUT_UNHANDLED], [INPUT_HANDLED], [INPUT_HANDLED_CONTENT]].
  *
- * @param scrollDirections Bitwise ORed value of the directions the page can be scrolled to.
+ * @property scrollDirections Bitwise ORed value of the directions the page can be scrolled to.
  * This is the same as GeckoView's [org.mozilla.geckoview.PanZoomController.ScrollableDirections].
  *
- * @param overscrollDirections Bitwise ORed value of the directions the page can be overscrolled to.
+ * @property overscrollDirections Bitwise ORed value of the directions the page can be overscrolled to.
  * This is the same as GeckoView's [org.mozilla.geckoview.PanZoomController.OverscrollDirections].
  */
 @Suppress("TooManyFunctions")

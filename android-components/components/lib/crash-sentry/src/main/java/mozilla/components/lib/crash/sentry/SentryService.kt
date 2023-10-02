@@ -27,14 +27,13 @@ import mozilla.components.concept.base.crash.Breadcrumb as MozillaBreadcrumb
  * This implementation will add default tags to every sent crash report
  * (like which Android Components version is being used) prefixed with "ac".
  *
- * @param applicationContext The application [Context].
- * @param dsn Data Source Name of the Sentry server.
- * @param tags A list of additional tags that will be sent together with crash reports.
- * @param environment An optional, environment name string or null to set none
- * @param sendEventForNativeCrashes Allows configuring if native crashes should be submitted. Disabled by default.
- * @param sentryProjectUrl Base URL of the Sentry web interface pointing to the app/project.
- * @param sendCaughtExceptions Allows configuring if caught exceptions should be submitted. Enabled by default.
- * @param autoInitializeSentry Initializes the Sentry SDK immediately on service creation.
+ * @property applicationContext The application [Context].
+ * @property dsn Data Source Name of the Sentry server.
+ * @property tags A list of additional tags that will be sent together with crash reports.
+ * @property environment An optional, environment name string or null to set none
+ * @property sendEventForNativeCrashes Allows configuring if native crashes should be submitted. Disabled by default.
+ * @property sentryProjectUrl Base URL of the Sentry web interface pointing to the app/project.
+ * @property sendCaughtExceptions Allows configuring if caught exceptions should be submitted. Enabled by default.
  */
 class SentryService(
     private val applicationContext: Context,

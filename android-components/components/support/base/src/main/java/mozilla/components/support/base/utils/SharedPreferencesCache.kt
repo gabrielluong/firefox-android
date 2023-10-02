@@ -40,7 +40,7 @@ abstract class SharedPreferencesCache<T>(val context: Context) {
     abstract fun fromJSON(obj: JSONObject): T
 
     /**
-     * @param A [T] value to cache.
+     * @param obj [T] value to cache.
      */
     fun setToCache(obj: T) {
         // JSONObject swallows any 'JSONException' thrown in 'toString', and simply returns 'null'.

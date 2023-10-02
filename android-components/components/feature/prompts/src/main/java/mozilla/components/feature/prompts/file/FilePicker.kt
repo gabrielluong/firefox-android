@@ -40,7 +40,8 @@ internal var captureUri: Uri? = null
 /**
  * @property container The [Activity] or [Fragment] which hosts the file picker.
  * @property store The [BrowserStore] this feature should subscribe to.
- * @property onNeedToRequestPermissions a callback invoked when permissions
+ * @property sessionId The ID of the session to load the file picker for.
+ * @property onNeedToRequestPermissions A callback invoked when permissions
  * need to be requested before a prompt (e.g. a file picker) can be displayed.
  * Once the request is completed, [onPermissionsResult] needs to be invoked.
  */
@@ -112,6 +113,7 @@ internal class FilePicker(
      * other apps like file chooser requests.
      *
      * @param requestCode The code of the app that requested the intent.
+     * @param resultCode The code of the result.
      * @param intent The result of the request.
      */
     fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?): Boolean {

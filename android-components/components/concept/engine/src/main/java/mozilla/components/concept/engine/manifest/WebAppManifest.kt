@@ -20,10 +20,10 @@ import mozilla.components.concept.engine.manifest.WebAppManifest.ExternalApplica
  *
  * @property name Provides a human-readable name for the site when displayed to the user. For example, among a list of
  * other applications or as a label for an icon.
- * @property shortName Provides a short human-readable name for the application. This is intended for when there is
- * insufficient space to display the full name of the web application, like device homescreens.
  * @property startUrl The URL that loads when a user launches the application (e.g. when added to home screen),
  * typically the index. Note that this has to be a relative URL, relative to the manifest url.
+ * @property shortName Provides a short human-readable name for the application. This is intended for when there is
+ * insufficient space to display the full name of the web application, like device homescreens.
  * @property display Defines the developers’ preferred display mode for the website.
  * @property backgroundColor Defines the expected “background color” for the website. This value repeats what is
  * already available in the site’s CSS, but can be used by browsers to draw the background color of a shortcut when

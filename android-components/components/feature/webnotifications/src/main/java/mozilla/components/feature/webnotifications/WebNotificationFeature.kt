@@ -40,13 +40,15 @@ internal const val NOTIFICATION_ID = 1
  * )
  * ```
  *
- * @param context The application Context.
- * @param engine The browser engine.
+ * @property context The application [Context].
+ * @property engine The browser [Engine].
  * @param browserIcons The entry point for loading the large icon for the notification.
  * @param smallIcon The small icon for the notification.
- * @param sitePermissionsStorage The storage for checking notification site permissions.
- * @param activityClass The Activity that the notification will launch if user taps on it
- * @param coroutineContext An instance of [CoroutineContext] used for executing async site permission checks.
+ * @property sitePermissionsStorage The storage for checking notification site permissions.
+ * @property activityClass The Activity that the notification will launch if user taps on it
+ * @property coroutineContext An instance of [CoroutineContext] used for executing async site permission checks.
+ * @property notificationsDelegate The [NotificationsDelegate] for showing notifications and
+ * asking permission.
  */
 @Suppress("LongParameterList")
 class WebNotificationFeature(

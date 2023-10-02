@@ -28,6 +28,7 @@ sealed class PocketStory {
      * **May be empty**.
      * @property category Topic of interest under which similar stories are grouped.
      * @property timeToRead Inferred time needed to read the entire story. **May be -1**.
+     * @property timesShown The number of times the story was shown to the user.
      */
     data class PocketRecommendedStory(
         override val title: String,

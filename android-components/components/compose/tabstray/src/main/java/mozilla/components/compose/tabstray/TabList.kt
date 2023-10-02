@@ -21,8 +21,8 @@ import mozilla.components.lib.state.ext.observeAsComposableState
  * @param store The store to observe.
  * @param modifier The modifier to apply to this layout.
  * @param tabsFilter Used to filter the list of tabs from the [store].
- * @param onTabClosed Gets invoked when the user closes a tab.
  * @param onTabSelected Gets invoked when the user selects a tab.
+ * @param onTabClosed Gets invoked when the user closes a tab.
  */
 @Composable
 fun TabList(
@@ -47,10 +47,10 @@ fun TabList(
  * Renders the given list of [tabs].
  *
  * @param tabs The list of tabs to render.
- * @param selectedTabId the currently selected tab ID.
  * @param modifier The modifier to apply to this layout.
- * @param onTabClosed Gets invoked when the user closes a tab.
+ * @param selectedTabId the currently selected tab ID.
  * @param onTabSelected Gets invoked when the user selects a tab.
+ * @param onTabClosed Gets invoked when the user closes a tab.
  */
 @Composable
 fun TabList(

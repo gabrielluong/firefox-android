@@ -72,9 +72,10 @@ class FirefoxAccount internal constructor(
     }
 
     /**
-     * Construct a FirefoxAccount from a [Config], a clientId, and a redirectUri.
+     * Construct a FirefoxAccount from a [ServerConfig], a clientId, and a redirectUri.
      *
-     * @param crashReporter A crash reporter instance.
+     * @param config The server endpoint configurations needed for the authentication flow.
+     * @param crashReporter A [CrashReporting] instance.
      *
      * Note that it is not necessary to `close` the Config if this constructor is used (however
      * doing so will not cause an error).
@@ -231,8 +232,8 @@ class FirefoxAccount internal constructor(
          * Restores the account's authentication state from a JSON string produced by
          * [FirefoxAccount.toJSONString].
          *
+         * @param json The json [String] to parse.
          * @param crashReporter object used for logging caught exceptions
-         *
          * @param persistCallback This callback will be called every time the [FirefoxAccount]
          * internal state has mutated.
          * The FirefoxAccount instance can be later restored using the

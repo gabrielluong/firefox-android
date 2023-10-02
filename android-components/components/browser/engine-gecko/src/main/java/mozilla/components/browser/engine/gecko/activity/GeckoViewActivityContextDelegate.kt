@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference
  * with the runtime delegate of [GeckoActivityDelegate], which is tightly coupled to webauthn.
  * See bug 1806191 for more information on delegate differences.
  *
- * @param contextRef A reference to an active Activity context or null for GeckoView to use.
+ * @property contextRef A reference to an active Activity context or null for GeckoView to use.
  */
 class GeckoViewActivityContextDelegate(
     private val contextRef: WeakReference<Context?>,

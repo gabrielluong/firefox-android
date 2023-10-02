@@ -13,7 +13,7 @@ import mozilla.components.concept.storage.CreditCardEntry
 /**
  * Adapter for a list of credit cards to be displayed.
  *
- * @param onCreditCardSelected Callback invoked when a credit card item is selected.
+ * @property onCreditCardSelected Callback invoked when a credit card item is selected.
  */
 class CreditCardsAdapter(
     private val onCreditCardSelected: (CreditCardEntry) -> Unit,

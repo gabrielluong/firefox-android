@@ -39,9 +39,13 @@ import mozilla.components.support.utils.ext.registerReceiverCompat
 
 /**
  * Displays site controls notification for fullscreen web apps.
- * @param sessionId ID of the web app session to observe.
- * @param manifest Web App Manifest reference used to populate the notification.
- * @param controlsBuilder Customizes the created notification.
+ *
+ * @property applicationContext The application [Context].
+ * @property sessionId ID of the web app session to observe.
+ * @property manifest Web App Manifest reference used to populate the notification.
+ * @property controlsBuilder Customizes the created notification.
+ * @property notificationsDelegate The [NotificationsDelegate] for showing notifications and
+ * asking permission.
  */
 @Suppress("LongParameterList")
 class WebAppSiteControlsFeature(

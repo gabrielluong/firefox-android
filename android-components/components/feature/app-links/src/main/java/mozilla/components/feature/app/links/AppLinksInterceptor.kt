@@ -38,16 +38,16 @@ private const val MAPS = "maps."
  * adjoining UI. The UI will be activated in https://github.com/mozilla-mobile/android-components/issues/2974
  * and https://github.com/mozilla-mobile/android-components/issues/2975.
  *
- * @param context Context the feature is associated with.
- * @param interceptLinkClicks If {true} then intercept link clicks.
- * @param engineSupportedSchemes List of schemes that the engine supports.
- * @param alwaysDeniedSchemes List of schemes that will never be opened in a third-party app even if
+ * @property context Context the feature is associated with.
+ * @property interceptLinkClicks If {true} then intercept link clicks.
+ * @property engineSupportedSchemes List of schemes that the engine supports.
+ * @property alwaysDeniedSchemes List of schemes that will never be opened in a third-party app even if
  * [interceptLinkClicks] is `true`.
- * @param launchInApp If {true} then launch app links in third party app(s). Default to false because
+ * @property launchInApp If {true} then launch app links in third party app(s). Default to false because
  * of security concerns.
- * @param useCases These use cases allow for the detection of, and opening of links that other apps
+ * @property useCases These use cases allow for the detection of, and opening of links that other apps
  * have registered to open.
- * @param launchFromInterceptor If {true} then the interceptor will launch the link in third-party apps if available.
+ * @property launchFromInterceptor If {true} then the interceptor will launch the link in third-party apps if available.
  */
 @Suppress("LongParameterList")
 class AppLinksInterceptor(

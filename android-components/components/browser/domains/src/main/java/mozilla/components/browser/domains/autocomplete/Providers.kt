@@ -42,8 +42,12 @@ private fun CustomDomains.asLoader(): DomainsLoader = { context: Context -> load
 /**
  * Provides common autocomplete functionality powered by domain lists.
  *
- * @param list source of domains
- * @param domainsLoader provider for all available domains
+ * @property list source of domains
+ * @property domainsLoader provider for all available domains
+ * @property autocompletePriority Order in which this provider will be queried for autocomplete suggestions
+ * in relation ot others. Defaults to `0`.
+ *  - a lower priority means that this provider must be called before others with a higher priority.
+ *  - an equal priority offers no ordering guarantees.
  */
 open class BaseDomainAutocompleteProvider(
     private val list: DomainList,

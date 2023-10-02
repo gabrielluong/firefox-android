@@ -45,13 +45,13 @@ internal const val PREF_FXA_SCOPE = "fxa_push_scope"
  * the device during a sync, that it's unable to reach the device via push messaging; triggering a push
  * registration renewal.
  *
- * @param context The application Android context.
- * @param accountManager The FxaAccountManager.
- * @param pushFeature The [AutoPushFeature] if that is setup for observing push events.
- * @param crashReporter Instance of `CrashReporting` to record unexpected caught exceptions.
- * @param coroutineScope The scope in which IO work within the feature should be performed on.
- * @param owner the lifecycle owner for the observer. Defaults to [ProcessLifecycleOwner].
- * @param autoPause whether to stop notifying the observer during onPause lifecycle events.
+ * @property context The application Android [Context].
+ * @property accountManager The [FxaAccountManager].
+ * @property pushFeature The [AutoPushFeature] if that is setup for observing push events.
+ * @property crashReporter Instance of [CrashReporting] to record unexpected caught exceptions.
+ * @property coroutineScope The scope in which IO work within the feature should be performed on.
+ * @property owner The [LifecycleOwner] for the observer. Defaults to [ProcessLifecycleOwner].
+ * @property autoPause Whether to stop notifying the observer during onPause lifecycle events.
  * Defaults to false so that observers are always notified.
  */
 class FxaPushSupportFeature(

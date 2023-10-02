@@ -21,11 +21,11 @@ import mozilla.components.concept.menu.candidate.TextStyle
 /**
  * A simple browser menu item displaying text.
  *
- * @param label The visible label of this menu item.
- * @param textSize: The size of the label.
- * @param textColorResource: The color resource to apply to the text.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param listener Callback to be invoked when this menu item is clicked.
+ * @property label The visible label of this menu item.
+ * @property textSize: The size of the label.
+ * @property textColorResource: The color resource to apply to the text.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property listener Callback to be invoked when this menu item is clicked.
  */
 class SimpleBrowserMenuItem(
     private val label: String,

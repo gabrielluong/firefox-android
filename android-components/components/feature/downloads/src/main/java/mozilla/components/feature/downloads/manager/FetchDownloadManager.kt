@@ -35,7 +35,11 @@ import kotlin.reflect.KClass
  * Handles the interactions with [AbstractFetchDownloadService].
  *
  * @property applicationContext a reference to [Context] applicationContext.
+ * @property store The application's [BrowserStore].
  * @property service The subclass of [AbstractFetchDownloadService] to use.
+ * @property onDownloadStopped Invoked when the download is complete.
+ * @property notificationsDelegate The [NotificationsDelegate] for showing notifications and
+ * asking permission.
  */
 class FetchDownloadManager<T : AbstractFetchDownloadService>(
     private val applicationContext: Context,

@@ -11,6 +11,7 @@ import androidx.core.net.toUri
 import mozilla.components.browser.icons.BrowserIcons
 import mozilla.components.browser.icons.IconRequest
 import mozilla.components.concept.awesomebar.AwesomeBar
+import mozilla.components.concept.awesomebar.AwesomeBar.Suggestion
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.EngineSession.LoadUrlFlags
 import mozilla.components.concept.storage.BookmarkNode
@@ -36,17 +37,18 @@ internal const val BOOKMARKS_RESULTS_TO_FILTER_SCALE_FACTOR = 10
  * A [AwesomeBar.SuggestionProvider] implementation that provides suggestions based on the bookmarks
  * stored in the [BookmarksStorage].
  *
- * @property bookmarksStorage and instance of the [BookmarksStorage] used
+ * @property bookmarksStorage An instance of the [BookmarksStorage] used
  * to query matching bookmarks.
- * @property loadUrlUseCase the use case invoked to load the url when the
+ * @property loadUrlUseCase The use case invoked to load the url when the
  * user clicks on the suggestion.
- * @property icons optional instance of [BrowserIcons] to load fav icons
+ * @property icons Optional instance of [BrowserIcons] to load fav icons
  * for bookmarked URLs.
- * @param engine optional [Engine] instance to call [Engine.speculativeConnect] for the
+ * @property indicatorIcon An optional [Drawable] used to indicate bookmark [Suggestion]s.
+ * @property engine Optional [Engine] instance to call [Engine.speculativeConnect] for the
  * highest scored suggestion URL.
- * @param showEditSuggestion optional parameter to specify if the suggestion should show the edit button
- * @param suggestionsHeader optional parameter to specify if the suggestion should have a header
- * @param resultsUriFilter Optional filter for the host url of the suggestions to show.
+ * @property showEditSuggestion Optional parameter to specify if the suggestion should show the edit button.
+ * @property suggestionsHeader Optional parameter to specify if the suggestion should have a header.
+ * @property resultsUriFilter Optional filter for the host url of the suggestions to show.
  */
 class BookmarksStorageSuggestionProvider(
     @get:VisibleForTesting internal val bookmarksStorage: BookmarksStorage,
@@ -95,8 +97,8 @@ class BookmarksStorageSuggestionProvider(
     /**
      * Get up to [BOOKMARKS_SUGGESTION_LIMIT] bookmarks matching [query] from the indicated [url].
      *
-     * @param query String to filter bookmarks' title or URL by.
      * @param url URL to filter all bookmarks' URL host by.
+     * @param query String to filter bookmarks' title or URL by.
      */
     private suspend fun getBookmarksSuggestionsFromHost(url: Uri, query: String) = bookmarksStorage
         .searchBookmarks(query, BOOKMARKS_SUGGESTION_LIMIT * BOOKMARKS_RESULTS_TO_FILTER_SCALE_FACTOR)

@@ -15,6 +15,7 @@ import java.util.UUID
 /**
  * [AwesomeBar.SuggestionProvider] implementation that provides suggestions based on the search engine list.
  *
+ * @property context The Android application [Context].
  * @property searchEnginesList a search engine list used to search
  * @property selectShortcutEngine the use case invoked to temporarily change engine used for search
  * @property title String resource for the title to be shown for the suggestion(s), it

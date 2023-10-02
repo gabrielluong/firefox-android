@@ -73,13 +73,13 @@ internal data class PopupHorizontalBounds(
  * [AbstractComposeView] that can be added or removed dynamically in the current window to display
  * a [Composable] based popup anywhere on the screen.
  *
- * @param anchor [View] that will serve as the anchor of the popup and serve as lifecycle owner
+ * @property anchor [View] that will serve as the anchor of the popup and serve as lifecycle owner
  * for this popup also.
- * @param properties [CFRPopupProperties] allowing to customize the popup behavior.
- * @param onDismiss Callback for when the popup is dismissed indicating also if the dismissal
+ * @property properties [CFRPopupProperties] allowing to customize the popup behavior.
+ * @property onDismiss Callback for when the popup is dismissed indicating also if the dismissal
  * was explicit - by tapping the "X" button or not.
- * @param text [Text] already styled and ready to be shown in the popup.
- * @param action Optional other composable to show just below the popup text.
+ * @property text [Text] already styled and ready to be shown in the popup.
+ * @property action Optional other composable to show just below the popup text.
  */
 @SuppressLint("ViewConstructor") // Intended to be used only in code, don't need a View constructor
 internal class CFRPopupFullscreenLayout(

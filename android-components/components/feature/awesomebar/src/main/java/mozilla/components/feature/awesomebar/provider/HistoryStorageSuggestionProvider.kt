@@ -33,19 +33,19 @@ internal const val HISTORY_RESULTS_TO_FILTER_SCALE_FACTOR = 10
  * A [AwesomeBar.SuggestionProvider] implementation that provides suggestions based on the browsing
  * history stored in the [HistoryStorage].
  *
- * @param historyStorage and instance of the [HistoryStorage] used
+ * @property historyStorage and instance of the [HistoryStorage] used
  * to query matching history records.
- * @param loadUrlUseCase the use case invoked to load the url when the
+ * @property loadUrlUseCase the use case invoked to load the url when the
  * user clicks on the suggestion.
- * @param icons optional instance of [BrowserIcons] to load fav icons
+ * @property icons optional instance of [BrowserIcons] to load fav icons
  * for history URLs.
- * @param engine optional [Engine] instance to call [Engine.speculativeConnect] for the
+ * @property engine optional [Engine] instance to call [Engine.speculativeConnect] for the
  * highest scored suggestion URL.
- * @param maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions,
+ * @property maxNumberOfSuggestions optional parameter to specify the maximum number of returned suggestions,
  * defaults to [DEFAULT_HISTORY_SUGGESTION_LIMIT]
- * @param showEditSuggestion optional parameter to specify if the suggestion should show the edit button
- * @param suggestionsHeader optional parameter to specify if the suggestion should have a header
- * @param resultsUriFilter Optional filter for the host url of the suggestions to show.
+ * @property showEditSuggestion optional parameter to specify if the suggestion should show the edit button
+ * @property suggestionsHeader optional parameter to specify if the suggestion should have a header
+ * @property resultsUriFilter Optional filter for the host url of the suggestions to show.
  */
 class HistoryStorageSuggestionProvider(
     @get:VisibleForTesting internal val historyStorage: HistoryStorage,
@@ -121,8 +121,8 @@ class HistoryStorageSuggestionProvider(
     /**
      * Get up to [maxNumberOfSuggestions] history suggestions matching [query] from the indicated [url].
      *
-     * @param query String to filter history entry's title or URL by.
      * @param url URL host to filter all history entry's URL host by.
+     * @param query String to filter history entry's title or URL by.
      */
     private fun getHistorySuggestionsFromHost(url: Uri, query: String) = historyStorage
         .getSuggestions(query, maxNumberOfSuggestions * HISTORY_RESULTS_TO_FILTER_SCALE_FACTOR)

@@ -132,7 +132,8 @@ internal class AuthenticationDialogFragment : PromptDialogFragment() {
 
     companion object {
         /**
-         * A builder method for creating a [AuthenticationDialogFragment]
+         * A builder method for creating a [AuthenticationDialogFragment].
+         *
          * @param sessionId the id of the session for which this dialog will be created.
          * @param promptRequestUID identifier of the [PromptRequest] for which this dialog is shown.
          * @param shouldDismissOnLoad whether or not the dialog should automatically be dismissed
@@ -142,6 +143,7 @@ internal class AuthenticationDialogFragment : PromptDialogFragment() {
          * @param username the default value of the username text field.
          * @param password the default value of the password text field.
          * @param onlyShowPassword indicates if the dialog should include an username text field.
+         * @param url The URI for the auth request or null if unknown.
          */
         @Suppress("LongParameterList")
         fun newInstance(

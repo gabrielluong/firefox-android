@@ -12,6 +12,7 @@ import androidx.paging.DataSource
 interface SitePermissionsStorage {
     /**
      * Persists the [sitePermissions] provided as a parameter.
+     *
      * @param sitePermissions the [sitePermissions] to be stored.
      * @param request the [PermissionRequest] to be stored, default to null.
      * @param private indicates if the [SitePermissions] belongs to a private session.
@@ -20,6 +21,7 @@ interface SitePermissionsStorage {
 
     /**
      * Saves the permission temporarily until the user navigates away.
+     *
      * @param request The requested permission to be save temporarily.
      */
     fun saveTemporary(request: PermissionRequest? = null) = Unit
@@ -31,6 +33,7 @@ interface SitePermissionsStorage {
 
     /**
      * Replaces an existing SitePermissions with the values of [sitePermissions] provided as a parameter.
+     *
      * @param sitePermissions the sitePermissions to be updated.
      * @param private indicates if the [SitePermissions] belongs to a private session.
      */
@@ -38,7 +41,9 @@ interface SitePermissionsStorage {
 
     /**
      * Finds all SitePermissions that match the [origin].
+     *
      * @param origin the site to be used as filter in the search.
+     * @param includeTemporary Whether or not to include the temporary permissions.
      * @param private indicates if the [origin] belongs to a private session.
      */
     suspend fun findSitePermissionsBy(
@@ -49,6 +54,7 @@ interface SitePermissionsStorage {
 
     /**
      * Deletes all sitePermissions that match the sitePermissions provided as a parameter.
+     *
      * @param sitePermissions the sitePermissions to be deleted from the storage.
      * @param private indicates if the [SitePermissions] belongs to a private session.
      */

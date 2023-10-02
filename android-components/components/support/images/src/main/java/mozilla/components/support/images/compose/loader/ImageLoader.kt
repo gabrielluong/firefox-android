@@ -45,6 +45,7 @@ import java.util.concurrent.TimeUnit
  * get rendered instead.
  * @param maxScaleFactor The maximum factor a loaded image will be scaled up or down by until
  * [Fallback] will get rendered.
+ * @param content The Composable content block to render the image.
  */
 @Composable
 fun ImageLoader(

@@ -291,12 +291,12 @@ internal class TimePickerDialogFragment :
 
     companion object {
         /**
-         * A builder method for creating a [TimePickerDialogFragment]
+         * A builder method for creating a [TimePickerDialogFragment].
+         *
          * @param sessionId to create the dialog.
          * @param promptRequestUID identifier of the [PromptRequest] for which this dialog is shown.
          * @param shouldDismissOnLoad whether or not the dialog should automatically be dismissed
          * when a new page is loaded.
-         * @param title of the dialog.
          * @param initialDate date that will be selected by default.
          * @param minDate the minimumDate date that will be allowed to be selected.
          * @param maxDate the maximumDate date that will be allowed to be selected.

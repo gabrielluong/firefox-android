@@ -19,8 +19,8 @@ import java.util.Locale
  */
 object LocaleManager {
     /**
-     * Change the system defined locale to the indicated in the [language] parameter.
-     * This new [language] will be stored and will be the new current locale returned by [getCurrentLocale].
+     * Change the system defined locale to the indicated in the [locale] parameter.
+     * This new [locale] will be stored and will be the new current locale returned by [getCurrentLocale].
      *
      * After calling this function, to visualize the locale changes you have to make sure all your visible activities
      * get recreated. If your app is using the single activity approach, this will be trivial just call
@@ -29,8 +29,8 @@ object LocaleManager {
      *
      * @param context The [Context]
      * @param localeUseCase The [LocaleUseCases] used to notify the [BrowserStore] of the [Locale] changes.
-     * @param language The new [Locale] that has been selected
-     * @return A new Context object for whose resources are adjusted to match the new [language].
+     * @param locale The new [Locale] that has been selected
+     * @return A new Context object for whose resources are adjusted to match the new [locale].
      */
     fun setNewLocale(context: Context, localeUseCase: LocaleUseCases? = null, locale: Locale?): Context {
         Storage.save(context, locale?.toLanguageTag())

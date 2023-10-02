@@ -18,8 +18,8 @@ internal const val SYNCED_TABS_AUTOCOMPLETE_SOURCE_NAME = "syncedTabs"
 /**
  * Provide autocomplete suggestions from synced tabs.
  *
- * @param syncedTabs [SyncedTabsStorage] containing the information about the available synced tabs.
- * @param autocompletePriority Order in which this provider will be queried for autocomplete suggestions
+ * @property syncedTabs [SyncedTabsStorage] containing the information about the available synced tabs.
+ * @property autocompletePriority Order in which this provider will be queried for autocomplete suggestions
  * in relation ot others.
  *  - a lower priority means that this provider must be called before others with a higher priority.
  *  - an equal priority offers no ordering guarantees.

@@ -23,9 +23,9 @@ import org.mozilla.geckoview.GeckoResult
  * the Gecko runtime to call the underlying storage to handle requests for fetching, saving and
  * updating of autocomplete items in the storage.
  *
- * @param creditCardsAddressesStorageDelegate An instance of [CreditCardsAddressesStorageDelegate].
+ * @property creditCardsAddressesStorageDelegate An instance of [CreditCardsAddressesStorageDelegate].
  * Provides methods for retrieving [CreditCard]s from the underlying storage.
- * @param loginStorageDelegate An instance of [LoginStorageDelegate].
+ * @property loginStorageDelegate An instance of [LoginStorageDelegate].
  * Provides read/write methods for the [Login] storage.
  */
 class GeckoAutocompleteStorageDelegate(

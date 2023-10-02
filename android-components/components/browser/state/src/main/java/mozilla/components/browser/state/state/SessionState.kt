@@ -23,6 +23,7 @@ import mozilla.components.support.utils.SafeIntent
  * @property contextId the session context ID of the session. The session context ID specifies the
  * contextual identity to use for the session's cookie store.
  * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities
+ * @property source the [Source] of this session.
  * @property restored Indicates if this session was restored from a hydrated state.
  * @property isProductUrl Indicates if this session is currently displaying a product URL.
  */
@@ -57,7 +58,8 @@ interface SessionState {
 
     /**
      * Represents the origin of a session to describe how and why it was created.
-     * @param id A unique identifier, exists for serialization purposes.
+     *
+     * @property id A unique identifier, exists for serialization purposes.
      */
     @Suppress("UNUSED_PARAMETER", "MagicNumber")
     sealed class Source(val id: Int) {
@@ -183,8 +185,9 @@ enum class PackageCategory(val id: Int) {
 
 /**
  * Describes an external package.
- * @param packageId An Android package id.
- * @param category A [PackageCategory] as defined by the application.
+ *
+ * @property packageId An Android package id.
+ * @property category A [PackageCategory] as defined by the application.
  */
 data class ExternalPackage(val packageId: String, val category: PackageCategory)
 

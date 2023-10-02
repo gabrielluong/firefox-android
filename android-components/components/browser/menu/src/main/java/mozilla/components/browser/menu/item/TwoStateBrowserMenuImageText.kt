@@ -22,19 +22,19 @@ import mozilla.components.concept.menu.candidate.TextStyle
 /**
  * A browser menu item with two states, used for displaying text with an image icon
  *
- * @param primaryLabel The visible label of the checkbox in primary state.
- * @param secondaryLabel The visible label of this menu item in secondary state.
- * @param textColorResource Optional ID of color resource to tint the text.
- * @param primaryStateIconResource ID of a drawable resource to be shown as icon in primary state.
- * @param secondaryStateIconResource ID of a drawable resource to be shown as icon in secondary state.
+ * @property primaryLabel The visible label of the checkbox in primary state.
+ * @property secondaryLabel The visible label of this menu item in secondary state.
+ * @property textColorResource Optional ID of color resource to tint the text.
+ * @property primaryStateIconResource ID of a drawable resource to be shown as icon in primary state.
+ * @property secondaryStateIconResource ID of a drawable resource to be shown as icon in secondary state.
  * @param iconTintColorResource Optional ID of color resource to tint the checkbox drawable.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
- * @param isInPrimaryState Lambda to return true/false to indicate item is in primary state.
- * @param isInSecondaryState Lambda to return true/false to indicate item is in secondary state
- * @param primaryStateAction Callback to be invoked when this menu item is clicked in primary state.
- * @param secondaryStateAction Callback to be invoked when this menu item is clicked in secondary state.
+ * @property isInPrimaryState Lambda to return true/false to indicate item is in primary state.
+ * @property isInSecondaryState Lambda to return true/false to indicate item is in secondary state
+ * @property primaryStateAction Callback to be invoked when this menu item is clicked in primary state.
+ * @property secondaryStateAction Callback to be invoked when this menu item is clicked in secondary state.
  */
 @Suppress("LongParameterList")
 class TwoStateBrowserMenuImageText(

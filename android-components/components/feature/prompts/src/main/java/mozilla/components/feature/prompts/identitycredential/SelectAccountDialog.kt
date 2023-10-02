@@ -37,9 +37,9 @@ import mozilla.components.support.ktx.kotlin.base64ToBitmap
  * A Federated Credential Management dialog for selecting an account.
  *
  * @param provider The [Provider] on which the user is logging in.
- * @param colors The colors of the dialog.
  * @param accounts The list of available accounts for this provider.
  * @param modifier [Modifier] to be applied to the layout.
+ * @param colors The colors of the dialog.
  * @param onAccountClick Invoked when the user clicks on an item.
  */
 @Composable

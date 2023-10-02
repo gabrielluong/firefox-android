@@ -42,11 +42,11 @@ data class IconRequest(
     /**
      * An icon resource that can be loaded.
      *
-     * @param url URL the icon resource can be fetched from.
-     * @param type The type of the icon.
-     * @param sizes Optional list of icon sizes provided by this resource (if known).
-     * @param mimeType Optional MIME type of this icon resource (if known).
-     * @param maskable True if the icon represents as full-bleed icon that can be cropped to other shapes.
+     * @property url URL the icon resource can be fetched from.
+     * @property type The type of the icon.
+     * @property sizes Optional list of icon sizes provided by this resource (if known).
+     * @property mimeType Optional MIME type of this icon resource (if known).
+     * @property maskable True if the icon represents as full-bleed icon that can be cropped to other shapes.
      */
     data class Resource(
         val url: String,

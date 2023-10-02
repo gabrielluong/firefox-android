@@ -39,16 +39,17 @@ data class SearchExtraParams(
 /**
  * [Middleware] implementation for loading and saving [SearchEngine]s whenever the state changes.
  *
- * @param additionalBundledSearchEngineIds List of (bundled) search engine IDs that will be loaded
+ * @param context The application [Context].
+ * @property additionalBundledSearchEngineIds List of (bundled) search engine IDs that will be loaded
  * in addition to the search engines for the user's region and made available through
  * [SearchState.additionalSearchEngines] and [SearchState.additionalSearchEngines].
- * @param migration Interface for a class that can provide data from a legacy system to be imported into the
+ * @property migration Interface for a class that can provide data from a legacy system to be imported into the
  * storage used by the middleware.
- * @param customStorage A storage for custom search engines of the user.
- * @param bundleStorage A storage for loading bundled search engines.
- * @param metadataStorage A storage for saving additional metadata related to search.
- * @param searchExtraParams Optional search extra params.
- * @param ioDispatcher The coroutine dispatcher to be used when loading.
+ * @property customStorage A storage for custom search engines of the user.
+ * @property bundleStorage A storage for loading bundled search engines.
+ * @property metadataStorage A storage for saving additional metadata related to search.
+ * @property searchExtraParams Optional search extra params.
+ * @property ioDispatcher The coroutine dispatcher to be used when loading.
  */
 @Suppress("LongParameterList")
 class SearchMiddleware(
@@ -386,8 +387,8 @@ class SearchMiddleware(
         /**
          * Holder data class for values to be migrated.
          *
-         * @param customSearchEngines List of custom search engines that should be imported.
-         * @param defaultSearchEngineName Name of the default search engine that the user had
+         * @property customSearchEngines List of custom search engines that should be imported.
+         * @property defaultSearchEngineName Name of the default search engine that the user had
          * selected. Or `null` if the user has not made any choice.
          */
         data class MigrationValues(

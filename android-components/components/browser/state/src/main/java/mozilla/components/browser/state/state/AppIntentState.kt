@@ -9,8 +9,8 @@ import android.content.Intent
 /**
  * State keeping track of app intents to launch.
  *
- * @param url the URL to launch in an external app.
- * @param appIntent the [Intent] to launch.
+ * @property url the URL to launch in an external app.
+ * @property appIntent the [Intent] to launch.
  */
 data class AppIntentState(
     val url: String,

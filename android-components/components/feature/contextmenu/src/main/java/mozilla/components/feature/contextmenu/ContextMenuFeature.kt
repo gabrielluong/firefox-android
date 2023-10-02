@@ -41,9 +41,10 @@ internal const val FRAGMENT_TAG = "mozac_feature_contextmenu_dialog"
  * menu. If a context menu item was selected by the user the feature will invoke the [ContextMenuCandidate.action]
  * method of the related candidate.
  * @property engineView The [EngineView]] this feature component should show context menus for.
- * @param tabId Optional id of a tab. Instead of showing context menus for the currently selected tab this feature will
- * show only context menus for this tab if an id is provided.
- * @param additionalNote which it will be attached to the bottom of context menu but for a specific [HitResult]
+ * @property useCases [ContextMenuUseCases] containing use cases related to the context menu feature.
+ * @property tabId Optional id of a tab. Instead of showing context menus for the currently selected tab this
+ * feature will show only context menus for this tab if an id is provided.
+ * @property additionalNote which it will be attached to the bottom of context menu but for a specific [HitResult]
  */
 @Suppress("LongParameterList")
 class ContextMenuFeature(

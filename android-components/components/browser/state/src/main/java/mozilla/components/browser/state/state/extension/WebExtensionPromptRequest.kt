@@ -9,14 +9,14 @@ import mozilla.components.concept.engine.webextension.WebExtensionInstallExcepti
 
 /**
  * Value type that represents a request for showing a native dialog from a [WebExtension].
- *
- * @param extension The [WebExtension] that requested the dialog to be shown.
  */
 sealed class WebExtensionPromptRequest {
 
     /**
      * Value type that represents a request for showing a native dialog from a [WebExtension] before
      * the installation succeeds.
+     *
+     * @property extension The [WebExtension] that requested the dialog to be shown.
      */
     sealed class BeforeInstallation(open val extension: WebExtension?) :
         WebExtensionPromptRequest() {
@@ -35,7 +35,7 @@ sealed class WebExtensionPromptRequest {
      * Value type that represents a request for showing a native dialog from a [WebExtension] after
      * installation succeeds.
      *
-     * @param extension The [WebExtension] that requested the dialog to be shown.
+     * @property extension The [WebExtension] that requested the dialog to be shown.
      */
     sealed class AfterInstallation(open val extension: WebExtension) : WebExtensionPromptRequest() {
         /**

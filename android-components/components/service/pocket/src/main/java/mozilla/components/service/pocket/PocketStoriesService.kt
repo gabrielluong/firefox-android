@@ -16,8 +16,9 @@ import mozilla.components.service.pocket.update.SpocsRefreshScheduler
 /**
  * Allows for getting a list of pocket stories based on the provided [PocketStoriesConfig]
  *
- * @param context Android Context. Prefer sending application context to limit the possibility of even small leaks.
- * @param pocketStoriesConfig configuration for how and what pocket stories to get.
+ * @property context Android Context. Prefer sending application context to limit the possibility
+ * of even small leaks.
+ * @property pocketStoriesConfig Configuration for how and what pocket stories to get.
  */
 class PocketStoriesService(
     private val context: Context,

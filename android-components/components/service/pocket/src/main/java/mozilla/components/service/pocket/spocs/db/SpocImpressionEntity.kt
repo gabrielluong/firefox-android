@@ -18,9 +18,6 @@ import mozilla.components.service.pocket.stories.db.PocketRecommendationsDatabas
  * @property spocId [SpocEntity.id] that this serves as an impression of.
  * Used as a foreign key allowing to only add impressions for other persisted spocs and
  * automatically remove all impressions when the spoc they refer to is deleted.
- * @property impressionId Unique id of this entity. Primary key.
- * @property impressionDateInSeconds Epoch based timestamp expressed in seconds (from System.currentTimeMillis / 1000)
- * for when the spoc identified by [spocId] was shown to the user.
  */
 @Entity(
     tableName = PocketRecommendationsDatabase.TABLE_NAME_SPOCS_IMPRESSIONS,
@@ -39,7 +36,11 @@ import mozilla.components.service.pocket.stories.db.PocketRecommendationsDatabas
 internal data class SpocImpressionEntity(
     val spocId: Int,
 ) {
+    // Unique id of this entity. Primary key.
     @PrimaryKey(autoGenerate = true)
     var impressionId: Int = 0
+
+    // Epoch based timestamp expressed in seconds (from System.currentTimeMillis / 1000)
+    // for when the spoc identified by [spocId] was shown to the user.
     var impressionDateInSeconds: Long = System.currentTimeMillis() / 1000
 }

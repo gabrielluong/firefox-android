@@ -15,7 +15,8 @@ import mozilla.components.support.utils.creditCardIssuerNetwork
 /**
  * View holder for displaying a credit card item.
  *
- * @param onCreditCardSelected Callback invoked when a credit card item is selected.
+ * @param view A credit card item [View] to be displayed.
+ * @property onCreditCardSelected Callback invoked when a credit card item is selected.
  */
 class CreditCardItemViewHolder(
     view: View,

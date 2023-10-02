@@ -141,8 +141,10 @@ class GeckoSitePermissionsStorage(
      * Updates the [geckoStorage] if the provided [userSitePermissions]
      * exists on the [geckoStorage] or it's provided as a part of the [permissionRequest]
      * otherwise nothing is updated.
+     *
      * @param userSitePermissions the values provided by the user to be updated.
      * @param permissionRequest the [PermissionRequest] from the web content.
+     * @param private whether or not the content permission is in private mode.
      * @return An updated [SitePermissions] with default values, if they were updated
      * on the [geckoStorage] otherwise the same [SitePermissions].
      */

@@ -12,11 +12,12 @@ import mozilla.components.service.nimbus.GleanMetrics.Messaging as GleanMessagin
 /**
  * Bookkeeping for message actions in terms of Glean messages and the messaging store.
  *
- * @param messagingStorage a NimbusMessagingStorage instance
- * @param deepLinkScheme the deepLinkScheme for the app
- * @param httpActionToDeepLinkUriConverter will be used to create a deepLinkUri from the action associated to a message.
- * It can be customized to fit the needs of any app. A default implementation is provided.
- * @param now will be used to get the current time
+ * @property messagingStorage a NimbusMessagingStorage instance
+ * @property deepLinkScheme the deepLinkScheme for the app
+ * @property httpActionToDeepLinkUriConverter will be used to create a deepLinkUri from the
+ * action associated to a message. It can be customized to fit the needs of any app.
+ * A default implementation is provided.
+ * @property now will be used to get the current time
  */
 open class NimbusMessagingController(
     private val messagingStorage: NimbusMessagingStorage,

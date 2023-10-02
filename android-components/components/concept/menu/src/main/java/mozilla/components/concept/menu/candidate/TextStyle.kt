@@ -13,8 +13,10 @@ import androidx.annotation.IntDef
 /**
  * Describes styling for text inside a menu option.
  *
- * @param size: The size of the text.
- * @param color: The color to apply to the text.
+ * @property size The size of the text.
+ * @property color The color to apply to the text.
+ * @property textStyle The [Typeface] of the text.
+ * @property textAlignment The alignment of the text.
  */
 data class TextStyle(
     @Dimension(unit = Dimension.PX) val size: Float? = null,

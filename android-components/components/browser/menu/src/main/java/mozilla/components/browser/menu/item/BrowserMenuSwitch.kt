@@ -12,8 +12,8 @@ import mozilla.components.concept.menu.candidate.CompoundMenuCandidate
  * A simple browser menu switch.
  *
  * @param label The visible label of this menu item.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
  * @param initialState The initial value the checkbox should have.
  * @param listener Callback to be invoked when this menu item is checked.

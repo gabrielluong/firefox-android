@@ -95,6 +95,8 @@ object GlobalSyncableStoreProvider {
     /**
      * Configure an instance of [SyncableStore] for a [SyncEngine] enum.
      * @param storePair A pair associating [SyncableStore] with a [SyncEngine].
+     * @param keyProvider An optional [KeyProvider] wrapped in [Lazy]. If present, it'll be used for
+     * crypto operations on the storage.
      */
     fun configureStore(storePair: Pair<SyncEngine, Lazy<SyncableStore>>, keyProvider: Lazy<KeyProvider>? = null) {
         stores[storePair.first] = LazyStoreWithKey(lazyStore = storePair.second, keyProvider = keyProvider)
@@ -122,7 +124,8 @@ internal interface SyncDispatcher : Closeable, Observable<SyncStatusObserver> {
 
 /**
  * A base sync manager implementation.
- * @param syncConfig A [SyncConfig] object describing how sync should behave.
+ *
+ * @property syncConfig A [SyncConfig] object describing how sync should behave.
  */
 internal abstract class SyncManager(
     private val syncConfig: SyncConfig,

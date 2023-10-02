@@ -6,9 +6,6 @@ package mozilla.components.feature.share
 
 /**
  * Interface used for adapting recent apps database entities
- *
- * @property activityName - unique identifier of the app
- * @property score - value used for sorting in descending order the recent apps (most recent first)
  */
 interface RecentApp {
 
@@ -18,7 +15,8 @@ interface RecentApp {
     val activityName: String
 
     /**
-     * The score of the recent app (calculated based on number of selections - decay)
+     * The score of the recent app (calculated based on number of selections - decay).
+     * Value used for sorting in descending order the recent apps (most recent first)
      */
     val score: Double
 }

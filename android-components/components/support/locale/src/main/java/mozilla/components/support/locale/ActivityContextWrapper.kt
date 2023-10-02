@@ -12,7 +12,7 @@ import android.content.ContextWrapper
  * A [ContextWrapper] that holds the original [Activity] Context.
  *
  * @param baseContext see [ContextWrapper.getBaseContext].
- * @param originalContext the Context that the Activity was created with. This might be the same
+ * @property originalContext the Context that the Activity was created with. This might be the same
  * as baseContext if a non-default value has not been set.
  */
 class ActivityContextWrapper(

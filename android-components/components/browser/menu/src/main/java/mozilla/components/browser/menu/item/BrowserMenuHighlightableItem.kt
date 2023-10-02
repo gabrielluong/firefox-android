@@ -27,16 +27,16 @@ private val defaultHighlight = BrowserMenuHighlightableItem.Highlight(0, 0, 0, 0
  * A menu item for displaying text with an image icon and a highlight state which sets the
  * background of the menu item and a second image icon to the right of the text.
  *
- * @param label The default visible label of this menu item.
- * @param startImageResource ID of a drawable resource to be shown as a leftmost icon.
+ * @property label The default visible label of this menu item.
+ * @property startImageResource ID of a drawable resource to be shown as a leftmost icon.
  * @param iconTintColorResource Optional ID of color resource to tint the icon.
- * @param textColorResource Optional ID of color resource to tint the text.
- * @param isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
- * @param isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
+ * @property textColorResource Optional ID of color resource to tint the text.
+ * @property isCollapsingMenuLimit Whether this menu item can serve as the limit of a collapsing menu.
+ * @property isSticky whether this item menu should not be scrolled offscreen (downwards or upwards
  * depending on the menu position).
- * @param highlight Highlight object representing how the menu item will be displayed when highlighted.
- * @param isHighlighted Whether or not to display the highlight
- * @param listener Callback to be invoked when this menu item is clicked.
+ * @property highlight Highlight object representing how the menu item will be displayed when highlighted.
+ * @property isHighlighted Whether or not to display the highlight.
+ * @property listener Callback to be invoked when this menu item is clicked.
  */
 @Suppress("LongParameterList")
 class BrowserMenuHighlightableItem(
