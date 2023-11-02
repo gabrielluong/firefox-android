@@ -22,6 +22,7 @@ permissions:
 on:
   schedule:
     - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 jobs:
   main:
@@ -29,16 +30,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "Update GV (On Main)"
-        uses: mozilla-mobile/relbot@6.1.0
-        if: github.repository == 'mozilla-mobile/firefox-android'
+        uses: gabrielluong/relbot@bug-1862794
+        if: github.repository == 'gabrielluong/firefox-android'
         with:
           project: android-components
           command: update-main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "Update GV (On Releases)"
-        uses: mozilla-mobile/relbot@6.1.0
-        if: github.repository == 'mozilla-mobile/firefox-android'
+        uses: gabrielluong/relbot@bug-1862794
+        if: github.repository == 'gabrielluong/firefox-android'
         with:
           project: android-components
           command: update-releases
