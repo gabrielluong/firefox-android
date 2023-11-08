@@ -12,7 +12,7 @@ object Gecko {
      * in the gradle sync process probably due to Gradle's incremental compilation feature. This change
      * ensures re-evaluation of this file when Gradle is re-parsing gradle files while syncing.
      */
-    fun version() = "121.0.20231103093836"
+    fun version() = "121.0.20231107214948"
 
     /**
      * GeckoView channel
